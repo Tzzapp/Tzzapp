@@ -25,27 +25,24 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonEquipment = findViewById(R.id.buttonEquipment);
 
+        Button buttonPriceHelper = findViewById(R.id.buttonPriceHelper);
+
         final Intent intentForms = new Intent(this, Formulas.class);
 
-        buttonForms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            startActivity(intentForms);
-            }
-        });
+        buttonForms.setOnClickListener(v -> startActivity(intentForms));
 
 
         final Intent intentEquipment = new Intent(this, Equipment.class);
 
 
-        buttonEquipment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(intentEquipment);
-            }
+        buttonEquipment.setOnClickListener(v -> startActivity(intentEquipment));
+
+
+        final Intent intentPrice = new Intent(this, PriceHelper.class);
+
+        buttonPriceHelper.setOnClickListener((v)-> {
+            startActivity(intentPrice);
         });
-
-
 
     }
 

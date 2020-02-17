@@ -9,12 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.usn.Tzzapp.Equipment" android:label="@string/equipment"></activity>
+        <activity android:name=".PriceHelper"></activity>
         <activity
-            android:name="com.usn.Tzzapp.Formulas"
+            android:name=".Equipment"
+            android:label="@string/equipment" />
+        <activity
+            android:name=".Formulas"
             android:label="@string/forms" />
         <activity
-            android:name="com.usn.Tzzapp.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
