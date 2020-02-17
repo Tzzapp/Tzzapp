@@ -9,13 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PriceHelper"></activity>
+        <activity android:name=".PriceHelper"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/price"></activity>
         <activity
             android:name=".Equipment"
-            android:label="@string/equipment" />
+            android:label="@string/equipment"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Formulas"
-            android:label="@string/forms" />
+            android:label="@string/forms"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
