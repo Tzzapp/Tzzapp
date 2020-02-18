@@ -1,6 +1,7 @@
 package com.usn.Tzzapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*Locale locale = new Locale("en");
+        Configuration configuration = new Configuration();
+        configuration.locale = locale;
+        locale.setDefault(locale);
+
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+
+         */
 
         Button buttonForms = findViewById(R.id.buttonFormulas);
 
