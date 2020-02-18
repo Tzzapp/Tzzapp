@@ -1,0 +1,13 @@
+<resources>
+    <!-- Lang Preference -->
+    <string-array name="langArray">
+        <item>Norsk</item>
+        <item>English</item>
+    </string-array>
+    <string-array name="langSelected">
+        <item>no</item>
+        <item>en</item>
+    </string-array>
+
+
+</resources>

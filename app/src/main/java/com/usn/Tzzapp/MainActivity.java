@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonPriceHelper = findViewById(R.id.buttonPriceHelper);
 
+        Button buttonSettings = findViewById(R.id.buttonSettings);
+
         final Intent intentForms = new Intent(this, Formulas.class);
 
         buttonForms.setOnClickListener(v -> startActivity(intentForms));
@@ -39,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         buttonPriceHelper.setOnClickListener((v)-> {
             startActivity(intentPrice);
+        });
+
+        final Intent intentSettings = new Intent(this, SettingsActivity.class);
+
+        buttonSettings.setOnClickListener((v)-> {
+            startActivity(intentSettings);
         });
 
     }
