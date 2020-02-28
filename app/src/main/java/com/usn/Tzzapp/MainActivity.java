@@ -13,16 +13,19 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    String lang;
+    String lang = "";
 
     SharedPreferences sharedPreferences;
 
     Intent intentSettings;
+
+    SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChanged;
 
 
     @Override
@@ -67,8 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         });
 
+        changeLang(lang);
 
     }
 
@@ -79,31 +84,22 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
+
+
+
+
     @Override
     protected void onResume() {
         super.onResume();
-
 
         sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
         lang = sharedPreferences.getString("langSelected", "");
 
 
-        changeLang();
-
     }
 
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        changeLang();
-    }
-
-    private void changeLang() {
-
-
-       /* sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-        lang = sharedPreferences.getString("langSelected", "");*/
+    private void changeLang(String lang) {
 
 
 

@@ -5,7 +5,7 @@
         <item>English</item>
     </string-array>
     <string-array name="langSelected">
-        <item>no</item>
+        <item>nn</item>
         <item>en</item>
     </string-array>
 
