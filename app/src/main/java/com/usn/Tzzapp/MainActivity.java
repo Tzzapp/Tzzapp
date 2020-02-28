@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentSettings);
 
 
+
+
         });
 
 
@@ -80,14 +83,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+
+        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
+        lang = sharedPreferences.getString("langSelected", "");
+
+
         changeLang();
 
     }
 
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        changeLang();
+    }
+
     private void changeLang() {
 
-        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-        lang = sharedPreferences.getString("langSelected", "");
+
+       /* sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
+        lang = sharedPreferences.getString("langSelected", "");*/
+
+
 
         Locale locale1 = new Locale(lang);
 

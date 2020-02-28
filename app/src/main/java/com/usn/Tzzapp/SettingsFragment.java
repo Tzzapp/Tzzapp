@@ -21,20 +21,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         ListPreference langPref = findPreference("list_preference_lang");
 
-      /*  PreferenceManager preferenceManager = getPreferenceManager();
+
+        PreferenceManager preferenceManager = getPreferenceManager();
 
 
         if (langPref != null) {
             Log.e("Langpref", langPref.getValue());
 
+            preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue());
+            Log.e("Langpref", preferenceManager.getSharedPreferences().getString("langSelected", ""));
 
-            *//*preferenceManager.getSharedPreferences().edit().putString("langSelected", "no2");
-            Log.e("Langpref", preferenceManager.getSharedPreferences().getString("langSelected","nnn"));*/
+
+
+
+        }
 
 
     }
-
-
 }
 
 
