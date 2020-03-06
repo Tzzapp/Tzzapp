@@ -9,6 +9,7 @@
     <string name="title_activity_forms">Formularer</string>
     <string name="key_dark_mode">Nattmodus</string>
     <string name="appearance">Utseende</string>
+    <string name="placeholder">test</string>
 
 
 </resources>
