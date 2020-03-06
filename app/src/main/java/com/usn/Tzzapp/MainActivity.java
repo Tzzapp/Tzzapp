@@ -10,10 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
 
 import java.util.Locale;
 
@@ -73,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        changeLang(lang);
 
     }
 
