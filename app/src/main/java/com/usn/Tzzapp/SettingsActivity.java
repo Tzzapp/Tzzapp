@@ -1,4 +1,4 @@
-package com.usn.Tzzapp;
+package com.usn.tzzapp;
 
 import android.os.Bundle;
 
