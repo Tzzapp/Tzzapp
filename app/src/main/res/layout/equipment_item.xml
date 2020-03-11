@@ -47,7 +47,7 @@
                 android:id="@+id/text_view_prod_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
                 android:maxLines="1"
                 android:text="@{String.valueOf(EquipmentItem.prod_id), default=@string/placeholder}"

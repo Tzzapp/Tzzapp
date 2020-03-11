@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -35,7 +36,7 @@ public class Equipment extends AppCompatActivity {
          */
         ActivityEquipmentBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment);
 
-        //binding.executePendingBindings();
+        binding.executePendingBindings();
         // https://stackoverflow.com/questions/53043412/android-why-use-executependingbindings-in-recyclerview
         // 06.03.2020
 
@@ -55,6 +56,26 @@ public class Equipment extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(equipmentAdapter);
+        recyclerView.setHasFixedSize(true);
+
+
+
+        binding.imageButton.setOnClickListener((v -> {
+
+            recyclerView.smoothScrollToPosition(0);
+            list.add(new EquipmentItem("Item" , list.size()+1));
+            Log.d("list", "" + list.size());
+
+            //equipmentAdapter.notifyDataSetChanged();
+            equipmentAdapter.notifyItemInserted(list.size()+1);
+            recyclerView.smoothScrollToPosition(list.size()+1);
+
+
+
+        }));
+
+
+
 
 
 
