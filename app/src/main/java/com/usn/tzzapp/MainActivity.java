@@ -1,7 +1,11 @@
-package com.usn.Tzzapp;
+package com.usn.tzzapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -9,7 +13,18 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
+
+    String lang = "";
+
+    SharedPreferences sharedPreferences;
+
+    Intent intentSettings;
+
+    SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChanged;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         Button buttonForms = findViewById(R.id.buttonFormulas);
 
         Button buttonEquipment = findViewById(R.id.buttonEquipment);
 
         Button buttonPriceHelper = findViewById(R.id.buttonPriceHelper);
+
+        Button buttonSettings = findViewById(R.id.buttonSettings);
 
         final Intent intentForms = new Intent(this, Formulas.class);
 
@@ -37,9 +55,22 @@ public class MainActivity extends AppCompatActivity {
 
         final Intent intentPrice = new Intent(this, PriceHelper.class);
 
-        buttonPriceHelper.setOnClickListener((v)-> {
+        buttonPriceHelper.setOnClickListener((v) -> {
             startActivity(intentPrice);
         });
+
+        intentSettings = new Intent(this, SettingsActivity.class);
+
+        buttonSettings.setOnClickListener((v) -> {
+
+            startActivity(intentSettings);
+
+
+
+
+
+        });
+
 
     }
 
@@ -48,6 +79,40 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+
+
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
+        lang = sharedPreferences.getString("langSelected", "");
+
+
+    }
+
+    private void changeLang(String lang) {
+
+
+
+        Locale locale1 = new Locale(lang);
+
+        Resources res = getResources();
+
+        Configuration configuration = res.getConfiguration();
+
+        configuration.locale = locale1;
+
+        DisplayMetrics dm = res.getDisplayMetrics();
+
+        res.updateConfiguration(configuration, dm);
+
+        
     }
 
     @Override
@@ -64,4 +129,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

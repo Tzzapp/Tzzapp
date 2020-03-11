@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tzzapp</string>
+    <string name="price">Price Helper</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="forms">Equations</string>
+    <string name="equipment">Equipment List</string>
+    <string name="lang">Language</string>
+    <string name="title_activity_forms">Equations</string>
+</resources>
