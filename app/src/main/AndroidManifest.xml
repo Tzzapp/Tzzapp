@@ -24,7 +24,7 @@
             android:label="@string/price"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
-            android:name="com.usn.tzzapp.Equipment"
+            android:name="com.usn.tzzapp.equiment.Equipment"
             android:label="@string/equipment"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity

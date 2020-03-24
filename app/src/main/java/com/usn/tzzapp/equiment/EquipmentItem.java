@@ -1,4 +1,4 @@
-package com.usn.tzzapp;
+package com.usn.tzzapp.equiment;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;

@@ -1,4 +1,4 @@
-package com.usn.tzzapp;
+package com.usn.tzzapp.equiment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -69,7 +69,6 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
             //equipmentAdapter.notifyDataSetChanged();
             equipmentAdapter.notifyItemInserted(list.size()+1);
             recyclerView.smoothScrollToPosition(list.size()+1);
-
 
 
         }));

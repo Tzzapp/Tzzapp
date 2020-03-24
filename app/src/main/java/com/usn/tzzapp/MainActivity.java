@@ -13,6 +13,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.usn.tzzapp.equiment.Equipment;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
