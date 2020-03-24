@@ -8,6 +8,7 @@
     <string name="lang">Språk</string>
     <string name="title_activity_forms">Formularer</string>
     <string name="placeholder">test</string>
+    <string name="lamps">Lamps</string>
 
 
 </resources>
