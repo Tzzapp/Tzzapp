@@ -1,7 +1,6 @@
 package com.usn.tzzapp.equiment;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EquipmentItemKeyProvider extends ItemKeyProvider<String> {
-    private Map<String, Integer> mKeyToPos;
+public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
+    private Map<Long, Integer> mKeyToPos;
     private List<EquipmentItem> mEquipmentItemList;
 
 
@@ -19,13 +18,14 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<String> {
      *
      * @param equipmentItemList can't be changed at runtime.
      */
-    protected EquipmentItemKeyProvider(List<EquipmentItem> equipmentItemList) {
-        super(SCOPE_MAPPED);
+    protected EquipmentItemKeyProvider(List<EquipmentItem> equipmentItemList, RecyclerView recyclerView) {
+        super(SCOPE_CACHED);
+        this.recyclerView = recyclerView;
         mEquipmentItemList = equipmentItemList;
 
         mKeyToPos = new HashMap<>(mEquipmentItemList.size());
         int i = 0;
-        for (EquipmentItem equipmentItem : equipmentItemList){
+        for (EquipmentItem equipmentItem : equipmentItemList) {
             mKeyToPos.put(equipmentItem.id, i);
             i++;
         }
@@ -34,16 +34,16 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<String> {
 
 
     @Override
-    public @Nullable String getKey(int position) {
+    public Long getKey(int position) {
+
         return mEquipmentItemList.get(position).id;
     }
 
     @Override
-    public int getPosition(@NonNull String key) {
-        if (mKeyToPos.containsKey(key)){
-            return mKeyToPos.get(key);
-        }
-        return RecyclerView.NO_POSITION ;
+    public int getPosition(@NonNull Long key) {
+        RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
+        return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
+    }
 
     }
 }

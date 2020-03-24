@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class EquipmentItemDetailsLookup extends ItemDetailsLookup<String> {
+public class EquipmentItemDetailsLookup extends ItemDetailsLookup<Long> {
     RecyclerView mRecView;
 
     EquipmentItemDetailsLookup(RecyclerView recyclerView){
@@ -17,7 +17,7 @@ public class EquipmentItemDetailsLookup extends ItemDetailsLookup<String> {
 
     @Nullable
     @Override
-    public ItemDetails<String> getItemDetails(@NonNull MotionEvent e) {
+    public ItemDetails<Long> getItemDetails(@NonNull MotionEvent e) {
         View view = mRecView.findChildViewUnder(e.getX(), e.getY());
 
         if(view != null){
