@@ -2,10 +2,13 @@ package com.usn.tzzapp.equiment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.selection.ItemDetailsLookup;
+import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.usn.tzzapp.databinding.EquipmentItemBinding;
@@ -22,7 +25,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
     private List<EquipmentItem> equipmentItemList;
     private OnEquimentListener onEquimentListener;
-
+    private SelectionTracker<String> mSelectionTracker;
 
     public EquipmentAdapter(List<EquipmentItem> list, OnEquimentListener onEquimentListener) {
 
@@ -33,6 +36,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
         this.equipmentItemList = equipmentItemList;
         notifyDataSetChanged();
+    }
+
+    public void setmSelectionTracker (SelectionTracker<String> selectionTracker){
+        this.mSelectionTracker = selectionTracker;
     }
 
     @NonNull
@@ -47,7 +54,17 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = equipmentItemList.get(position);
-        holder.bind(equipmentItem);
+
+        boolean isSelected = false;
+        if (mSelectionTracker != null){
+            if(mSelectionTracker.isSelected(equipmentItem.getId())){
+                isSelected = true;
+                Log.d("Selected", equipmentItem.getId() + " Selected ; " + mSelectionTracker.getSelection().toString() );
+
+            }
+        }
+
+        holder.bind(equipmentItem, position, isSelected );
     }
 
 
@@ -73,6 +90,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
         OnEquimentListener onEquimentListener;
         private EquipmentItemBinding binding;
+        private final EquimentItemDetails equimentItemDetails;
 
 
         public EquipmentViewHolder(EquipmentItemBinding binding, OnEquimentListener onEquimentListener) {
@@ -81,6 +99,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             this.onEquimentListener = onEquimentListener;
             itemView.setOnClickListener(this);
 
+            equimentItemDetails = new EquimentItemDetails();
         }
 
         /**
@@ -92,9 +111,17 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          * But they also listen to what the value of the object in that position
          * from the list it was given during creation of the adapter
          */
-        public void bind(EquipmentItem item) {
+        public void bind(EquipmentItem item, int pos, boolean isSelected) {
+            equimentItemDetails.pos = pos;
+            equimentItemDetails.identifier = item.getId();
+
             binding.setEquipmentItem(item);
             binding.executePendingBindings();
+            itemView.setActivated(isSelected);
+        }
+
+        public ItemDetailsLookup.ItemDetails<String> getEquimentItemDetails(MotionEvent motionEvent){
+            return equimentItemDetails;
         }
 
         /**
