@@ -1,5 +1,6 @@
 package com.usn.tzzapp.equiment;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,13 +25,14 @@ import java.util.List;
 public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder> {
 
     private List<EquipmentItem> equipmentItemList;
-    private OnEquimentListener onEquimentListener;
-    private SelectionTracker<String> mSelectionTracker;
+    private OnEquipmentListener onEquipmentListener;
+    private SelectionTracker mSelectionTracker;
 
-    public EquipmentAdapter(List<EquipmentItem> list, OnEquimentListener onEquimentListener) {
+    public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
 
         this.equipmentItemList = list;
-        this.onEquimentListener = onEquimentListener;
+        this.onEquipmentListener = onEquipmentListener;
+        setHasStableIds(true);
     }
 
     public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
@@ -48,7 +50,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         EquipmentItemBinding itemBinding = EquipmentItemBinding.inflate(layoutInflater, parent, false);
 
-        return new EquipmentViewHolder(itemBinding, onEquimentListener);
+        return new EquipmentViewHolder(itemBinding, onEquipmentListener);
     }
 
     @Override
@@ -57,11 +59,22 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
         boolean isSelected = false;
         if (mSelectionTracker != null){
-            if(mSelectionTracker.isSelected(equipmentItem.getId())){
+            if(mSelectionTracker.isSelected(equipmentItem.id)){
                 isSelected = true;
-                Log.d("Selected", equipmentItem.getId() + " Selected ; " + mSelectionTracker.getSelection().toString() );
+
+                Log.d("Selected", equipmentItem.id + " Selected : " + mSelectionTracker.getSelection() );
 
             }
+        }
+
+        if (isSelected){
+            holder.itemView.setActivated(true);
+            holder.itemView.setBackgroundColor(Color.BLUE);
+        }
+        else{
+            holder.itemView.setActivated(false);
+            holder.itemView.setBackgroundColor(Color.WHITE);
+
         }
 
         holder.bind(equipmentItem, position, isSelected );
@@ -81,25 +94,25 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
      * This interface is used to find out what is clicked on the screen/list
      * And what position it has .
      */
-    public interface OnEquimentListener{
+    public interface OnEquipmentListener {
         void onEquipmentClick(int pos);
     }
 
 
     class EquipmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        OnEquimentListener onEquimentListener;
+        OnEquipmentListener onEquipmentListener;
         private EquipmentItemBinding binding;
-        private final EquimentItemDetails equimentItemDetails;
+        private EquipmentItemDetails equipmentItemDetails;
 
 
-        public EquipmentViewHolder(EquipmentItemBinding binding, OnEquimentListener onEquimentListener) {
+        public EquipmentViewHolder(EquipmentItemBinding binding, OnEquipmentListener onEquipmentListener) {
             super(binding.getRoot());
             this.binding = binding;
-            this.onEquimentListener = onEquimentListener;
+            this.onEquipmentListener = onEquipmentListener;
             itemView.setOnClickListener(this);
 
-            equimentItemDetails = new EquimentItemDetails();
+            equipmentItemDetails = new EquipmentItemDetails();
         }
 
         /**
@@ -112,12 +125,15 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          * from the list it was given during creation of the adapter
          */
         public void bind(EquipmentItem item, int pos, boolean isSelected) {
-            equimentItemDetails.pos = pos;
-            equimentItemDetails.identifier = item.getId();
+            equipmentItemDetails.pos = pos;
+            equipmentItemDetails.identifier = item.id;
 
             binding.setEquipmentItem(item);
+            //itemView.setActivated(isSelected);
             binding.executePendingBindings();
-            itemView.setActivated(isSelected);
+
+            //itemView.setBackgroundColor(Color.BLUE);
+
         }
 
         public ItemDetailsLookup.ItemDetails<Long> getEquimentItemDetails(MotionEvent motionEvent){
@@ -137,7 +153,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          */
         @Override
         public void onClick(View v) {
-            onEquimentListener.onEquipmentClick(getAdapterPosition());
+            onEquipmentListener.onEquipmentClick(getAdapterPosition());
         }
     }
 }

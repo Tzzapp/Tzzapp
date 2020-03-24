@@ -2,6 +2,7 @@ package com.usn.tzzapp.equiment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,7 @@ import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnEquimentListener {
+public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnEquipmentListener {
 
     RecyclerView recyclerView;
 
@@ -63,11 +64,20 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
         recyclerView.setAdapter(equipmentAdapter);
         recyclerView.setHasFixedSize(true);
 
+              selectionTracker =   new SelectionTracker.Builder("equipment-selection",
+                        recyclerView, new EquipmentItemKeyProvider(list, recyclerView)
+/*                      new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
+                          @Override
+                          public Long getKey(int position) {
+                              return equipmentAdapter.getItemId(position);
+                          }
 
-              selectionTracker =   new SelectionTracker.Builder("equiment-slection",
-                        recyclerView,
-                        new EquipmentItemKeyProvider(list),
-                        new EquipmentItemDetailsLookup(recyclerView),
+                          @Override
+                          public int getPosition( Long key) {
+                              RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
+                              return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
+                          }
+                      }*/, new EquipmentItemDetailsLookup(recyclerView),
                         StorageStrategy.createStringStorage())
                         .build();
 
@@ -79,18 +89,12 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
             list.add(new EquipmentItem("Item" , list.size()+1));
             Log.d("list", "" + list.size());
 
-            //equipmentAdapter.notifyDataSetChanged();
-            equipmentAdapter.notifyItemInserted(list.size()+1);
+            equipmentAdapter.notifyDataSetChanged();
+            //equipmentAdapter.notifyItemInserted(list.size()+1);
             recyclerView.smoothScrollToPosition(list.size()+1);
 
 
         }));
-
-
-
-
-
-
 
     }
 
@@ -110,9 +114,8 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
 
     @Override
     public void onEquipmentClick(int pos) {
-        Log.d("CLicked", "" + list.get(pos).getProd_id());
-
-
+        //Log.d("CLicked", "" + list.get(pos).getProd_id() + " Selected : " +selectionTracker.getSelection().toString());
+        equipmentAdapter.notifyDataSetChanged();
         //list.get(pos).getName();
     }
 }
