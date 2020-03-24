@@ -1,4 +1,4 @@
-package com.usn.tzzapp;
+package com.usn.tzzapp.equiment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -75,7 +75,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         private EquipmentItemBinding binding;
 
 
-        public EquipmentViewHolder(EquipmentItemBinding binding , OnEquimentListener onEquimentListener) {
+        public EquipmentViewHolder(EquipmentItemBinding binding, OnEquimentListener onEquimentListener) {
             super(binding.getRoot());
             this.binding = binding;
             this.onEquimentListener = onEquimentListener;

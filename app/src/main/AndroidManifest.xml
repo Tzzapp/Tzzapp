@@ -24,7 +24,7 @@
             android:label="@string/price"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".Equipment"
+            android:name=".equiment.Equipment"
             android:label="@string/equipment"
             android:parentActivityName=".MainActivity" />
         <activity
