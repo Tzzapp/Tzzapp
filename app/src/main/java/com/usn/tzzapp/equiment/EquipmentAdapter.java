@@ -38,7 +38,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
-    public void setmSelectionTracker (SelectionTracker<String> selectionTracker){
+    public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
         this.mSelectionTracker = selectionTracker;
     }
 
@@ -120,8 +120,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             itemView.setActivated(isSelected);
         }
 
-        public ItemDetailsLookup.ItemDetails<String> getEquimentItemDetails(MotionEvent motionEvent){
-            return equimentItemDetails;
+        public ItemDetailsLookup.ItemDetails<Long> getEquimentItemDetails(MotionEvent motionEvent){
+            return equipmentItemDetails;
         }
 
         /**

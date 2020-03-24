@@ -6,9 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 
-public class EquimentItemDetails extends ItemDetailsLookup.ItemDetails<String> {
+public class EquipmentItemDetails extends ItemDetailsLookup.ItemDetails<Long> {
     int pos;
-    String identifier;
+    Long identifier;
 
     @Override
     public int getPosition() {
@@ -17,13 +17,13 @@ public class EquimentItemDetails extends ItemDetailsLookup.ItemDetails<String> {
 
     @Nullable
     @Override
-    public String getSelectionKey() {
+    public Long getSelectionKey() {
         return identifier;
     }
 
     @Override
     public boolean inSelectionHotspot(@NonNull MotionEvent e) {
-        return true;
+        return false;
     }
 
 
