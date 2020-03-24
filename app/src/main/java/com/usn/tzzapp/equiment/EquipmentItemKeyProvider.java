@@ -11,6 +11,7 @@ import java.util.Map;
 public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
     private Map<Long, Integer> mKeyToPos;
     private List<EquipmentItem> mEquipmentItemList;
+    private RecyclerView recyclerView;
 
 
     /**
@@ -23,7 +24,8 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
         this.recyclerView = recyclerView;
         mEquipmentItemList = equipmentItemList;
 
-        mKeyToPos = new HashMap<>(mEquipmentItemList.size());
+
+        mKeyToPos = new HashMap<Long, Integer>(mEquipmentItemList.size());
         int i = 0;
         for (EquipmentItem equipmentItem : equipmentItemList) {
             mKeyToPos.put(equipmentItem.id, i);
