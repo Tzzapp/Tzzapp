@@ -11,15 +11,18 @@ import androidx.databinding.Bindable;
 public class EquipmentItem extends BaseObservable {
 
     private String name;
+    public String id;
     private int prod_id;
 
     public EquipmentItem(String name, int prod_id){
         this.name = name;
         this.prod_id = prod_id;
+        id = ""+prod_id  ;
     }
 
     public EquipmentItem(String name){
         this.name = name;
+        id = "" + prod_id;
     }
 
     @Bindable
@@ -27,6 +30,9 @@ public class EquipmentItem extends BaseObservable {
         return name;
     }
 
+    public String getId() {
+        return id;
+    }
 
     @Bindable
     public int getProd_id() {
