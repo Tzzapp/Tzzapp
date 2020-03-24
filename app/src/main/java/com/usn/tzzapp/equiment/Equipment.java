@@ -2,6 +2,8 @@ package com.usn.tzzapp.equiment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 
+import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
@@ -19,6 +22,8 @@ import java.util.List;
 public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnEquimentListener {
 
     RecyclerView recyclerView;
+
+    SelectionTracker selectionTracker;
 
     private List<EquipmentItem> list = new ArrayList<>();
 
@@ -59,6 +64,14 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
         recyclerView.setHasFixedSize(true);
 
 
+              selectionTracker =   new SelectionTracker.Builder("equiment-slection",
+                        recyclerView,
+                        new EquipmentItemKeyProvider(list),
+                        new EquipmentItemDetailsLookup(recyclerView),
+                        StorageStrategy.createStringStorage())
+                        .build();
+
+        equipmentAdapter.setmSelectionTracker(selectionTracker);
 
         binding.imageButtonNew.setOnClickListener((v -> {
 
