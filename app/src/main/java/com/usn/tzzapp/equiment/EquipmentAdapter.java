@@ -25,14 +25,23 @@ import java.util.List;
 public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder> {
 
     private List<EquipmentItem> equipmentItemList;
-    private OnEquipmentListener onEquipmentListener;
+    //private OnEquipmentListener onEquipmentListener;
     private SelectionTracker mSelectionTracker;
 
-    public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
+  /*  public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
 
         this.equipmentItemList = list;
-        this.onEquipmentListener = onEquipmentListener;
-        setHasStableIds(true);
+        //this.onEquipmentListener = onEquipmentListener;
+
+
+        *//* setHasStableIds(true);
+         * Note to self and others, do not use this, it will make the list screwed up,
+         * it caps it at 9, and will crash the app
+         *
+         *//*
+    }*/
+    public EquipmentAdapter(List<EquipmentItem> list){
+        this.equipmentItemList = list;
     }
 
     public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
@@ -50,7 +59,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         EquipmentItemBinding itemBinding = EquipmentItemBinding.inflate(layoutInflater, parent, false);
 
-        return new EquipmentViewHolder(itemBinding, onEquipmentListener);
+        //return new EquipmentViewHolder(itemBinding, onEquipmentListener);
+        return new EquipmentViewHolder(itemBinding);
     }
 
     @Override
@@ -94,23 +104,30 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
      * This interface is used to find out what is clicked on the screen/list
      * And what position it has .
      */
-    public interface OnEquipmentListener {
+  /*  public interface OnEquipmentListener {
         void onEquipmentClick(int pos);
-    }
+    }*/
 
 
-    class EquipmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
 
-        OnEquipmentListener onEquipmentListener;
+        //OnEquipmentListener onEquipmentListener;
         private EquipmentItemBinding binding;
         private EquipmentItemDetails equipmentItemDetails;
 
 
-        public EquipmentViewHolder(EquipmentItemBinding binding, OnEquipmentListener onEquipmentListener) {
+      /*  public EquipmentViewHolder(EquipmentItemBinding binding, OnEquipmentListener onEquipmentListener) {
             super(binding.getRoot());
             this.binding = binding;
-            this.onEquipmentListener = onEquipmentListener;
-            itemView.setOnClickListener(this);
+            //this.onEquipmentListener = onEquipmentListener;
+            //itemView.setOnClickListener(this);
+
+            equipmentItemDetails = new EquipmentItemDetails();
+        }*/
+
+        public EquipmentViewHolder(EquipmentItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
 
             equipmentItemDetails = new EquipmentItemDetails();
         }
@@ -150,10 +167,13 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          *
          * For it to work, itemView.setOnClickListener(this) has to be set in the View Holder constructor
          * Item view does not have to be declared, it is declared in Equipment Adapters super class (RecyclerView.java)
+         *
+         * This is not in use currently but might be useful later on
+         * if we want to be able to click on items and have a window come up
          */
-        @Override
+      /*  @Override
         public void onClick(View v) {
-            onEquipmentListener.onEquipmentClick(getAdapterPosition());
-        }
+            *//*onEquipmentListener.onEquipmentClick(getAdapterPosition());*//*
+        }*/
     }
 }
