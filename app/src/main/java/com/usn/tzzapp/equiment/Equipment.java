@@ -65,8 +65,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         recyclerView.setAdapter(equipmentAdapter);
         recyclerView.setHasFixedSize(true);
 
-              selectionTracker =   new SelectionTracker.Builder("equipment-selection",
-                        recyclerView, new EquipmentItemKeyProvider(list, recyclerView)
+              selectionTracker = new SelectionTracker.Builder<>("equipment-selection",
+                      recyclerView, new EquipmentItemKeyProvider(list, recyclerView)
 /*                      new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
                           @Override
                           public Long getKey(int position) {
