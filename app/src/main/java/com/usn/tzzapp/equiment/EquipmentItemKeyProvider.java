@@ -1,5 +1,8 @@
 package com.usn.tzzapp.equiment;
 
+import android.os.Build;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.selection.ItemKeyProvider;
@@ -26,7 +29,7 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
         mEquipmentItemList = equipmentItemList;
 
 
-        mKeyToPos = new HashMap<Long, Integer>(mEquipmentItemList.size());
+        mKeyToPos = new HashMap<>();
         int i = 0;
         for (EquipmentItem equipmentItem : equipmentItemList) {
             mKeyToPos.put(equipmentItem.id, i);
@@ -55,9 +58,13 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public int getPosition(@NonNull Long key) {
-        RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
-        return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
-    }
+        /* RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
+        return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();*/
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mKeyToPos.putIfAbsent(key, mKeyToPos.size());
+        }
+        return mKeyToPos.get(key)  ;
     }
-}
+ }
+
