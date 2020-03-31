@@ -88,15 +88,15 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             }
         }
 
-        if (isSelected){
-            holder.itemView.setActivated(true);
-            holder.itemView.setBackgroundColor(Color.BLUE);
+       /* if (isSelected){
+            //holder.itemView.setActivated(true);
+            //holder.itemView.setBackgroundColor(Color.BLUE);
         }
         else{
-            holder.itemView.setActivated(false);
-            holder.itemView.setBackgroundColor(Color.WHITE);
+            //holder.itemView.setActivated(false);
+            //holder.itemView.setBackgroundColor(Color.WHITE);
 
-        }
+        }*/
 
         holder.bind(equipmentItem, position, isSelected );
     }
@@ -168,7 +168,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             equipmentItemDetails.identifier = item.id;
 
             binding.setEquipmentItem(item);
-            //itemView.setActivated(isSelected);
+            itemView.setActivated(isSelected);
             binding.executePendingBindings();
 
             //itemView.setBackgroundColor(Color.BLUE);
