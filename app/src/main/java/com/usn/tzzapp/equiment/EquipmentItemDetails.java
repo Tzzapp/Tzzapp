@@ -8,7 +8,11 @@ import androidx.recyclerview.selection.ItemDetailsLookup;
 
 public class EquipmentItemDetails extends ItemDetailsLookup.ItemDetails<Long> {
     int pos;
-    Long identifier;
+    long identifier;
+    
+    /*
+    * The data type of the identifier variable has to be a primitive long and not a object
+    */
 
     @Override
     public int getPosition() {
