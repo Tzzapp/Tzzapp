@@ -36,10 +36,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         super.onCreate(savedInstanceState);
 
-        /**
-         * This code block replaces the standard setContentView with the one from DataBindingUtil.
-         * This makes it able to use android data binding, and makes it take objects,
-         * instead of setting the values manually here.
+        /*
+        *  This code block replaces the standard setContentView with the one from DataBindingUtil.
+        *  This makes it able to use android data binding, and makes it take objects,
+        *  instead of setting the values manually here.
          */
         ActivityEquipmentBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment);
 

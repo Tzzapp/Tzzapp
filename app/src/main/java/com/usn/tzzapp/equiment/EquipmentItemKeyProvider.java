@@ -1,6 +1,7 @@
 package com.usn.tzzapp.equiment;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,17 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
         return mEquipmentItemList.get(position).id;
     }
 
+    /**
+     * This will check if the key is linked to a position in the HashMap
+     * if not it will be added to it.
+     *
+     * Only works on API 24 and upwards (the putIfAbsent method)
+     * So it will probably crash on lower API levels
+     *
+     * @param key
+     * @return the position that is connected to the key in the @mKeyToPos HashMap
+     */
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public int getPosition(@NonNull Long key) {
         RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);

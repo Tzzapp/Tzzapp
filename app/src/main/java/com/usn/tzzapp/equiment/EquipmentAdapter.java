@@ -63,6 +63,17 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         return new EquipmentViewHolder(itemBinding);
     }
 
+
+    /**
+     * @param holder
+     * @param position
+     *
+     * This will using the @position find out where to place the items from the list on the users screen
+     *
+     * It also using the @mSelectionTracker find out what items are selected and what items are not.
+     *
+     * Before the @holder can bind them to the screen
+     */
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = equipmentItemList.get(position);
@@ -140,8 +151,19 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          * These values/strings can be set in the item  xml file (this case equipment_item.xml)
          * But they also listen to what the value of the object in that position
          * from the list it was given during creation of the adapter
+         *
+         * This will also show the result of the selection tracker using
+         * @itemView.setActivated(isSelected)
+         *
+         * This will then, send the value to the ColorState in res/color/item_color.xml
          */
         public void bind(EquipmentItem item, int pos, boolean isSelected) {
+
+            /*
+            *  Without these, the selection will only work for the first item in the list
+            *  and it crash allow if the user starts the selection
+            *  on any other item than the first.
+             */
             equipmentItemDetails.pos = pos;
             equipmentItemDetails.identifier = item.id;
 
