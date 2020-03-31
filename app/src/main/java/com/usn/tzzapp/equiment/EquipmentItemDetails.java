@@ -25,12 +25,21 @@ public class EquipmentItemDetails extends ItemDetailsLookup.ItemDetails<Long> {
         return identifier;
     }
 
+    /**
+     * This controls if the user has to long press or just click to start selecting.
+     *
+     * When the user has started selection, it only needs a press and
+     * not a long click to select more items.
+     */
     @Override
     public boolean inSelectionHotspot(@NonNull MotionEvent e) {
         return false;
     }
 
 
+    /**
+     * This controls if the user can drag the selection to expand it or not.
+     */
     @Override
     public boolean inDragRegion(@NonNull MotionEvent e) {
         return true;
