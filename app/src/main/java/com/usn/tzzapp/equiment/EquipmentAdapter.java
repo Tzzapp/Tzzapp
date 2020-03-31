@@ -78,18 +78,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = equipmentItemList.get(position);
 
-        boolean isSelected = false;
-        if (mSelectionTracker != null){
-            if(mSelectionTracker.isSelected(equipmentItem.id)){
-                isSelected = true;
-
-                Log.d("Selected", equipmentItem.id + " Selected : " + mSelectionTracker.getSelection() );
-
-            }
-        }
-
-
-        holder.bind(equipmentItem, position, isSelected );
+        holder.bind(equipmentItem, position );
     }
 
 
@@ -148,7 +137,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          *
          * This will then, send the value to the ColorState in res/color/item_color.xml
          */
-        public void bind(EquipmentItem item, int pos, boolean isSelected) {
+        public void bind(EquipmentItem item, int pos) {
 
             /*
             *  Without these, the selection will only work for the first item in the list
@@ -159,10 +148,16 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             equipmentItemDetails.identifier = item.id;
 
             binding.setEquipmentItem(item);
-            itemView.setActivated(isSelected);
             binding.executePendingBindings();
 
+            itemView.setActivated(false);
+            if (mSelectionTracker != null){
+                if(mSelectionTracker.isSelected(equipmentItemDetails.getSelectionKey())){
+                    itemView.setActivated(true);
 
+                    Log.d("Selected", item.id + " Selected : " + mSelectionTracker.getSelection() );
+                }
+            }
         }
 
         public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent){
