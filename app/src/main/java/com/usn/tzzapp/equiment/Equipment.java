@@ -20,7 +20,7 @@ import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnEquipmentListener {
+public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
 
     RecyclerView recyclerView;
 
@@ -28,7 +28,8 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
 
     private List<EquipmentItem> list = new ArrayList<>();
 
-    private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list, this);
+    //private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list, this);
+    private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,10 +113,10 @@ public class Equipment extends AppCompatActivity implements EquipmentAdapter.OnE
      * @param pos
      */
 
-    @Override
+  /*  @Override
     public void onEquipmentClick(int pos) {
         //Log.d("CLicked", "" + list.get(pos).getProd_id() + " Selected : " +selectionTracker.getSelection().toString());
-        equipmentAdapter.notifyDataSetChanged();
+       // equipmentAdapter.notifyDataSetChanged();
         //list.get(pos).getName();
-    }
+    }*/
 }
