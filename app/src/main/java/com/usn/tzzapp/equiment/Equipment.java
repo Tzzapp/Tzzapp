@@ -86,12 +86,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         binding.imageButtonNew.setOnClickListener((v -> {
 
-            recyclerView.smoothScrollToPosition(0);
-            list.add(new EquipmentItem("Item" , list.size()+1));
+            //recyclerView.smoothScrollToPosition(0);
+            list.add(new EquipmentItem("Item", list.size()+1));
             Log.d("list", "" + list.size());
 
-            equipmentAdapter.notifyDataSetChanged();
-            //equipmentAdapter.notifyItemInserted(list.size()+1);
+            //equipmentAdapter.notifyDataSetChanged();
+            equipmentAdapter.notifyItemInserted(list.size()+1);
             recyclerView.smoothScrollToPosition(list.size()+1);
 
 
