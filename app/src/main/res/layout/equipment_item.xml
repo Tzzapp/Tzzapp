@@ -19,6 +19,7 @@
         android:layout_marginEnd="4dp"
         android:measureAllChildren="false"
         android:textAlignment="viewStart"
+        app:cardBackgroundColor="@color/item_color"
         app:cardCornerRadius="4dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
