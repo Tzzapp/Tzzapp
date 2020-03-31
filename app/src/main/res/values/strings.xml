@@ -9,6 +9,7 @@
     <string name="title_activity_forms">Formularer</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lamps</string>
+    <string name="lamp_view">Lampe uttegning</string>
 
 
 </resources>

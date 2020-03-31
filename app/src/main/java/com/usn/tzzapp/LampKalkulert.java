@@ -8,19 +8,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Lamps extends AppCompatActivity {
+public class LampKalkulert extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lamps);
-
-        Button buttonKalkuler = findViewById(R.id.buttonKalkuler);
-
-        final Intent intentLamps = new Intent(this, LampKalkulert.class);
-
-        buttonKalkuler.setOnClickListener(v -> startActivity(intentLamps));
-
+        setContentView(R.layout.activity_lamp_kalkulert);
     }
 
     @Override
