@@ -18,13 +18,13 @@ public class EquipmentItem extends BaseObservable {
         this.name = name;
         this.prod_id = prod_id;
         //id = ""+prod_id;
-        id = Long.parseLong(String.valueOf(prod_id));
+        id = prod_id;
     }
 
     public EquipmentItem(String name){
         this.name = name;
         //id = ""+prod_id;
-        id = Long.parseLong(String.valueOf(prod_id));
+        id = prod_id;
     }
 
     @Bindable
