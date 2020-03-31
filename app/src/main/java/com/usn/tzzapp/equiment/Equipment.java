@@ -79,7 +79,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                               return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
                           }
                       }*/, new EquipmentItemDetailsLookup(recyclerView),
-                        StorageStrategy.createStringStorage())
+                      StorageStrategy.createLongStorage())
                         .build();
 
         equipmentAdapter.setmSelectionTracker(selectionTracker);
