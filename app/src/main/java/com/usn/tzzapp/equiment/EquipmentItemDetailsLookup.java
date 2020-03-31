@@ -23,7 +23,7 @@ public class EquipmentItemDetailsLookup extends ItemDetailsLookup<Long> {
         if(view != null){
             RecyclerView.ViewHolder viewHolder = mRecView.getChildViewHolder(view);
             if(viewHolder instanceof EquipmentAdapter.EquipmentViewHolder){
-                return ((EquipmentAdapter.EquipmentViewHolder) viewHolder).getEquimentItemDetails(e);
+                return ((EquipmentAdapter.EquipmentViewHolder) viewHolder).getEquipmentItemDetails(e);
             }
         }
         return null;

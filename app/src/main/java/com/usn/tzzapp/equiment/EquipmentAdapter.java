@@ -175,7 +175,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
         }
 
-        public ItemDetailsLookup.ItemDetails<Long> getEquimentItemDetails(MotionEvent motionEvent){
+        public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent){
             return equipmentItemDetails;
         }
 
