@@ -15,23 +15,27 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory
-        android:title="@string/lang">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBackground">
+    <PreferenceCategory android:title="@string/lang">
 
 
-    <ListPreference
-        android:entries="@array/langArray"
-        android:entryValues="@array/langSelected"
-        android:key="list_preference_lang"
-        android:title="@string/lang" />
-
-
+        <ListPreference
+            android:entries="@array/langArray"
+            android:entryValues="@array/langSelected"
+            android:key="list_preference_lang"
+            android:title="@string/lang" />
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="Utseende">
 
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_dark_mode"
+            android:title="Nattmodus"></SwitchPreference>
 
+    </PreferenceCategory>
 
 
 </PreferenceScreen>

@@ -9,9 +9,12 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChanged;
 
+    private Switch mySwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         Button buttonForms = findViewById(R.id.buttonFormulas);
 
@@ -68,13 +71,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentSettings);
 
 
-
-
-
         });
 
         changeLang(lang);
-
+        setNightMode();
     }
 
     @Override
@@ -116,6 +116,15 @@ public class MainActivity extends AppCompatActivity {
         res.updateConfiguration(configuration, dm);
 
         
+    }
+
+    private void setNightMode() {
+        sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
+        if(sharedPreferences.getBoolean(getString(R.string.key_dark_mode), false)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @Override
