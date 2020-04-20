@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.ItemDetailsLookup;
 import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.widget.AsyncListDiffer;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.usn.tzzapp.databinding.EquipmentItemBinding;
@@ -26,7 +28,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
     private List<EquipmentItem> equipmentItemList;
     //private OnEquipmentListener onEquipmentListener;
-    private SelectionTracker mSelectionTracker;
+    private final AsyncListDiffer<EquipmentItem> mDiffer = new AsyncListDiffer(this, DIFF_CALLBACK);
 
   /*  public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
 
@@ -51,6 +53,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
     public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
         this.mSelectionTracker = selectionTracker;
+    public void submitList(List<EquipmentItem> list) {
+        mDiffer.submitList(list);
     }
 
     @NonNull
@@ -76,9 +80,16 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
      */
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
-        EquipmentItem equipmentItem = equipmentItemList.get(position);
+        EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
+    @Override
+    public long getItemId(int position) {
+        EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
+        return equipmentItem.getId();
+    }
 
-        holder.bind(equipmentItem, position );
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
 
@@ -87,7 +98,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
      * */
     @Override
     public int getItemCount() {
-        return equipmentItemList.size();
+        return mDiffer.getCurrentList().size();
     }
 
 
@@ -99,6 +110,24 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         void onEquipmentClick(int pos);
     }*/
 
+    private static final DiffUtil.ItemCallback<EquipmentItem> DIFF_CALLBACK
+            = new DiffUtil.ItemCallback<EquipmentItem>() {
+        @Override
+        public boolean areItemsTheSame(
+                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
+            // User properties may have changed if reloaded from the DB, but ID is fixed
+            return oldItem.getId() == newItem.getId();
+        }
+
+        //@SuppressLint("DiffUtilEquals")
+        @Override
+        public boolean areContentsTheSame(
+                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
+            // NOTE: if you use equals, your object must properly override Object#equals()
+            // Incorrectly returning false here will result in too many animations.
+            return oldItem.equals( newItem);
+        }
+    };
 
     class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
 
