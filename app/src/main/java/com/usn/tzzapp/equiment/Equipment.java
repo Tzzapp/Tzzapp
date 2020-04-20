@@ -57,6 +57,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         for (int i = 0; i < 25; i++){
             list.add(new EquipmentItem("Item" , list.size()+1));
+            equipmentAdapter.submitList(list);
         }
 
 
