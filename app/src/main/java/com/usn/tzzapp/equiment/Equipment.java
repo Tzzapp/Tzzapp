@@ -132,6 +132,27 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     }
 
+    public void observer() {
+        selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+
+            @Override
+            public void onItemStateChanged(@NonNull Object key, boolean selected) {
+                super.onItemStateChanged(key, selected);
+
+                for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
+                    EquipmentItem equipmentItem = iterator.next();
+
+                    equipmentItem.setSelected(false);
+                    if (selectionTracker.isSelected(equipmentItem.getId())){
+                        equipmentItem.setSelected(true);
+                    }
+                }
+            }
+
+        });
+        selectionTracker.clearSelection();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
