@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
         Configuration configuration = res.getConfiguration();
 
         configuration.setLocale(new Locale(lang));
-
         DisplayMetrics dm = res.getDisplayMetrics();
 
         res.updateConfiguration(configuration, dm);
