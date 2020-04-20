@@ -69,24 +69,23 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         recyclerView.setAdapter(equipmentAdapter);
         recyclerView.setHasFixedSize(true);
 
-              selectionTracker = new SelectionTracker.Builder<>("equipment-selection",
-                      recyclerView, new EquipmentItemKeyProvider(list, recyclerView)
-/*                      new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
+        selectionTracker = new Builder<>("equipment-selection",
+                recyclerView, new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
                           @Override
                           public Long getKey(int position) {
                               return equipmentAdapter.getItemId(position);
                           }
 
                           @Override
-                          public int getPosition( Long key) {
+                          public int getPosition(@NonNull Long key) {
                               RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
                               return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
                           }
-                      }*/, new EquipmentItemDetailsLookup(recyclerView),
+                      }, new EquipmentItemDetailsLookup(recyclerView),
                       StorageStrategy.createLongStorage())
                         .build();
 
-        equipmentAdapter.setmSelectionTracker(selectionTracker);
+        //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
         binding.imageButtonNew.setOnClickListener((v -> {
 
