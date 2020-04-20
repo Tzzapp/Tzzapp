@@ -15,6 +15,7 @@ import android.widget.Switch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import com.usn.tzzapp.equiment.Equipment;
 

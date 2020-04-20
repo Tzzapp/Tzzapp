@@ -22,19 +22,24 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         langPref = findPreference(getString(R.string.lang));
 
-
-        if (langPref != null) {
-            Log.e("Langpref", langPref.getValue());
-
-            preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue());
-            Log.e("Langpref", preferenceManager.getSharedPreferences().getString("langSelected", ""));
+        preferenceManager = getPreferenceManager();
 
 
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
 
-        }
+        preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue()).apply();
+    }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        String lang = "";
+        lang = preferenceManager.getSharedPreferences().getString("langSelected" ,"");
+        langPref.setValue(lang);
     }
 }
 
