@@ -53,6 +53,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
+        setTitle(R.string.equipment);
 
 
         for (int i = 0; i < 25; i++){
