@@ -1,9 +1,11 @@
 package com.usn.tzzapp.equiment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.SelectionTracker.Builder;
 import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -97,6 +99,40 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         }));
 
+        observer();
+
+    }
+
+    public void observer() {
+        selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+
+            @Override
+            public void onItemStateChanged(@NonNull Object key, boolean selected) {
+                super.onItemStateChanged(key, selected);
+
+                for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
+                    EquipmentItem equipmentItem = iterator.next();
+
+                    if (selectionTracker.isSelected(equipmentItem.getId())) {
+                        equipmentItem.setSelected(true);
+                       // equipmentItem.setColor(getResources().getColorStateList(R.color.color_selected));
+
+                    } else {
+                        equipmentItem.setSelected(false);
+                       // equipmentItem.setColor(getResources().getColorStateList(R.color.item_color));
+
+                    }
+
+                }
+
+                //Log.d("Selected", " Selected : " + selectionTracker.getSelection());
+                //notifyItemChanged(equipmentItemDetails.getPosition());
+                //Log.d("Changed", "I was changed " + mSelectionTracker.getSelection().toString() + " " + " Item state : );
+
+            }
+
+        });
+        selectionTracker.clearSelection();
     }
 
     @Override
