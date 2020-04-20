@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // This will first load in PreferenceManager and then it will get the getDefaultSharedPreferences
+        // and then it will get the string using sharedPreferences.getString and the key langSelected
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         changeLang(sharedPreferences.getString("lang", ""));
         setNightMode(sharedPreferences.getBoolean("nightmode", false));
