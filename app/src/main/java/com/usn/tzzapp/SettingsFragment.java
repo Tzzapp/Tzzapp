@@ -12,17 +12,15 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 public class SettingsFragment extends PreferenceFragmentCompat {
-    public SharedPreferences sharedPreferences;
+
+    private PreferenceManager preferenceManager;
+    ListPreference langPref;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
-
-        ListPreference langPref = findPreference("list_preference_lang");
-
-
-        PreferenceManager preferenceManager = getPreferenceManager();
+        langPref = findPreference(getString(R.string.lang));
 
 
         if (langPref != null) {
