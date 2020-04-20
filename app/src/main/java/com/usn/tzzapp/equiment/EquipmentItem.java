@@ -13,6 +13,7 @@ public class EquipmentItem extends BaseObservable {
     private String name;
     private int id;
     private int prod_id;
+    private boolean selected;
 
     public EquipmentItem(String name, int prod_id){
         this.name = name;
@@ -25,6 +26,16 @@ public class EquipmentItem extends BaseObservable {
         this.name = name;
         //id = ""+prod_id;
         id = hashCode();
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+        //notifyPropertyChanged(BR._all);
+    }
+
+    @Bindable
+    public boolean isSelected() {
+        return selected;
     }
     }
 
