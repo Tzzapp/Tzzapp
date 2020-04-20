@@ -20,6 +20,7 @@ import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
