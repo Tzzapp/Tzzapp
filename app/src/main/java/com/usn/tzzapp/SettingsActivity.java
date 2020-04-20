@@ -18,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.settings, new SettingsFragment())
                 .commit();
+        setTitle(R.string.title_activity_settings);
     }
 
     @Override

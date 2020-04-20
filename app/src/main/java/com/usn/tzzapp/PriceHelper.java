@@ -12,6 +12,7 @@ public class PriceHelper extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_price_helper);
+        setTitle(R.string.price);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
