@@ -1,15 +1,11 @@
 package com.usn.tzzapp.equiment;
 
-import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.selection.ItemDetailsLookup;
-import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.widget.AsyncListDiffer;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +40,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     }*/
     public EquipmentAdapter(List<EquipmentItem> list){
         this.equipmentItemList = list;
+        setHasStableIds(true);
     }
 
     public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
@@ -51,8 +48,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
-    public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
+    /*public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
         this.mSelectionTracker = selectionTracker;
+    }*/
+
     public void submitList(List<EquipmentItem> list) {
         mDiffer.submitList(list);
     }
@@ -81,6 +80,16 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
+
+      /*  holder.itemView.setActivated(false);
+        if (!holder.itemView.isSelected()){
+            holder.itemView.setActivated(true);
+            Log.d("Selected", equipmentItem.id + " Selected : " + holder.itemView.isSelected());
+        }*/
+
+        holder.bind(equipmentItem, position);
+    }
+
     @Override
     public long getItemId(int position) {
         EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
@@ -162,7 +171,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          * from the list it was given during creation of the adapter
          *
          * This will also show the result of the selection tracker using
-         * @itemView.setActivated(isSelected)
+         * @itemView.setActivated(item.isSelected());
          *
          * This will then, send the value to the ColorState in res/color/item_color.xml
          */
@@ -174,10 +183,18 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             *  on any other item than the first.
              */
             equipmentItemDetails.pos = pos;
-            equipmentItemDetails.identifier = item.id;
+            equipmentItemDetails.identifier = item.getId();
 
             binding.setEquipmentItem(item);
+            itemView.setActivated(item.isSelected());
             binding.executePendingBindings();
+
+
+      /*      itemView.post(new Runnable() {
+                @Override
+                public void run() {
+                }
+            });
 
             itemView.setActivated(false);
             if (mSelectionTracker != null){
@@ -187,6 +204,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
                     Log.d("Selected", item.id + " Selected : " + mSelectionTracker.getSelection() );
                 }
             }
+             */
         }
 
         public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent){
