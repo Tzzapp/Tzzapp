@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import com.usn.tzzapp.equiment.Equipment;
 
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        changeLang(sharedPreferences.getString("langSelected", ""));
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -92,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-        lang = sharedPreferences.getString("langSelected", "");
+        //changeLang(sharedPreferences.getString("langSelected", String.valueOf(MODE_PRIVATE)));
 
 
     }
