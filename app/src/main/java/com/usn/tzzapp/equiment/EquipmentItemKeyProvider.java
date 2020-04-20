@@ -1,3 +1,4 @@
+/*
 package com.usn.tzzapp.equiment;
 
 import android.os.Build;
@@ -23,6 +24,7 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
      *
      * @param equipmentItemList can't be changed at runtime.
      */
+/*
     protected EquipmentItemKeyProvider(List<EquipmentItem> equipmentItemList, RecyclerView recyclerView) {
         super(SCOPE_CACHED);
         this.recyclerView = recyclerView;
@@ -55,12 +57,14 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
      * @param key
      * @return the position that is connected to the key in the @mKeyToPos HashMap
      */
+/*
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public int getPosition(@NonNull Long key) {
         /* RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
         return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();*/
 
+/*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             mKeyToPos.putIfAbsent(key, mKeyToPos.size());
         }
@@ -68,3 +72,4 @@ public class EquipmentItemKeyProvider extends ItemKeyProvider<Long> {
     }
  }
 
+*/
