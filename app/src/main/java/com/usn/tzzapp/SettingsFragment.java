@@ -30,13 +30,16 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public void onPause() {
         super.onPause();
-
+        // This will send the requested String in to SharedPreferences,
+        // where the first argument is where to put it and the second is what to put there
         preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue()).apply();
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
+        // This will load the preference back in to the screen when you open preferences
         String lang = "";
         lang = preferenceManager.getSharedPreferences().getString("langSelected" ,"");
         langPref.setValue(lang);
