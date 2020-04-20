@@ -101,40 +101,36 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         }));
 
-        observer();
+        binding.imageButtonDelete.setOnClickListener(v -> {
 
-    }
+            if (list.size() != 0) {
 
-    public void observer() {
-        selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
+                recyclerView.post(() -> {
+                    for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
+                        EquipmentItem equipmentItem = iterator.next();
+                        if (selectionTracker.isSelected(equipmentItem.getId())) {
+                            iterator.remove();
+                            equipmentAdapter.notifyItemRemoved(((int) equipmentItem.getId()));
+                            //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
-            @Override
-            public void onItemStateChanged(@NonNull Object key, boolean selected) {
-                super.onItemStateChanged(key, selected);
 
-                for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
-                    EquipmentItem equipmentItem = iterator.next();
-
-                    if (selectionTracker.isSelected(equipmentItem.getId())) {
-                        equipmentItem.setSelected(true);
-                       // equipmentItem.setColor(getResources().getColorStateList(R.color.color_selected));
-
-                    } else {
-                        equipmentItem.setSelected(false);
-                       // equipmentItem.setColor(getResources().getColorStateList(R.color.item_color));
-
+                        }
                     }
+                    // equipmentAdapter.submitList(list);
+                    selectionTracker.clearSelection();
 
-                }
+                });
 
-                //Log.d("Selected", " Selected : " + selectionTracker.getSelection());
-                //notifyItemChanged(equipmentItemDetails.getPosition());
-                //Log.d("Changed", "I was changed " + mSelectionTracker.getSelection().toString() + " " + " Item state : );
-
+               /* equipmentAdapter.notifyItemRemoved(equipmentItem.id);
+                  equipmentAdapter.notifyItemRangeChanged(equipmentItem.id,list.size());
+                  equipmentAdapter.notifyDataSetChanged();
+                */
             }
 
         });
-        selectionTracker.clearSelection();
+
+        observer();
+
     }
 
     @Override
