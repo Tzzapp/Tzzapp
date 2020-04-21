@@ -72,19 +72,33 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         selectionTracker = new Builder<>("equipment-selection",
                 recyclerView, new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
-                          @Override
-                          public Long getKey(int position) {
-                              return equipmentAdapter.getItemId(position);
-                          }
+            /**
+             * @param position This will be given in by the selection tracker/Recycler view
+             * @return a long value of what position the current selected item hasSelection
+             */
+            @Override
+            public Long getKey(int position) {
+                return equipmentAdapter.getItemId(position);
+            }
 
-                          @Override
-                          public int getPosition(@NonNull Long key) {
-                              RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
-                              return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
-                          }
-                      }, new EquipmentItemDetailsLookup(recyclerView),
-                      StorageStrategy.createLongStorage())
-                        .build();
+            /**
+             * This can be done easier but by doing it, this way will make
+             * sure the that the item is there and that the tracker wont run in
+             * to a item that is null and therefore crash from a NullPointerException
+             *
+             * @param key
+             * @return this will return RecyclerView.NO_POSITION or viewHolder.getLayoutPosition(),
+             * depending on whether viewHolder is null or not
+             */
+            @Override
+            public int getPosition(@NonNull Long key) {
+                RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
+                return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
+            }
+        }, new EquipmentItemDetailsLookup(recyclerView),
+                StorageStrategy.createLongStorage())
+                .build();
+
 
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
@@ -133,9 +147,24 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     }
 
+    /**
+     * This method will start when the user opens the equipment activity,
+     * here it will listen for a long press on a item in the equipment adapter.
+     *
+     * Then it will mark that item as selected using @equipmentItem.setSelected(true)
+     * and change its properties as set in the "item_color" xml file in res/color
+     *
+     * This makes use of the selection tracker and its OnItemStateChanged observer
+     * and the @itemView.setActivated(item.isSelected()) in equipment adapter class,
+     *
+     */
     public void observer() {
         selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
 
+            /**
+             * @param key      the object id / hashcode for the item that is selected
+             * @param selected a boolean that tells if an item is selected or not
+             */
             @Override
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
                 super.onItemStateChanged(key, selected);

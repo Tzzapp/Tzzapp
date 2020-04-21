@@ -30,6 +30,12 @@ public class EquipmentItem extends BaseObservable {
         id = hashCode();
     }
 
+    /**
+     * This method makes it easier to find what item that is selected
+     * and does it without needing to use a handler/post and notifyItemChanged(); in the adapter class for equipment,
+     * so that the animations wont run crazy and make the list a rave party
+     * @param selected
+     */
     public void setSelected(boolean selected) {
         this.selected = selected;
         //notifyPropertyChanged(BR._all);
