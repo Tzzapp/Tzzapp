@@ -9,7 +9,7 @@ import androidx.databinding.Bindable;
  * The reason it does that it so that the values can be observed
  * and pushed out to a recycler view or any other from of text view
  */
-public class EquipmentItem extends BaseObservable {
+public class EquipmentItem extends BaseObservable implements Comparable<EquipmentItem> {
 
     private String name;
     private int id;
@@ -67,5 +67,10 @@ public class EquipmentItem extends BaseObservable {
 
     public void setProd_id(int prod_id) {
         this.prod_id = prod_id;
+    }
+
+    @Override
+    public int compareTo(EquipmentItem o) {
+        return Integer.compare(this.prod_id, o.prod_id);
     }
 }

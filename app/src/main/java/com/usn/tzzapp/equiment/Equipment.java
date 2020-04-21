@@ -62,6 +62,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }
 
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            list.sort(EquipmentItem::compareTo);
+        }
+
         // Connects to the recycler view in the layout file
         recyclerView = binding.recview;
 
