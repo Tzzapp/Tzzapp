@@ -7,7 +7,7 @@
     <data>
         <variable
             name="EquipmentItem"
-            type="com.usn.tzzapp.EquipmentItem" />
+            type="com.usn.tzzapp.equiment.EquipmentItem" />
     </data>
 
 
@@ -19,6 +19,7 @@
         android:layout_marginEnd="4dp"
         android:measureAllChildren="false"
         android:textAlignment="viewStart"
+        app:cardBackgroundColor="@color/item_color"
         app:cardCornerRadius="4dp"
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
@@ -47,7 +48,7 @@
                 android:id="@+id/text_view_prod_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="4dp"
                 android:maxLines="1"
                 android:text="@{String.valueOf(EquipmentItem.prod_id), default=@string/placeholder}"

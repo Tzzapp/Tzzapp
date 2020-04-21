@@ -1,5 +1,6 @@
-package com.usn.tzzapp;
+package com.usn.tzzapp.equiment;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -11,15 +12,37 @@ import androidx.databinding.Bindable;
 public class EquipmentItem extends BaseObservable {
 
     private String name;
+    private int id;
     private int prod_id;
+    private boolean selected;
+    //private ColorStateList color;
 
     public EquipmentItem(String name, int prod_id){
         this.name = name;
         this.prod_id = prod_id;
+        //id = ""+prod_id;
+        id = hashCode();
     }
 
     public EquipmentItem(String name){
         this.name = name;
+        //id = ""+prod_id;
+        id = hashCode();
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+        //notifyPropertyChanged(BR._all);
+    }
+
+    @Bindable
+    public boolean isSelected() {
+        return selected;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
     }
 
     @Bindable
@@ -27,6 +50,9 @@ public class EquipmentItem extends BaseObservable {
         return name;
     }
 
+    public long getId() {
+        return id;
+    }
 
     @Bindable
     public int getProd_id() {

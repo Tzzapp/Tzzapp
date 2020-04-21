@@ -20,11 +20,11 @@
         android:title="@string/lang">
 
 
-    <ListPreference
-        android:entries="@array/langArray"
-        android:entryValues="@array/langSelected"
-        android:key="list_preference_lang"
-        android:title="@string/lang" />
+        <ListPreference
+            android:entries="@array/langArray"
+            android:entryValues="@array/langSelected"
+            android:key="@string/lang"
+            android:title="@string/lang" />
 
 
 

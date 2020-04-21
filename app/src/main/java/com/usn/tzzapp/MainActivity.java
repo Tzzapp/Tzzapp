@@ -12,6 +12,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
+
+import com.usn.tzzapp.equiment.Equipment;
 
 import java.util.Locale;
 
@@ -29,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // This will first load in PreferenceManager and then it will get the getDefaultSharedPreferences
+        // and then it will get the string using sharedPreferences.getString and the key langSelected
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        changeLang(sharedPreferences.getString("langSelected", ""));
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,27 +99,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-        lang = sharedPreferences.getString("langSelected", "");
+        //changeLang(sharedPreferences.getString("langSelected", String.valueOf(MODE_PRIVATE)));
 
 
     }
 
+    /**
+     * This method has one IN parameter, where the requested language will be send in
+     * Using changeLang("") and the short-code for the language
+     * like "no" for norwegian and "en" for english and so on.
+     *
+     * For this to work properly, there has to be a
+     * string resource language file in the strings folder (values/strings)
+     *
+     * @param lang the requested language that the app should change to
+     */
     private void changeLang(String lang) {
-
-
-
-        Locale locale1 = new Locale(lang);
 
         Resources res = getResources();
 
         Configuration configuration = res.getConfiguration();
 
-        configuration.locale = locale1;
-
+        configuration.setLocale(new Locale(lang));
         DisplayMetrics dm = res.getDisplayMetrics();
 
         res.updateConfiguration(configuration, dm);
+        getResources().updateConfiguration(configuration,dm);
+        getApplicationContext().getResources().updateConfiguration(configuration, dm);
 
         
     }
