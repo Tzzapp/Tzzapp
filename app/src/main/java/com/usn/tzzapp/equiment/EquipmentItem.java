@@ -29,6 +29,10 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
         //id = ""+prod_id;
         id = hashCode();
     }
+    public EquipmentItem(int id){
+        this.name = "Item";
+        this.id = id;
+    }
 
     /**
      * This method makes it easier to find what item that is selected
