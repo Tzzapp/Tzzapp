@@ -104,6 +104,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method has one IN parameter, where the requested language will be send in
+     * Using changeLang("") and the short-code for the language
+     * like "no" for norwegian and "en" for english and so on.
+     *
+     * For this to work properly, there has to be a
+     * string resource language file in the strings folder (values/strings)
+     *
+     * @param lang the requested language that the app should change to
+     */
     private void changeLang(String lang) {
 
         Resources res = getResources();
