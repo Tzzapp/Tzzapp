@@ -3,6 +3,7 @@ package com.usn.tzzapp.equiment;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.SelectionTracker.Builder;
@@ -10,24 +11,33 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
 
+import com.google.gson.Gson;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
 
     RecyclerView recyclerView;
 
     SelectionTracker selectionTracker;
+
+    SharedPreferences sharedPreferences ;
+    Set<String> itemsList = new HashSet<>();
+    Gson gson = new Gson();
 
     private List<EquipmentItem> list = new ArrayList<>();
 
@@ -55,6 +65,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         setTitle(R.string.equipment);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        itemsList = sharedPreferences.getStringSet("list", itemsList);
+
+        for (String t : itemsList){
+           list.add(gson.fromJson(t, EquipmentItem.class));
+        }
 
         for (int i = 0; i < 25; i++){
             list.add(new EquipmentItem("Item" , list.size()+1));
@@ -149,6 +165,16 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         observer();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        itemsList.clear();
+        for (EquipmentItem equipmentItem : list) {
+          itemsList.add(gson.toJson(equipmentItem));
+        }
+        sharedPreferences.edit().putStringSet("list", itemsList).apply();
     }
 
     /**
