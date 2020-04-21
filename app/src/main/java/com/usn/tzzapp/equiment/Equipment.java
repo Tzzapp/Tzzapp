@@ -73,10 +73,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }
 
         for (int i = 0; i < 25; i++){
-            list.add(new EquipmentItem("Item" , list.size()+1));
-            equipmentAdapter.submitList(list);
-        }
+          //  list.add(new EquipmentItem("Item" , list.size()+1));
 
+        }
+        equipmentAdapter.submitList(list);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             list.sort(EquipmentItem::compareTo);
@@ -119,7 +119,15 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 StorageStrategy.createLongStorage())
                 .build();
 
+       boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
 
+       if (hasSelection ){
+            for (EquipmentItem item : list){
+                if (item.isSelected()){
+                 selectionTracker.select(item.getId());
+                }
+            }
+        }
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
         binding.imageButtonNew.setOnClickListener((v -> {
@@ -151,7 +159,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         }
                     }
                     // equipmentAdapter.submitList(list);
-                    selectionTracker.clearSelection();
+                   // selectionTracker.clearSelection();
 
                 });
 
@@ -174,6 +182,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         for (EquipmentItem equipmentItem : list) {
           itemsList.add(gson.toJson(equipmentItem));
         }
+        sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
         sharedPreferences.edit().putStringSet("list", itemsList).apply();
     }
 
@@ -210,7 +219,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             }
 
         });
-        selectionTracker.clearSelection();
+        //selectionTracker.clearSelection();
     }
 
     @Override
