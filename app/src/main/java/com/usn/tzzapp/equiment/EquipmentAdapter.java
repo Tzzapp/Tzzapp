@@ -52,6 +52,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         this.mSelectionTracker = selectionTracker;
     }*/
 
+    /**
+     * This will let the DiffUtil and AsyncListDiffer know what list to process
+     * @param list the list that should be pushed out to the recycler view
+     */
     public void submitList(List<EquipmentItem> list) {
         mDiffer.submitList(list);
     }
@@ -90,6 +94,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         holder.bind(equipmentItem, position);
     }
 
+    /**
+     * @param position
+     * @return id of the equipment item that is in that current position
+     */
     @Override
     public long getItemId(int position) {
         EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
@@ -128,6 +136,12 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             return oldItem.getId() == newItem.getId();
         }
 
+        /**
+         * @param oldItem
+         * @param newItem
+         * @return a boolean value if the the items/content are the same,
+         * true if they are, false if they are not
+         */
         //@SuppressLint("DiffUtilEquals")
         @Override
         public boolean areContentsTheSame(

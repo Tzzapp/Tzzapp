@@ -15,6 +15,12 @@ public class EquipmentItemDetailsLookup extends ItemDetailsLookup<Long> {
         this.mRecView = recyclerView;
     }
 
+    /**
+     * This will from the X and Y find out what item the user is trying to select
+     * @param e the motion event that will let the findChildViewUnder method
+     *          find out what item to select
+     * @return the details of the selected item
+     */
     @Nullable
     @Override
     public ItemDetails<Long> getItemDetails(@NonNull MotionEvent e) {
