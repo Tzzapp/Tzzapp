@@ -23,7 +23,7 @@
         <ListPreference
             android:entries="@array/langArray"
             android:entryValues="@array/langSelected"
-            android:key="list_preference_lang"
+            android:key="@string/lang"
             android:title="@string/lang" />
 
     </PreferenceCategory>
@@ -33,7 +33,7 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="@string/key_dark_mode"
-            android:title="Nattmodus"></SwitchPreference>
+            android:title="@string/key_dark_mode" />
 
     </PreferenceCategory>
 
