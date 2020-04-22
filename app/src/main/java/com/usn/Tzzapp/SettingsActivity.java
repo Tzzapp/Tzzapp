@@ -1,5 +1,7 @@
 package com.usn.Tzzapp;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,14 @@ public class SettingsActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.settings, new SettingsFragment())
                 .commit();
+    }
 
+    @Override
+    public void onBackPressed(){
+       Intent intent = new Intent(this, MainActivity.class);
+
+            startActivity(intent);
+            finish();
 
     }
 }
