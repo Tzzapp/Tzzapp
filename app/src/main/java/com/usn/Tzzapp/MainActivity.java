@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        changeLang(sharedPreferences.getString("lang", ""));
+        setNightMode(sharedPreferences.getBoolean("nightmode", false));
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -93,8 +98,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-        lang = sharedPreferences.getString("langSelected", "");
+        changeLang(sharedPreferences.getString("lang", ""));
+        setNightMode(sharedPreferences.getBoolean("nightmode", false));
+
+        //sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
+      // lang = sharedPreferences.getString("langSelected", "");
 
 
     }
@@ -117,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
         
     }
 
-    private void setNightMode() {
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    private void setNightMode(boolean state) {
+       // sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         // sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
-        if(sharedPreferences.getBoolean("nightmode", false)) {
+        if(state) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
