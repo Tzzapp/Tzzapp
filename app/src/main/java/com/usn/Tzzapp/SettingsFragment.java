@@ -67,6 +67,13 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        nightMode.setChecked(sharedPreferences.getBoolean("nightmode", false));
+        langPref.setValue(sharedPreferences.getString("lang", "no"));
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
         sharedPreferences.edit().putString("lang", langPref.getValue() ).apply();
