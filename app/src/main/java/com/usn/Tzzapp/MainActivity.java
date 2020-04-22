@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        changeLang(lang);
-        setNightMode();
+        //changeLang(lang);
+       // setNightMode();
     }
 
     @Override
@@ -102,18 +102,17 @@ public class MainActivity extends AppCompatActivity {
     private void changeLang(String lang) {
 
 
-
-        Locale locale1 = new Locale(lang);
-
         Resources res = getResources();
 
         Configuration configuration = res.getConfiguration();
 
-        configuration.locale = locale1;
+        configuration.setLocale(new Locale(lang));
 
         DisplayMetrics dm = res.getDisplayMetrics();
 
         res.updateConfiguration(configuration, dm);
+        getResources().updateConfiguration(configuration,dm);
+        getApplicationContext().getResources().updateConfiguration(configuration, dm);
 
         
     }

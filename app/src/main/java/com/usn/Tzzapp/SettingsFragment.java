@@ -19,6 +19,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
     SwitchPreference nightMode;
 
+    ListPreference langPref;
+
     PreferenceManager preferenceManager;
 
     @Override
@@ -28,6 +30,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         ListPreference langPref = findPreference("list_preference_lang");
 
         preferenceManager = getPreferenceManager();
+
+        sharedPreferences = preferenceManager.getSharedPreferences();
+        langPref = findPreference(getString(R.string.lang));
 
         nightMode = findPreference(getString(R.string.key_dark_mode));
 
