@@ -15,7 +15,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 
 public class SettingsFragment extends PreferenceFragmentCompat {
-    public SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
 
     SwitchPreference nightMode;
 
@@ -69,7 +69,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public void onPause() {
         super.onPause();
-        preferenceManager.getSharedPreferences().edit().putBoolean("nightmode", nightMode.isChecked()).apply();
+        sharedPreferences.edit().putString("lang", langPref.getValue() ).apply();
+        sharedPreferences.edit().putBoolean("nightmode", nightMode.isChecked()).apply();
 
     }
 }
