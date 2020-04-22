@@ -17,18 +17,21 @@ import static android.content.Context.MODE_PRIVATE;
 public class SettingsFragment extends PreferenceFragmentCompat {
     public SharedPreferences sharedPreferences;
 
+    SwitchPreference nightMode;
+
+    PreferenceManager preferenceManager;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
         ListPreference langPref = findPreference("list_preference_lang");
 
+        preferenceManager = getPreferenceManager();
 
-        PreferenceManager preferenceManager = getPreferenceManager();
+        nightMode = findPreference(getString(R.string.key_dark_mode));
 
-
-
-        final SwitchPreference nightMode = findPreference(getString(R.string.key_dark_mode));
+/*
         nightMode.setDefaultValue(false);
 
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
@@ -45,19 +48,23 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 getActivity().recreate();
                 return false;
             });
+*/
 
 
-        if (langPref != null) {
+      /*  if (langPref != null) {
             // Log.e("Langpref", langPref.getValue());
 
             preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue());
             Log.e("Langpref", preferenceManager.getSharedPreferences().getString("langSelected", ""));
 
 
+        }*/
+    }
 
-
-        }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        preferenceManager.getSharedPreferences().edit().putBoolean("nightmode", nightMode.isChecked()).apply();
 
     }
 }

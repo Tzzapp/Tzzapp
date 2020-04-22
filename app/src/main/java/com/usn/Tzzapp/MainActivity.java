@@ -119,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setNightMode() {
-        sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
-        if(sharedPreferences.getBoolean(getString(R.string.key_dark_mode), false)) {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
+        if(sharedPreferences.getBoolean("nightmode", false)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
