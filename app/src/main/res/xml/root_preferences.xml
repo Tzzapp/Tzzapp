@@ -28,7 +28,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Utseende">
+    <PreferenceCategory android:title="@string/appearance">
 
         <SwitchPreference
             android:defaultValue="false"
