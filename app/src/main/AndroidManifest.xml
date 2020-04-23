@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.usn.Tzzapp">
+    package="com.usn.tzzapp">
 
     <application
         android:allowBackup="true"
@@ -11,12 +11,12 @@
         android:killAfterRestore="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.usn.Tzzapp.SettingsActivity"
+            android:name="com.usn.tzzapp.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.usn.Tzzapp.MainActivity" />
+                android:value="com.usn.tzzapp.MainActivity" />
         </activity>
         <activity
 
