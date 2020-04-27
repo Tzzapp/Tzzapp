@@ -62,7 +62,13 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             }
         });*/
 
+        langPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            langPref.setValue((String) newValue);
+            new LangUtil(getResources(), getActivity()).changeLang((String) newValue);
+            getActivity().recreate();
 
+            return false;
+        });
 
       /*  if (langPref != null) {
             // Log.e("Langpref", langPref.getValue());
