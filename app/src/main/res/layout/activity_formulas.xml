@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Formulas">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/forms"
+    <Button
+        android:id="@+id/buttonLamps"
+        android:layout_width="266dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/lamps"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

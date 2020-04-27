@@ -1,8 +1,10 @@
 package com.usn.tzzapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +16,12 @@ public class Formulas extends AppCompatActivity {
         setContentView(R.layout.activity_formulas);
         setTitle(R.string.forms);
 
+
+        Button buttonLamps = findViewById(R.id.buttonLamps);
+
+        final Intent intentForms = new Intent(this, Lamps.class);
+
+        buttonLamps.setOnClickListener(v -> startActivity(intentForms));
 
     }
     @Override

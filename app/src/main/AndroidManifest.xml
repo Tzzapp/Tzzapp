@@ -32,6 +32,10 @@
             android:label="@string/title_activity_forms"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
+            android:name="com.usn.tzzapp.Lamps"
+            android:label="@string/lamps"
+            android:parentActivityName="com.usn.tzzapp.Formulas" />
+        <activity
             android:name="com.usn.tzzapp.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
