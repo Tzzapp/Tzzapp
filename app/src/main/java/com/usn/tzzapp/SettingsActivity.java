@@ -45,15 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onNightModeChanged(mode);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        Resources res = getResources();
-
-        Configuration configuration = res.getConfiguration();
-
-        configuration.setLocale(new Locale((sharedPreferences.getString("lang", ""))));
-        DisplayMetrics dm = res.getDisplayMetrics();
-        res.updateConfiguration(configuration, dm);
-        getResources().updateConfiguration(configuration,dm);
-        getApplicationContext().getResources().updateConfiguration(configuration, dm);
+        new LangUtil(getResources(), this).changeLang(sharedPreferences.getString("lang", ""));
     }
 
     @Override
