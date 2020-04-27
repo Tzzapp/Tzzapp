@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
@@ -36,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         // This will first load in PreferenceManager and then it will get the getDefaultSharedPreferences
         // and then it will get the string using sharedPreferences.getString and the key langSelected
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        changeLang(sharedPreferences.getString("langSelected", ""));
+        changeLang(sharedPreferences.getString("lang", ""));
+        setNightMode(sharedPreferences.getBoolean("nightmode", false));
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         Button buttonForms = findViewById(R.id.buttonFormulas);
 
@@ -75,11 +76,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intentSettings);
 
 
-
-
-
         });
 
+        //changeLang(lang);
+       // setNightMode();
 
     }
 
@@ -99,7 +99,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //changeLang(sharedPreferences.getString("langSelected", String.valueOf(MODE_PRIVATE)));
+        changeLang(sharedPreferences.getString("lang", ""));
+        setNightMode(sharedPreferences.getBoolean("nightmode", false));
+
+        //sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
+      // lang = sharedPreferences.getString("langSelected", "");
 
 
     }
@@ -116,11 +120,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void changeLang(String lang) {
 
+
         Resources res = getResources();
 
         Configuration configuration = res.getConfiguration();
 
         configuration.setLocale(new Locale(lang));
+
         DisplayMetrics dm = res.getDisplayMetrics();
 
         res.updateConfiguration(configuration, dm);
@@ -128,6 +134,17 @@ public class MainActivity extends AppCompatActivity {
         getApplicationContext().getResources().updateConfiguration(configuration, dm);
 
         
+    }
+
+    private void setNightMode(boolean state) {
+       // sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
+        if(state) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 
     @Override

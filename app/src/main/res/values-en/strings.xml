@@ -8,4 +8,7 @@
     <string name="equipment">Equipment List</string>
     <string name="lang">Language</string>
     <string name="title_activity_forms">Equations</string>
+    <string name="key_dark_mode">Night Mode</string>
+    <string name="appearance">Appearance</string>
+    <string name="placeholder">test</string>
 </resources>

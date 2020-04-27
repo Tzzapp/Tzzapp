@@ -15,9 +15,9 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory
-        android:title="@string/lang">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBackground">
+    <PreferenceCategory android:title="@string/lang">
 
 
         <ListPreference
@@ -26,12 +26,16 @@
             android:key="@string/lang"
             android:title="@string/lang" />
 
-
-
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/appearance">
 
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/key_dark_mode"
+            android:title="@string/key_dark_mode" />
 
+    </PreferenceCategory>
 
 
 </PreferenceScreen>
