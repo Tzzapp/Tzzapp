@@ -50,7 +50,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 return false;
             });
 
-        langPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+       /* langPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 if(preference.getKey().equals(newValue)) {
@@ -60,7 +60,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 }
                 return false;
             }
-        });
+        });*/
 
 
 
