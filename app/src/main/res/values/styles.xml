@@ -1,28 +1,29 @@
 <resources>
 
-    <!-- Light application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#6C63FF</item>
-        <item name="colorPrimaryDark">#6C63FF</item>
-        <item name="colorAccent">#03DAC5</item>
-        <item name="backgroundcolor">#ffffff</item>
-        <item name="mainText">#2D313D</item>
-    </style>
-
-    <!-- Dark application theme. -->
-    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">#6C63FF</item>
-        <item name="colorPrimaryDark">#6C63FF</item>
-        <item name="colorAccent">#03DAC5</item>
-        <item name="backgroundcolor">#2D313D</item>
-        <item name="mainText">#ffffff</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">@color/mainBackground</item>
+        <item name="mainText">@color/mainText</item>
+        <item name="android:background">@color/mainBackground</item>
+        <item name="android:titleTextStyle">@color/mainText</item>
+        <item name="android:statusBarColor">@color/mainBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="PreferenceTheme" parent="Theme.AppCompat.DayNight">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="android:textColor">@color/mainText</item>
+        <item name="android:background">@color/mainBackground</item>
+        <item name="android:titleTextStyle">@color/mainText</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

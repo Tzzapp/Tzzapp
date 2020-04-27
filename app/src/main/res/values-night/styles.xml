@@ -1,11 +1,17 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Light application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="backgroundColor">@color/mainBackground</item>
+        <item name="mainText">@color/mainText</item>
+        <item name="android:background">@color/mainBackground</item>
+        <item name="android:titleTextStyle">@color/mainText</item>
+        <item name="android:statusBarColor">@color/mainBackground</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +19,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="PreferenceTheme" parent="Theme.AppCompat.DayNight">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="android:textColor">@color/mainText</item>
+        <item name="android:background">@color/mainBackground</item>
+        <item name="android:titleTextColor">@color/mainText</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
 
 </resources>
