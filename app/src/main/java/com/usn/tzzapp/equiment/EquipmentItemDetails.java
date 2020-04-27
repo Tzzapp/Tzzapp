@@ -14,11 +14,18 @@ public class EquipmentItemDetails extends ItemDetailsLookup.ItemDetails<Long> {
     * The data type of the identifier variable has to be a primitive long and not a object
     */
 
+    /**
+     * @return position of the item that is selected, much like
+     * the #getAdapterPosition or #getLayoutPosition method in the standard adapter class
+     */
     @Override
     public int getPosition() {
         return pos;
     }
 
+    /**
+     * @return identifier of the item that is selected
+     */
     @Nullable
     @Override
     public Long getSelectionKey() {

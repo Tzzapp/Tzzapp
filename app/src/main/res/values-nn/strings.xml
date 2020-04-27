@@ -7,6 +7,9 @@
     <string name="title_activity_settings">Innstillingar</string>
     <string name="lang">Språk</string>
     <string name="title_activity_forms">Formularar</string>
+    <string name="key_dark_mode">Nåttmodus</string>
+    <string name="appearance">Utsående</string>
+    <string name="placeholder">test</string>
 
 
 </resources>

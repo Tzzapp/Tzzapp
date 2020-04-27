@@ -3,6 +3,7 @@ package com.usn.tzzapp.equiment;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.SelectionTracker.Builder;
@@ -10,24 +11,33 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 
 
+import com.google.gson.Gson;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
 
     RecyclerView recyclerView;
 
     SelectionTracker selectionTracker;
+
+    SharedPreferences sharedPreferences ;
+    Set<String> itemsList = new HashSet<>();
+    Gson gson = new Gson();
 
     private List<EquipmentItem> list = new ArrayList<>();
 
@@ -55,12 +65,22 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         setTitle(R.string.equipment);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        itemsList = sharedPreferences.getStringSet("list", itemsList);
 
-        for (int i = 0; i < 25; i++){
-            list.add(new EquipmentItem("Item" , list.size()+1));
-            equipmentAdapter.submitList(list);
+        for (String t : itemsList){
+           list.add(gson.fromJson(t, EquipmentItem.class));
         }
 
+        for (int i = 0; i < 25; i++){
+          //  list.add(new EquipmentItem("Item" , list.size()+1));
+
+        }
+        equipmentAdapter.submitList(list);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            list.sort(EquipmentItem::compareTo);
+        }
 
         // Connects to the recycler view in the layout file
         recyclerView = binding.recview;
@@ -72,20 +92,42 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         selectionTracker = new Builder<>("equipment-selection",
                 recyclerView, new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
-                          @Override
-                          public Long getKey(int position) {
-                              return equipmentAdapter.getItemId(position);
-                          }
+            /**
+             * @param position This will be given in by the selection tracker/Recycler view
+             * @return a long value of what position the current selected item hasSelection
+             */
+            @Override
+            public Long getKey(int position) {
+                return equipmentAdapter.getItemId(position);
+            }
 
-                          @Override
-                          public int getPosition(@NonNull Long key) {
-                              RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
-                              return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
-                          }
-                      }, new EquipmentItemDetailsLookup(recyclerView),
-                      StorageStrategy.createLongStorage())
-                        .build();
+            /**
+             * This can be done easier but by doing it, this way will make
+             * sure the that the item is there and that the tracker wont run in
+             * to a item that is null and therefore crash from a NullPointerException
+             *
+             * @param key
+             * @return this will return RecyclerView.NO_POSITION or viewHolder.getLayoutPosition(),
+             * depending on whether viewHolder is null or not
+             */
+            @Override
+            public int getPosition(@NonNull Long key) {
+                RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForItemId(key);
+                return viewHolder == null ? RecyclerView.NO_POSITION : viewHolder.getLayoutPosition();
+            }
+        }, new EquipmentItemDetailsLookup(recyclerView),
+                StorageStrategy.createLongStorage())
+                .build();
 
+       boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
+
+       if (hasSelection ){
+            for (EquipmentItem item : list){
+                if (item.isSelected()){
+                 selectionTracker.select(item.getId());
+                }
+            }
+        }
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
         binding.imageButtonNew.setOnClickListener((v -> {
@@ -117,7 +159,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         }
                     }
                     // equipmentAdapter.submitList(list);
-                    selectionTracker.clearSelection();
+                   // selectionTracker.clearSelection();
 
                 });
 
@@ -133,9 +175,35 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        itemsList.clear();
+        for (EquipmentItem equipmentItem : list) {
+          itemsList.add(gson.toJson(equipmentItem));
+        }
+        sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
+        sharedPreferences.edit().putStringSet("list", itemsList).apply();
+    }
+
+    /**
+     * This method will start when the user opens the equipment activity,
+     * here it will listen for a long press on a item in the equipment adapter.
+     *
+     * Then it will mark that item as selected using @equipmentItem.setSelected(true)
+     * and change its properties as set in the "item_color" xml file in res/color
+     *
+     * This makes use of the selection tracker and its OnItemStateChanged observer
+     * and the @itemView.setActivated(item.isSelected()) in equipment adapter class,
+     *
+     */
     public void observer() {
         selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
 
+            /**
+             * @param key      the object id / hashcode for the item that is selected
+             * @param selected a boolean that tells if an item is selected or not
+             */
             @Override
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
                 super.onItemStateChanged(key, selected);
@@ -151,7 +219,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             }
 
         });
-        selectionTracker.clearSelection();
+        //selectionTracker.clearSelection();
     }
 
     @Override
