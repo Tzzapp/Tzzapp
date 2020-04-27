@@ -1,6 +1,9 @@
 package com.usn.tzzapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,6 +13,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
+
+import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -34,12 +39,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         nightMode = findPreference(getString(R.string.key_dark_mode));
 
-/*
-        nightMode.setDefaultValue(false);
-
-        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
-            nightMode.setChecked(true);
-
             nightMode.setOnPreferenceChangeListener((preference, newValue) -> {
                 if ((Boolean) newValue) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -48,10 +47,21 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     nightMode.setChecked(false);
                 }
-                getActivity().recreate();
                 return false;
             });
-*/
+
+        langPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                if(preference.getKey().equals(newValue)) {
+                    Resources res = getResources();
+                    Configuration configuration = res.getConfiguration();
+                    configuration.setLocale(new Locale((sharedPreferences.getString("lang", ""))));
+                }
+                return false;
+            }
+        });
+
 
 
       /*  if (langPref != null) {
