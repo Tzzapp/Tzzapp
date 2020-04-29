@@ -91,7 +91,7 @@ public class Lamps extends AppCompatActivity {
         // divide by number of lamps to find an equal distance betwen them
         out = out / lampsX;
 
-        Log.d("test", out +" ");
+        //Log.d("test", out +" ");
 
 
         //Log.d("WORDS", "in method: " + room.toString());
