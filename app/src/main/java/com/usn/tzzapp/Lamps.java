@@ -3,7 +3,6 @@ package com.usn.tzzapp;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Button;
@@ -16,12 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Lamps extends AppCompatActivity {
 
     // innformation inn
-    EditText roomSize;
-    EditText roomWith;
-    EditText lampSize;
-    EditText lampWith;
-    EditText lampChountSize;
-    EditText lampChountWith;
+    EditText roomX;
+    EditText roomY;
+    EditText lampX;
+    EditText lampY;
+    EditText lampChountX;
+    EditText lampChountY;
 
 
     // button to calculate - replace if posible with auto-update
@@ -40,12 +39,12 @@ public class Lamps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activety_lamps);
 
-        roomSize = findViewById(R.id.editTextRoomLength);
-        roomWith = findViewById(R.id.editTextRoomWith);
-        lampSize = findViewById(R.id.editTextLampLength);
-        lampWith = findViewById(R.id.editTextLampWith);
-        lampChountSize = findViewById(R.id.editTextLampCountLength);
-        lampChountWith = findViewById(R.id.editTextLampCountWith);
+        roomX = findViewById(R.id.editTextRoomLength);
+        roomY = findViewById(R.id.editTextRoomWith);
+        lampX = findViewById(R.id.editTextLampLength);
+        lampY = findViewById(R.id.editTextLampWith);
+        lampChountX = findViewById(R.id.editTextLampCountLength);
+        lampChountY = findViewById(R.id.editTextLampCountWith);
 
         MathMaster = findViewById(R.id.buttonCalculate);
 
@@ -57,19 +56,34 @@ public class Lamps extends AppCompatActivity {
         MathMaster.setOnClickListener(v -> {
             //Log.d("WORDS", "" + roomSize.getText());
 
+            // hent inn alle lampe og romm-tallene som intigers sån at de kan hånteres
+
+
+
             //sjekk at verken rom eller lampe er manglende - om de er gi respons
+
+            if (TextUtils.isEmpty(lampChountX.getText())){
+                //respons
+            }
+
+            if (TextUtils.isEmpty(lampChountX.getText())){
+                //respons
+            }
+
+            // hvis lampen er bredere en rommet gi respons
+
 
             //sjekk at der er minst 1 lampe, om det ikke er det set svaret til 1 lampe
 
 
-            if (!TextUtils.isEmpty(lampChountSize.getText())){
+            if (!TextUtils.isEmpty(lampChountX.getText())){
                 responseX.setText(findLampXLamp() + "");
             }
             else{
                 responseX.setText("N/A");
             }
 
-            if (findLampXWall() > 0) {
+            if (findLampXWall() >= 0) {
                 responseWallX.setText(findLampXWall() + "");
             }
             else {
@@ -110,7 +124,7 @@ public class Lamps extends AppCompatActivity {
 
 
        int out;
-       holder = roomSize.getText();
+       holder = roomX.getText();
        if (TextUtils.isEmpty(holder)){
            return 0;
         }
@@ -118,14 +132,14 @@ public class Lamps extends AppCompatActivity {
        out= Integer.parseInt(holder.toString());
        System.out.println(out + " fra romm-størelse");
 
-        holder = lampSize.getText();
+        holder = lampX.getText();
         if (TextUtils.isEmpty(holder)){
             return 0;
         }
         int lampX = Integer.parseInt(holder.toString());
         System.out.println(lampX + " fra lampX");
 
-        holder = lampChountSize.getText();
+        holder = lampChountX.getText();
         int lampCountX;
 
         if (!TextUtils.isEmpty(holder)) {
