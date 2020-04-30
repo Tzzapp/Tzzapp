@@ -27,17 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intentSettings;
 
+    LangUtil langUtil;
+
     SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChanged;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        langUtil = new LangUtil(getResources(), this);
 
         // This will first load in PreferenceManager and then it will get the getDefaultSharedPreferences
         // and then it will get the string using sharedPreferences.getString and the key langSelected
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        changeLang(sharedPreferences.getString("lang", ""));
+        langUtil.changeLang(sharedPreferences.getString("lang", ""));
         setNightMode(sharedPreferences.getBoolean("nightmode", false));
 
         setContentView(R.layout.activity_main);
@@ -98,42 +101,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        changeLang(sharedPreferences.getString("lang", ""));
+        langUtil.changeLang(sharedPreferences.getString("lang", ""));
         setNightMode(sharedPreferences.getBoolean("nightmode", false));
 
         //sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
       // lang = sharedPreferences.getString("langSelected", "");
 
 
-    }
-
-    /**
-     * This method has one IN parameter, where the requested language will be send in
-     * Using changeLang("") and the short-code for the language
-     * like "no" for norwegian and "en" for english and so on.
-     *
-     * For this to work properly, there has to be a
-     * string resource language file in the strings folder (values/strings)
-     *
-     * @param lang the requested language that the app should change to
-     */
-    private void changeLang(String lang) {
-
-
-        Resources res = getResources();
-
-        Configuration configuration = res.getConfiguration();
-
-        configuration.setLocale(new Locale(lang));
-
-        DisplayMetrics dm = res.getDisplayMetrics();
-
-        res.updateConfiguration(configuration, dm);
-        getResources().updateConfiguration(configuration,dm);
-        getApplicationContext().getResources().updateConfiguration(configuration, dm);
-
-        
     }
 
     private void setNightMode(boolean state) {
