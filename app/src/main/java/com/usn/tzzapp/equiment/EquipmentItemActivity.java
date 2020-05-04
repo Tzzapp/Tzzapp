@@ -17,6 +17,8 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
     EquipmentViewModel viewModel;
 
+    EquipmentItem equipmentItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,19 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
         viewModel.getEquipmentItem(userName).observe(this, equipmentItem -> {
             binding.setEquipmentItem(equipmentItem);
-            setTitle((String.valueOf(equipmentItem.getId())));
+            this.equipmentItem = equipmentItem;
+            setTitle(equipmentItem.getName());
+
+        });
+
+        binding.okButton.setOnClickListener(v -> {
+            viewModel.update(equipmentItem);
+            finish();
+
+        });
+
+        binding.cancelButton.setOnClickListener(v -> {
+           finish();
 
         });
         
