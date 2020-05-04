@@ -58,6 +58,10 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
         //notifyPropertyChanged(BR._all);
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Bindable
     public boolean isSelected() {
         return selected;
