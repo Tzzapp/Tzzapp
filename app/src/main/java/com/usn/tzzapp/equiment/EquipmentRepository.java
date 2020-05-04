@@ -41,6 +41,14 @@ class EquipmentRepository {
             mItemDao.insert(equipmentItem);
         });
     }
+
+    void updateEquipmentItem(EquipmentItem equipmentItem){
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            mItemDao.updateItem((equipmentItem));
+        });
+
+    }
+
     void delete(EquipmentItem equipmentItem){
         AppDatabase.databaseWriteExecutor.execute(() -> {
             mItemDao.deleteItem((equipmentItem));
