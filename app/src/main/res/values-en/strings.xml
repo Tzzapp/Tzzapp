@@ -24,4 +24,7 @@
     <string name="lamp_description">Lampe</string>
     <string name="distance_length">Distanse på lengde</string>
     <string name="calculate_button_text">MATH!</string>
+    <string name="ok_button">Ok</string>
+    <string name="cancel_button">Cancel</string>
+
 </resources>
