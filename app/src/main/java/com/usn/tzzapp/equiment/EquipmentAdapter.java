@@ -48,6 +48,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
+    List<EquipmentItem> getEquipmentItemList() {
+        return mDiffer.getCurrentList();
+    }
+
     /*public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
         this.mSelectionTracker = selectionTracker;
     }*/
