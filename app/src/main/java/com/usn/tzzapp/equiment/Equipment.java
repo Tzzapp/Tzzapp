@@ -3,6 +3,7 @@ package com.usn.tzzapp.equiment;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
@@ -44,6 +45,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     //private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list, this);
     private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
 
+    private EquipmentViewModel equipmentViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -66,6 +69,16 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         setTitle(R.string.equipment);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
+
+        equipmentViewModel.getAllEquipment().observe(this, equipmentItemList -> {
+            // Update the cached copy of the words in the adapter.
+            equipmentAdapter.submitList(equipmentItemList);
+        });
+
+
+        /*
         itemsList = sharedPreferences.getStringSet("list", itemsList);
 
         for (String t : itemsList){
@@ -122,7 +135,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
       /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
 
        if (hasSelection ){
-            for (EquipmentItem item : list){
+            for (EquipmentItem item : equipmentAdapter.getEquipmentItemList()){
                 if (item.isSelected()){
                  selectionTracker.select(item.getId());
                 }
@@ -136,22 +149,25 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             //list.add(new EquipmentItem("Item", list.size()+1));
             //Log.d("list", "" + list.size());
 
+            equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
+
             //equipmentAdapter.notifyDataSetChanged();
-            equipmentAdapter.notifyItemInserted(list.size()+1);
-            recyclerView.smoothScrollToPosition(list.size()+1);
+            equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
+            recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size()+1);
 
 
         }));
 
         binding.imageButtonDelete.setOnClickListener(v -> {
 
-            if (list.size() != 0) {
+            if (equipmentAdapter.getEquipmentItemList().size() != 0) {
 
                 recyclerView.post(() -> {
-                    for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
+                    for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
                         EquipmentItem equipmentItem = iterator.next();
                         if (selectionTracker.isSelected(equipmentItem.getId())) {
                             //iterator.remove();
+                            equipmentViewModel.delete(equipmentItem);
                             equipmentAdapter.notifyItemRemoved(((int) equipmentItem.getId()));
                             //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
@@ -208,7 +224,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
                 super.onItemStateChanged(key, selected);
 
-                for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
+                for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
                     EquipmentItem equipmentItem = iterator.next();
 
                     equipmentItem.setSelected(false);
