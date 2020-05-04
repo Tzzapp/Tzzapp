@@ -7,9 +7,22 @@
     <string name="title_activity_settings">Innstillingar</string>
     <string name="lang">Språk</string>
     <string name="title_activity_forms">Formularar</string>
-    <string name="key_dark_mode">Nåttmodus</string>
+    <string name="key_dark_mode">Nattmodus</string>
     <string name="appearance">Utsående</string>
     <string name="placeholder">test</string>
+    <string name="lamps">Lampar</string>
+    <string name="lampWidth">Bredde</string>
+    <string name="lampLength">Lengde</string>
+    <string name="roomWidth">Bredde</string>
+    <string name="roomLength">Lengde</string>
+    <string name="lamp_count">Antall lamper</string>
+    <string name="distance_width">Distanse på bredde</string>
+    <string name="spaceBetweenLamps">Plass mellom lamper</string>
+    <string name="room">Rom</string>
+    <string name="size">Størrelse</string>
+    <string name="lamp_description">Lampe</string>
+    <string name="distance_length">Distanse på lengde</string>
+    <string name="calculate_button_text">MATH!</string>
 
 
 </resources>

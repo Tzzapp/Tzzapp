@@ -3,20 +3,31 @@ package com.usn.tzzapp.equiment;
 import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 /**
  * This class extends @BaseObservable
  * The reason it does that it so that the values can be observed
  * and pushed out to a recycler view or any other from of text view
  */
+@Entity(tableName = "equipment_table")
 public class EquipmentItem extends BaseObservable implements Comparable<EquipmentItem> {
 
+    @ColumnInfo(name = "name")
     private String name;
-    private int id;
+
+    @PrimaryKey(autoGenerate = true)
+    private long id;
     private int prod_id;
+
+    @ColumnInfo(name = "selected")
     private boolean selected;
     //private ColorStateList color;
 
+    @Ignore
     public EquipmentItem(String name, int prod_id){
         this.name = name;
         this.prod_id = prod_id;
@@ -29,6 +40,8 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
         //id = ""+prod_id;
         id = hashCode();
     }
+
+    @Ignore
     public EquipmentItem(int id){
         this.name = "Item";
         this.id = id;
@@ -62,6 +75,10 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Bindable

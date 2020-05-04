@@ -48,6 +48,10 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
+    List<EquipmentItem> getEquipmentItemList() {
+        return mDiffer.getCurrentList();
+    }
+
     /*public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
         this.mSelectionTracker = selectionTracker;
     }*/
@@ -148,7 +152,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
                 @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
             // NOTE: if you use equals, your object must properly override Object#equals()
             // Incorrectly returning false here will result in too many animations.
-            return oldItem.equals( newItem);
+            return oldItem.getId() == (newItem).getId();
         }
     };
 

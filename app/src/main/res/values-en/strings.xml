@@ -11,4 +11,17 @@
     <string name="key_dark_mode">Night Mode</string>
     <string name="appearance">Appearance</string>
     <string name="placeholder">test</string>
+    <string name="lamps">Lamps</string>
+    <string name="lampWidth">Width</string>
+    <string name="lampLength">Lengde</string>
+    <string name="roomWidth">Bredde</string>
+    <string name="roomLength">Lengde</string>
+    <string name="lamp_count">Antall lamper</string>
+    <string name="distance_width">Distanse på bredde</string>
+    <string name="spaceBetweenLamps">Plass mellom lamper</string>
+    <string name="room">Rom</string>
+    <string name="size">Størrelse</string>
+    <string name="lamp_description">Lampe</string>
+    <string name="distance_length">Distanse på lengde</string>
+    <string name="calculate_button_text">MATH!</string>
 </resources>
