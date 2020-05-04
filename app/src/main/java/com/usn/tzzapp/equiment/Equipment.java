@@ -80,7 +80,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             list.sort(EquipmentItem::compareTo);
-        }
+        }*/
 
         // Connects to the recycler view in the layout file
         recyclerView = binding.recview;
@@ -119,7 +119,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 StorageStrategy.createLongStorage())
                 .build();
 
-       boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
+      /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
 
        if (hasSelection ){
             for (EquipmentItem item : list){
@@ -127,14 +127,14 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                  selectionTracker.select(item.getId());
                 }
             }
-        }
+        }*/
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
         binding.imageButtonNew.setOnClickListener((v -> {
 
             //recyclerView.smoothScrollToPosition(0);
-            list.add(new EquipmentItem("Item", list.size()+1));
-            Log.d("list", "" + list.size());
+            //list.add(new EquipmentItem("Item", list.size()+1));
+            //Log.d("list", "" + list.size());
 
             //equipmentAdapter.notifyDataSetChanged();
             equipmentAdapter.notifyItemInserted(list.size()+1);
@@ -151,7 +151,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                     for (Iterator<EquipmentItem> iterator = list.iterator(); iterator.hasNext(); ) {
                         EquipmentItem equipmentItem = iterator.next();
                         if (selectionTracker.isSelected(equipmentItem.getId())) {
-                            iterator.remove();
+                            //iterator.remove();
                             equipmentAdapter.notifyItemRemoved(((int) equipmentItem.getId()));
                             //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
@@ -178,12 +178,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     @Override
     protected void onPause() {
         super.onPause();
-        itemsList.clear();
+     /*   itemsList.clear();
         for (EquipmentItem equipmentItem : list) {
           itemsList.add(gson.toJson(equipmentItem));
-        }
+        }*/
         sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
-        sharedPreferences.edit().putStringSet("list", itemsList).apply();
+       // sharedPreferences.edit().putStringSet("list", itemsList).apply();
     }
 
     /**
