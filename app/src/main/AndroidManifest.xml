@@ -45,6 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".equiment.EquipmentItemActivity"
+            android:parentActivityName=".equiment.Equipment"
+            android:label="@string/equipment">
+        </activity>
     </application>
 
 </manifest>
