@@ -12,6 +12,7 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -130,6 +131,14 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             }
         }, new EquipmentItemDetailsLookup(recyclerView),
                 StorageStrategy.createLongStorage())
+                .withOnItemActivatedListener((item, e) -> {
+                    Intent intent = new Intent(this, EquipmentItemActivity.class);
+                    Log.d("id", equipmentAdapter.getItemId(item.getPosition())+"");
+                    intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
+                    startActivity(intent);
+
+                    return true;
+                })
                 .build();
 
       /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
