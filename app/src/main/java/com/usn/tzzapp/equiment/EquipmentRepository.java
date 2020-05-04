@@ -30,6 +30,10 @@ class EquipmentRepository {
         return mAllEquipment;
     }
 
+    LiveData<EquipmentItem> getEquipmentItem(String id){
+        return mItemDao.getEquipmentItem(id);
+    }
+
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     void insert(EquipmentItem equipmentItem) {

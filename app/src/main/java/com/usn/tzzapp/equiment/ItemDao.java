@@ -17,6 +17,9 @@ public interface ItemDao {
     @Query("SELECT * from equipment_table ORDER BY prod_id ASC")
     LiveData<List<EquipmentItem>> getEquipment();
 
+    @Query("SELECT * from equipment_table WHERE  id=:id")
+    LiveData<EquipmentItem> getEquipmentItem(String id);
+
     @Query("DELETE FROM equipment_table")
     void deleteAll();
 
