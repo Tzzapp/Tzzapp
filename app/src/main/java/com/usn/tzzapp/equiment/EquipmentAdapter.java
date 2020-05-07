@@ -39,7 +39,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          *//*
     }*/
     public EquipmentAdapter(List<EquipmentItem> list){
-        this.equipmentItemList = list;
+        mDiffer.submitList(list);
         setHasStableIds(true);
     }
 
