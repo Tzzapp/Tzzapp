@@ -7,10 +7,12 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentItemBinding;
 
+import static android.text.TextUtils.*;
 
 
 public class EquipmentItemActivity extends AppCompatActivity {
@@ -48,8 +50,10 @@ public class EquipmentItemActivity extends AppCompatActivity {
         });
 
         binding.editTextProdId.setOnClickListener((v) -> {
-            equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
-            viewModel.update(equipmentItem);
+            if(!isEmpty(binding.editTextProdId.getText())){
+                equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
+                viewModel.update(equipmentItem);
+            }
         });
 
 
