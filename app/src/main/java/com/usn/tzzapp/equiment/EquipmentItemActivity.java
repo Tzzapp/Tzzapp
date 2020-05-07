@@ -41,9 +41,20 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
         });
 
+        binding.editTextName.setOnClickListener((v) -> {
+            equipmentItem.setName(binding.editTextName.getText().toString());
+            viewModel.update(equipmentItem);
+
+        });
+
+        binding.editTextProdId.setOnClickListener((v) -> {
+            equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
+            viewModel.update(equipmentItem);
+        });
+
+
         binding.okButton.setOnClickListener(v -> {
             viewModel.update(equipmentItem);
-            finish();
 
         });
 
