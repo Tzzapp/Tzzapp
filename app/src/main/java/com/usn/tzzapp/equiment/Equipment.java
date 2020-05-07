@@ -158,10 +158,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             //list.add(new EquipmentItem("Item", list.size()+1));
             //Log.d("list", "" + list.size());
 
-            equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
+            v.post(() -> {
+                equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
+            });
 
             //equipmentAdapter.notifyDataSetChanged();
-            equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
+            //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
             recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size()+1);
 
 
