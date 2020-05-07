@@ -1,5 +1,6 @@
 package com.usn.tzzapp.equiment;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -19,6 +20,7 @@ import com.usn.tzzapp.BR;
 public class EquipmentItem extends BaseObservable implements Comparable<EquipmentItem> {
 
     @ColumnInfo(name = "name")
+    @NonNull
     private String name;
 
     @PrimaryKey(autoGenerate = true)
