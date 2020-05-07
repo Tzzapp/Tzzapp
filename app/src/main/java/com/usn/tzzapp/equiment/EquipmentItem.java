@@ -69,7 +69,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        return super.equals(obj);
+        return this == obj;
     }
 
     @Bindable
