@@ -21,7 +21,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
@@ -37,9 +37,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     SelectionTracker<Long> selectionTracker;
 
-    SharedPreferences sharedPreferences ;
-    Set<String> itemsList = new HashSet<>();
-    Gson gson = new Gson();
+    //SharedPreferences sharedPreferences ;
+    //Set<String> itemsList = new HashSet<>();
+    //Gson gson = new Gson();
 
     private List<EquipmentItem> list = new ArrayList<>();
 
@@ -69,7 +69,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         setTitle(R.string.equipment);
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+       //sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
@@ -207,7 +207,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         for (EquipmentItem equipmentItem : list) {
           itemsList.add(gson.toJson(equipmentItem));
         }*/
-        sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
+        //sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
        // sharedPreferences.edit().putStringSet("list", itemsList).apply();
     }
 
