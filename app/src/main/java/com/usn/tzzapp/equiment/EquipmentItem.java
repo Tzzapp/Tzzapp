@@ -8,6 +8,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.usn.tzzapp.BR;
+
 /**
  * This class extends @BaseObservable
  * The reason it does that it so that the values can be observed
@@ -55,11 +57,12 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
      */
     public void setSelected(boolean selected) {
         this.selected = selected;
-        //notifyPropertyChanged(BR._all);
+        notifyPropertyChanged(BR.selected);
     }
 
     public void setName(String name) {
         this.name = name;
+        notifyPropertyChanged(BR.name);
     }
 
     @Bindable
@@ -92,6 +95,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     public void setProd_id(int prod_id) {
         this.prod_id = prod_id;
+        notifyPropertyChanged(BR.prod_id);
     }
 
     @Override
