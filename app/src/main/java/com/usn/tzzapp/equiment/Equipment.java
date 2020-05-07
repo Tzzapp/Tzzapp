@@ -35,7 +35,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     RecyclerView recyclerView;
 
-    SelectionTracker selectionTracker;
+    SelectionTracker<Long> selectionTracker;
 
     SharedPreferences sharedPreferences ;
     Set<String> itemsList = new HashSet<>();
@@ -174,10 +174,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 recyclerView.post(() -> {
                     for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
                         EquipmentItem equipmentItem = iterator.next();
-                        if (selectionTracker.isSelected(equipmentItem.getId())) {
+                        if (selectionTracker.isSelected((long)equipmentItem.getId())) {
                             //iterator.remove();
                             equipmentViewModel.delete(equipmentItem);
-                            equipmentAdapter.notifyItemRemoved(((int) equipmentItem.getId()));
+                            equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
                             //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
 
@@ -237,7 +237,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                     EquipmentItem equipmentItem = iterator.next();
 
                     equipmentItem.setSelected(false);
-                    if (selectionTracker.isSelected(equipmentItem.getId())){
+                    if (selectionTracker.isSelected((long)equipmentItem.getId())){
                         equipmentItem.setSelected(true);
                     }
                 }

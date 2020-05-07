@@ -22,7 +22,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     private String name;
 
     @PrimaryKey(autoGenerate = true)
-    private long id;
+    private int id;
     private int prod_id;
 
     @ColumnInfo(name = "selected")
@@ -80,11 +80,11 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
         return name;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
