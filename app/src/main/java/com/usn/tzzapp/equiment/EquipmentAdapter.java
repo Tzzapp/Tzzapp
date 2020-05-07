@@ -156,7 +156,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         }
     };
 
-    class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
+    static class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
 
         //OnEquipmentListener onEquipmentListener;
         private EquipmentItemBinding binding;
