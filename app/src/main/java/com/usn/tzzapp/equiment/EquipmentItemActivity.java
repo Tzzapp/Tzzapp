@@ -1,6 +1,7 @@
 package com.usn.tzzapp.equiment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,6 +9,9 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentItemBinding;
@@ -26,6 +30,9 @@ public class EquipmentItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ActivityEquipmentItemBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment_item);
+
+        Toolbar toolbar = findViewById(R.id.itemToolbar);
+        setSupportActionBar(toolbar);
 
          viewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
@@ -75,5 +82,20 @@ public class EquipmentItemActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.close_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.close){
+            finish();
+        }
+
+        return  true;
     }
 }
