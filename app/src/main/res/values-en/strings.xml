@@ -27,5 +27,9 @@
     <string name="ok_button">Ok</string>
     <string name="cancel_button">Cancel</string>
     <string name="edit_button_label">Edit</string>
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="prod__id">Product id</string>
+    <string name="prod_name">Product Name</string>
 
 </resources>
