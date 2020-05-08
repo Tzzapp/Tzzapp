@@ -1,5 +1,6 @@
 package com.usn.tzzapp.equiment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
@@ -8,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,6 +24,8 @@ public class EquipmentItemActivity extends AppCompatActivity {
     EquipmentViewModel viewModel;
 
     EquipmentItem equipmentItem;
+
+    boolean editing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +52,40 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
         });
 
-        binding.editTextName.setOnClickListener((v) -> {
+       /* binding.editTextName.setOnClickListener((v) -> {
             equipmentItem.setName(binding.editTextName.getText().toString());
             viewModel.update(equipmentItem);
 
-        });
+        });*/
 
-        binding.editTextProdId.setOnClickListener((v) -> {
+       /* binding.editTextProdId.setOnClickListener((v) -> {
             if(!isEmpty(binding.editTextProdId.getText())){
                 equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
                 viewModel.update(equipmentItem);
+            }
+        });*/
+
+        binding.fab.setOnClickListener((view) -> {
+
+            if (editing) {
+                if(!isEmpty(binding.editTextName.getText())){
+                    equipmentItem.setName(binding.editTextName.getText().toString());
+                }
+                if(!isEmpty(binding.editTextProdId.getText())){
+                    equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
+                }
+                viewModel.update(equipmentItem);
+
+                binding.editTextName.setEnabled(false);
+                binding.editTextProdId.setEnabled(false);
+                binding.fab.setText(R.string.edit_button_label);
+                editing = false;
+
+            } else {
+                binding.editTextName.setEnabled(true);
+                binding.editTextProdId.setEnabled(true);
+                binding.fab.setText(R.string.save);
+                editing = true;
             }
         });
 
