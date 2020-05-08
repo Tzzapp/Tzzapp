@@ -27,59 +27,58 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner"
-            android:layout_width="407dp"
-            android:layout_height="439dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="106dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/item_name"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(EquipmentItem.prod_id), default=@string/placeholder}"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="38dp"
+                android:hint="@string/prod_name"
+                app:layout_constraintBottom_toTopOf="@+id/layout2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="par|ent">
 
-            <EditText
-                android:id="@+id/editTextName"
-                android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="text"
+                    android:text="@{EquipmentItem.name}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:inputType="text"
-                android:text="@{EquipmentItem.name}"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/prod__id"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/layout1">
 
-            <EditText
-                android:id="@+id/editTextProd_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="67dp"
-                android:ems="10"
-                android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/item_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/editTextName2"
-                android:layout_width="213dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="500dp"
-                android:ems="10"
-                android:inputType="number"
-                android:text="@{EquipmentItem.name}"
-                app:layout_constraintBottom_toTopOf="@+id/editTextName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextProd_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="number"
+                    android:text="@{String.valueOf(EquipmentItem.prod_id)}" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -87,11 +86,9 @@
             android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inner">
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fab"
