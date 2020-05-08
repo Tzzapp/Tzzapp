@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_activated="true"
         android:color="@color/mainText" android:alpha="0.5"  /> <!-- pressed -->
- <!--   <item android:state_activated="false"
-        android:color="#ffffffff"/> &lt;!&ndash; focused &ndash;&gt;-->
+   <item android:state_activated="false"
+        android:color="#989CAE"/>
     <item android:color="@color/mainBackground"/> <!-- default -->
 </selector>

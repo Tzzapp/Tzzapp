@@ -102,7 +102,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setAdapter(equipmentAdapter);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
 
         selectionTracker = new Builder<>("equipment-selection",
                 recyclerView, new ItemKeyProvider<Long>(ItemKeyProvider.SCOPE_MAPPED) {
