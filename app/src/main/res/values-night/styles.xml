@@ -21,6 +21,14 @@
         <item name="android:statusBarColor">@color/mainBackground</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="actionBarTheme">@style/AppTheme</item>
+
+</style>
+
+    <style name="item" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="mainText">@color/mainText</item>
+        <item name="backgroundColor">@color/mainBackground</item>
+
+
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -23,6 +23,11 @@
         <item name="actionBarTheme">@style/AppTheme</item>
     </style>
 
+    <style name="item" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="mainText">@color/mainText</item>
+        <item name="backgroundColor">@color/mainBackground</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

@@ -47,7 +47,8 @@
         </activity>
         <activity android:name=".equiment.EquipmentItemActivity"
             android:parentActivityName=".equiment.Equipment"
-            android:label="@string/equipment">
+            android:label="@string/equipment"
+            android:theme="@style/item">
         </activity>
     </application>
 

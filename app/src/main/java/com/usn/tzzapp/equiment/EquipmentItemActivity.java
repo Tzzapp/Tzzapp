@@ -57,7 +57,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
         });
 
 
-        binding.okButton.setOnClickListener(v -> {
+      /*  binding.okButton.setOnClickListener(v -> {
             viewModel.update(equipmentItem);
 
         });
@@ -67,6 +67,8 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
         });
         
+    }
+       */
     }
 
     @Override
