@@ -152,13 +152,13 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }*/
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
-        binding.imageButtonNew.setOnClickListener((v -> {
+        binding.fab.setOnClickListener((v -> {
 
             //recyclerView.smoothScrollToPosition(0);
             //list.add(new EquipmentItem("Item", list.size()+1));
             //Log.d("list", "" + list.size());
 
-            v.post(() -> {
+            recyclerView.post(() -> {
                 equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
             });
 
@@ -169,9 +169,11 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         }));
 
-        binding.imageButtonDelete.setOnClickListener(v -> {
+        binding.bar.setOnMenuItemClickListener(item -> {
 
-            if (equipmentAdapter.getEquipmentItemList().size() != 0) {
+            if(item.getItemId() == R.id.delete) {
+
+                if (equipmentAdapter.getEquipmentItemList().size() != 0) {
 
                 recyclerView.post(() -> {
                     for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
@@ -194,8 +196,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                   equipmentAdapter.notifyItemRangeChanged(equipmentItem.id,list.size());
                   equipmentAdapter.notifyDataSetChanged();
                 */
+                }
             }
 
+            return false;
         });
 
         observer();
