@@ -186,7 +186,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         }
                     }
                     // equipmentAdapter.submitList(list);
-                   // selectionTracker.clearSelection();
+                   selectionTracker.clearSelection();
 
                 });
 
@@ -235,11 +235,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
                 super.onItemStateChanged(key, selected);
 
-                for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
-                    EquipmentItem equipmentItem = iterator.next();
-
+                for (EquipmentItem equipmentItem : equipmentAdapter.getEquipmentItemList()) {
                     equipmentItem.setSelected(false);
-                    if (selectionTracker.isSelected((long)equipmentItem.getId())){
+                    if (selected) {
                         equipmentItem.setSelected(true);
                     }
                 }
