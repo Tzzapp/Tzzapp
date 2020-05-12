@@ -29,7 +29,6 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     @ColumnInfo(name = "selected")
     private boolean selected;
-    //private ColorStateList color;
 
     @Ignore
     public EquipmentItem(String name, int prod_id){

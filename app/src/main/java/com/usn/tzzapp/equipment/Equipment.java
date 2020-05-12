@@ -34,12 +34,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     SelectionTracker<Long> selectionTracker;
 
     //SharedPreferences sharedPreferences ;
-    //Set<String> itemsList = new HashSet<>();
-    //Gson gson = new Gson();
 
     private List<EquipmentItem> list = new ArrayList<>();
 
-    //private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list, this);
     private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
 
     private EquipmentViewModel equipmentViewModel;
@@ -60,12 +57,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         // https://stackoverflow.com/questions/53043412/android-why-use-executependingbindings-in-recyclerview
         // 06.03.2020
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         setTitle(R.string.equipment);
-
-       //sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
@@ -74,18 +68,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             equipmentAdapter.submitList(equipmentItemList);
         });
 
-
         /*
-        itemsList = sharedPreferences.getStringSet("list", itemsList);
 
-        for (String t : itemsList){
-           list.add(gson.fromJson(t, EquipmentItem.class));
-        }
-
-        for (int i = 0; i < 25; i++){
-          //  list.add(new EquipmentItem("Item" , list.size()+1));
-
-        }
         equipmentAdapter.submitList(list);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -150,15 +134,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         binding.fab.setOnClickListener((v -> {
 
-            //recyclerView.smoothScrollToPosition(0);
-            //list.add(new EquipmentItem("Item", list.size()+1));
-            //Log.d("list", "" + list.size());
-
             recyclerView.post(() -> {
                 equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
             });
 
-            //equipmentAdapter.notifyDataSetChanged();
             //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
             recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size()+1);
 
@@ -180,15 +159,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                     for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
                         EquipmentItem equipmentItem = iterator.next();
                         if (selectionTracker.isSelected((long)equipmentItem.getId())) {
-                            //iterator.remove();
                             equipmentViewModel.delete(equipmentItem);
                             equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
                             //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
-
                         }
                     }
-                    // equipmentAdapter.submitList(list);
                    selectionTracker.clearSelection();
 
                 });
@@ -198,10 +174,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         });
                         materialAlertDialogBuilder.show();
 
-               /* equipmentAdapter.notifyItemRemoved(equipmentItem.id);
-                  equipmentAdapter.notifyItemRangeChanged(equipmentItem.id,list.size());
-                  equipmentAdapter.notifyDataSetChanged();
-                */
                     } else {
                         Toast.makeText(this, R.string.zero_items, Toast.LENGTH_LONG).show();
                     }
@@ -218,12 +190,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     @Override
     protected void onPause() {
         super.onPause();
-     /*   itemsList.clear();
-        for (EquipmentItem equipmentItem : list) {
-          itemsList.add(gson.toJson(equipmentItem));
-        }*/
         //sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
-       // sharedPreferences.edit().putStringSet("list", itemsList).apply();
     }
 
     /**
@@ -257,7 +224,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             }
 
         });
-        //selectionTracker.clearSelection();
     }
 
     @Override

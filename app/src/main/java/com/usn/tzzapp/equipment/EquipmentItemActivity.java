@@ -88,18 +88,6 @@ public class EquipmentItemActivity extends AppCompatActivity {
         });
 
 
-      /*  binding.okButton.setOnClickListener(v -> {
-            viewModel.update(equipmentItem);
-
-        });
-
-        binding.cancelButton.setOnClickListener(v -> {
-           finish();
-
-        });
-        
-    }
-       */
     }
 
     @Override

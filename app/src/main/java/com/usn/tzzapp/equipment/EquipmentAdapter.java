@@ -57,9 +57,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         return mDiffer.getCurrentList();
     }
 
-    /*public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
-        this.mSelectionTracker = selectionTracker;
-    }*/
 
     /**
      * This will let the DiffUtil and AsyncListDiffer know what list to process
@@ -230,21 +227,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             binding.executePendingBindings();
 
 
-      /*      itemView.post(new Runnable() {
-                @Override
-                public void run() {
-                }
-            });
-
-            itemView.setActivated(false);
-            if (mSelectionTracker != null){
-                if(mSelectionTracker.isSelected(equipmentItemDetails.getSelectionKey())){
-                    itemView.setActivated(true);
-
-                    Log.d("Selected", item.id + " Selected : " + mSelectionTracker.getSelection() );
-                }
-            }
-             */
         }
 
         public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent){
