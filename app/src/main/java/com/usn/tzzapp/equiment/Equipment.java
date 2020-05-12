@@ -17,11 +17,14 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 
 //import com.google.gson.Gson;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
@@ -174,6 +177,11 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             if(item.getItemId() == R.id.delete) {
 
                 if (equipmentAdapter.getEquipmentItemList().size() != 0) {
+                    if (selectionTracker.getSelection().size() >= 1) {
+                        MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(this, R.style.equipmentTheme));
+                        materialAlertDialogBuilder.setTitle(getString(R.string.delete_title) + selectionTracker.getSelection().size() + getString(R.string.delete_item_title));
+                        materialAlertDialogBuilder.setMessage(R.string.delete_item_string);
+                        materialAlertDialogBuilder.setPositiveButton(getString(android.R.string.ok), (dialog, which) -> {
 
                 recyclerView.post(() -> {
                     for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
@@ -191,11 +199,19 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                    selectionTracker.clearSelection();
 
                 });
+                        });
+                        materialAlertDialogBuilder.setNegativeButton(R.string.cancel_button, (dialog, which) -> {
+
+                        });
+                        materialAlertDialogBuilder.show();
 
                /* equipmentAdapter.notifyItemRemoved(equipmentItem.id);
                   equipmentAdapter.notifyItemRangeChanged(equipmentItem.id,list.size());
                   equipmentAdapter.notifyDataSetChanged();
                 */
+                    } else {
+                        Toast.makeText(this, R.string.zero_items, Toast.LENGTH_LONG).show();
+                    }
                 }
             }
 
