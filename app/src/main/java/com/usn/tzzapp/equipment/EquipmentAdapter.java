@@ -15,9 +15,16 @@ import com.usn.tzzapp.databinding.EquipmentItemBinding;
 import java.util.List;
 
 /**
- * This adapter will allow, the list to be shown to the user in the recycler view.
+ * This adapter will allow the list to be shown to the user in the recycler view.
  *
  * It will also allow the list to be customised to fit our needs.
+ *
+ * Currently it uses the AsyncListDiffer to find out where items should go.
+ *
+ * The reason behind is that this processes the items on a background thread.
+ *
+ * So that the items are processed while the user can do other actions
+ * and they wont interfere with each other
  */
 
 public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder> {
@@ -32,11 +39,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         //this.onEquipmentListener = onEquipmentListener;
 
 
-        *//* setHasStableIds(true);
-         * Note to self and others, do not use this, it will make the list screwed up,
-         * it caps it at 9, and will crash the app
-         *
-         *//*
     }*/
     public EquipmentAdapter(List<EquipmentItem> list){
         mDiffer.submitList(list);
@@ -48,6 +50,9 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
+    /**
+     * @return the list of items
+     */
     List<EquipmentItem> getEquipmentItemList() {
         return mDiffer.getCurrentList();
     }
@@ -64,6 +69,11 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         mDiffer.submitList(list);
     }
 
+    /**
+     * @param parent
+     * @param viewType
+     * @return the view holder with the itemBinding in it
+     */
     @NonNull
     @Override
     public EquipmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -99,7 +109,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     }
 
     /**
-     * @param position
+     * @param position the position of an item in the recycler view
      * @return id of the equipment item that is in that current position
      */
     @Override
@@ -133,6 +143,12 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
 
     private static final DiffUtil.ItemCallback<EquipmentItem> DIFF_CALLBACK
             = new DiffUtil.ItemCallback<EquipmentItem>() {
+        /**
+         * @param oldItem
+         * @param newItem
+         * @return a boolean value if the the items are the same,
+         * true if they are, false if they are not
+         */
         @Override
         public boolean areItemsTheSame(
                 @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
@@ -141,8 +157,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         }
 
         /**
-         * @param oldItem
-         * @param newItem
+         * @param oldItem the old item that was there before it was moved/removed
+         * @param newItem the new item that is there now / inserted
          * @return a boolean value if the the items/content are the same,
          * true if they are, false if they are not
          */
@@ -175,6 +191,9 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             equipmentItemDetails = new EquipmentItemDetails();
         }*/
 
+        /**
+         * @param binding where the individual items are stored / showed to the user
+         */
         public EquipmentViewHolder(EquipmentItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
