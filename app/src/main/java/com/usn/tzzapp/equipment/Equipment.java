@@ -47,9 +47,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         super.onCreate(savedInstanceState);
 
         /*
-        *  This code block replaces the standard setContentView with the one from DataBindingUtil.
-        *  This makes it able to use android data binding, and makes it take objects,
-        *  instead of setting the values manually here.
+         *  This code block replaces the standard setContentView with the one from DataBindingUtil.
+         *  This makes it able to use android data binding, and makes it take objects,
+         *  instead of setting the values manually here.
          */
         ActivityEquipmentBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment);
 
@@ -113,7 +113,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 StorageStrategy.createLongStorage())
                 .withOnItemActivatedListener((item, e) -> {
                     Intent intent = new Intent(this, EquipmentItemActivity.class);
-                    Log.d("id", equipmentAdapter.getItemId(item.getPosition())+"");
+                    Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
                     intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
                     startActivity(intent);
 
@@ -135,18 +135,18 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         binding.fab.setOnClickListener((v -> {
 
             recyclerView.post(() -> {
-                equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
+                equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount() + 1));
             });
 
             //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
-            recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size()+1);
+            recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size() + 1);
 
 
         }));
 
         binding.bar.setOnMenuItemClickListener(item -> {
 
-            if(item.getItemId() == R.id.delete) {
+            if (item.getItemId() == R.id.delete) {
 
                 if (equipmentAdapter.getEquipmentItemList().size() != 0) {
                     if (selectionTracker.getSelection().size() >= 1) {
@@ -155,19 +155,19 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         materialAlertDialogBuilder.setMessage(R.string.delete_item_string);
                         materialAlertDialogBuilder.setPositiveButton(getString(android.R.string.ok), (dialog, which) -> {
 
-                recyclerView.post(() -> {
-                    for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
-                        EquipmentItem equipmentItem = iterator.next();
-                        if (selectionTracker.isSelected((long)equipmentItem.getId())) {
-                            equipmentViewModel.delete(equipmentItem);
-                            equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
-                            //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
+                            recyclerView.post(() -> {
+                                for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
+                                    EquipmentItem equipmentItem = iterator.next();
+                                    if (selectionTracker.isSelected((long) equipmentItem.getId())) {
+                                        equipmentViewModel.delete(equipmentItem);
+                                        equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
+                                        //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
-                        }
-                    }
-                   selectionTracker.clearSelection();
+                                    }
+                                }
+                                selectionTracker.clearSelection();
 
-                });
+                            });
                         });
                         materialAlertDialogBuilder.setNegativeButton(R.string.cancel_button, (dialog, which) -> {
 
@@ -196,13 +196,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     /**
      * This method will start when the user opens the equipment activity,
      * here it will listen for a long press on a item in the equipment adapter.
-     *
+     * <p>
      * Then it will mark that item as selected using @equipmentItem.setSelected(true)
      * and change its properties as set in the "item_color" xml file in res/color
-     *
+     * <p>
      * This makes use of the selection tracker and its OnItemStateChanged observer
      * and the @itemView.setActivated(item.isSelected()) in equipment adapter class,
-     *
      */
     public void observer() {
         selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
