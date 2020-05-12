@@ -63,7 +63,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
             }
         });*/
 
-        binding.fab.setOnClickListener((view) -> {
+        binding.fabEdit.setOnClickListener((view) -> {
 
             if (editing) {
                 if(!isEmpty(binding.editTextName.getText())){
@@ -76,13 +76,13 @@ public class EquipmentItemActivity extends AppCompatActivity {
 
                 binding.editTextName.setEnabled(false);
                 binding.editTextProdId.setEnabled(false);
-                binding.fab.setText(R.string.edit_button_label);
+                binding.fabEdit.setText(R.string.edit_button_label);
                 editing = false;
 
             } else {
                 binding.editTextName.setEnabled(true);
                 binding.editTextProdId.setEnabled(true);
-                binding.fab.setText(R.string.save);
+                binding.fabEdit.setText(R.string.save);
                 editing = true;
             }
         });
