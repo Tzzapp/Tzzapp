@@ -7,7 +7,7 @@
     <data>
         <variable
             name="EquipmentItem"
-            type="com.usn.tzzapp.equiment.EquipmentItem" />
+            type="com.usn.tzzapp.equipment.EquipmentItem" />
     </data>
 
 

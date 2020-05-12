@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.usn.tzzapp.equiment.EquipmentItem;
-import com.usn.tzzapp.equiment.ItemDao;
+import com.usn.tzzapp.equipment.EquipmentItem;
+import com.usn.tzzapp.equipment.ItemDao;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

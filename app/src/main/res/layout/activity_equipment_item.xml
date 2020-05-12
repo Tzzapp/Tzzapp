@@ -6,14 +6,14 @@
     <data>
         <variable
             name="EquipmentItem"
-            type="com.usn.tzzapp.equiment.EquipmentItem" />
+            type="com.usn.tzzapp.equipment.EquipmentItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".equiment.EquipmentItemActivity">
+        tools:context=".equipment.EquipmentItemActivity">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/itemToolbar"

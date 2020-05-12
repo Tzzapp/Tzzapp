@@ -1,4 +1,4 @@
-package com.usn.tzzapp.equiment;
+package com.usn.tzzapp.equipment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

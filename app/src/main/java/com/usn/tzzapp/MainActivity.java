@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
-import com.usn.tzzapp.equiment.Equipment;
+import com.usn.tzzapp.equipment.Equipment;
 
 public class MainActivity extends AppCompatActivity {
 
