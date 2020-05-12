@@ -1,22 +1,20 @@
 package com.usn.tzzapp.equiment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentItemBinding;
 
-import static android.text.TextUtils.*;
+import static android.text.TextUtils.isEmpty;
 
 
 public class EquipmentItemActivity extends AppCompatActivity {

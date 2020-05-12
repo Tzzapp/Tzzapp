@@ -2,10 +2,7 @@ package com.usn.tzzapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -16,8 +13,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
 import com.usn.tzzapp.equiment.Equipment;
-
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 

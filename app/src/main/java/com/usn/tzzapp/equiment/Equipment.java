@@ -1,20 +1,6 @@
 package com.usn.tzzapp.equiment;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.preference.PreferenceManager;
-import androidx.recyclerview.selection.ItemKeyProvider;
-import androidx.recyclerview.selection.SelectionTracker;
-import androidx.recyclerview.selection.SelectionTracker.Builder;
-import androidx.recyclerview.selection.StorageStrategy;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
@@ -22,17 +8,24 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.selection.ItemKeyProvider;
+import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.selection.SelectionTracker.Builder;
+import androidx.recyclerview.selection.StorageStrategy;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-//import com.google.gson.Gson;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
 
