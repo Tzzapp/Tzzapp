@@ -116,7 +116,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
              * sure the that the item is there and that the tracker wont run in
              * to a item that is null and therefore crash from a NullPointerException
              *
-             * @param key
+             * @param key the long value of the id of the item
              * @return this will return RecyclerView.NO_POSITION or viewHolder.getLayoutPosition(),
              * depending on whether viewHolder is null or not
              */
