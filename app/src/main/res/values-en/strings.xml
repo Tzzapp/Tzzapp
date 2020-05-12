@@ -31,5 +31,9 @@
     <string name="save">Save</string>
     <string name="prod__id">Product id</string>
     <string name="prod_name">Product Name</string>
+    <string name="delete_item_string">Are you sure you want to delete these items ?</string>
+    <string name="delete_title">"Delete "</string>
+    <string name="delete_item_title">" item (s) ?"</string>
+    <string name="zero_items">Please choose some elements by long pressing them</string>
 
 </resources>
