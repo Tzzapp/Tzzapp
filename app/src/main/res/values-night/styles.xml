@@ -22,7 +22,6 @@
 </style>
 
     <style name="item" parent="equipmentTheme">
-        <item name="android:windowSwipeToDismiss">true</item>
         <item name="android:background">@color/mainBackground</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
