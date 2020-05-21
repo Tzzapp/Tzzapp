@@ -34,6 +34,8 @@
     <string name="delete_title">"Slette "</string>
     <string name="delete_item_title">" element (er) ?"</string>
     <string name="zero_items">Velg noen elementer ved å holde på dem</string>
+    <string name="itemCount">Antall :</string>
+    <string name="prod_id_short">"Prod ID : "</string>
 
 
 </resources>
