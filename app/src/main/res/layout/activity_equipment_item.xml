@@ -41,7 +41,6 @@
             android:id="@+id/inner"
             android:layout_width="410dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="106dp"
             app:layout_constraintBottom_toTopOf="@+id/buttons"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
