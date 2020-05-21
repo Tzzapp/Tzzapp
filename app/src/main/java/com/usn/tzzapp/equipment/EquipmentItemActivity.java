@@ -1,6 +1,8 @@
 package com.usn.tzzapp.equipment;
 
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.TextKeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +17,7 @@ import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentItemBinding;
 
 import static android.text.TextUtils.isEmpty;
+import static android.text.method.TextKeyListener.*;
 
 
 public class EquipmentItemActivity extends AppCompatActivity {
@@ -24,6 +27,8 @@ public class EquipmentItemActivity extends AppCompatActivity {
     EquipmentItem equipmentItem;
 
     boolean editing = false;
+
+    TextKeyListener text = new TextKeyListener(Capitalize.SENTENCES, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
             setTitle(equipmentItem.getName());
 
         });
+        disableEditors(binding);
 
        /* binding.editTextName.setOnClickListener((v) -> {
             equipmentItem.setName(binding.editTextName.getText().toString());
@@ -74,20 +80,26 @@ public class EquipmentItemActivity extends AppCompatActivity {
                 }
                 viewModel.update(equipmentItem);
 
-                binding.editTextName.setEnabled(false);
-                binding.editTextProdId.setEnabled(false);
+                disableEditors(binding);
                 binding.fabEdit.setText(R.string.edit_button_label);
                 editing = false;
 
             } else {
-                binding.editTextName.setEnabled(true);
-                binding.editTextProdId.setEnabled(true);
+                binding.editTextName.setKeyListener(text);
+                binding.editTextProdId.setKeyListener(text);
+                binding.editTextProdId.setInputType(InputType.TYPE_CLASS_NUMBER);
                 binding.fabEdit.setText(R.string.save);
                 editing = true;
             }
         });
 
 
+    }
+
+    private void disableEditors(ActivityEquipmentItemBinding binding){
+        binding.editTextName.setKeyListener(null);
+        binding.editTextProdId.setKeyListener(null);
+        binding.numberPickerItem.setEnabled(false);
     }
 
     @Override

@@ -67,8 +67,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:enabled="false"
                     android:inputType="text"
+                    android:textIsSelectable="true"
                     android:text="@{EquipmentItem.name}" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,7 +91,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:enabled="false"
+                    android:maxLength="18"
+                    android:textIsSelectable="true"
                     android:inputType="number"
                     android:text="@{String.valueOf(EquipmentItem.prod_id)}" />
             </com.google.android.material.textfield.TextInputLayout>
