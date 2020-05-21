@@ -70,7 +70,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
                     equipmentItem.setName(binding.editTextName.getText().toString());
                 }
                 if(!isEmpty(binding.editTextProdId.getText())){
-                    equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
+                    equipmentItem.setProd_id(Long.parseLong(String.valueOf(binding.editTextProdId.getText())));
                 }
                 viewModel.update(equipmentItem);
 

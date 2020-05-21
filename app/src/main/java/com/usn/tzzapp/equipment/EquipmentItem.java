@@ -25,7 +25,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private int prod_id;
+    private long prod_id;
 
     @ColumnInfo(name = "selected")
     private boolean selected;
@@ -90,17 +90,17 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     }
 
     @Bindable
-    public int getProd_id() {
+    public long getProd_id() {
         return prod_id;
     }
 
-    public void setProd_id(int prod_id) {
+    public void setProd_id(long prod_id) {
         this.prod_id = prod_id;
         notifyPropertyChanged(BR.prod_id);
     }
 
     @Override
     public int compareTo(EquipmentItem o) {
-        return Integer.compare(this.prod_id, o.prod_id);
+        return Long.compare(this.prod_id, o.prod_id);
     }
 }
