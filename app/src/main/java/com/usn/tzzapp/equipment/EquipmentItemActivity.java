@@ -22,6 +22,9 @@ import static android.text.method.TextKeyListener.*;
 
 public class EquipmentItemActivity extends AppCompatActivity {
 
+    public static final int MAX_VALUE = 10000;
+    public static final int MIN_VALUE = 0;
+
     EquipmentViewModel viewModel;
 
     EquipmentItem equipmentItem;
@@ -52,6 +55,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
             binding.setEquipmentItem(equipmentItem);
             this.equipmentItem = equipmentItem;
             setTitle(equipmentItem.getName());
+            binding.numberPickerItem.setValue(equipmentItem.getItemCount());
 
         });
         disableEditors(binding);
@@ -68,6 +72,8 @@ public class EquipmentItemActivity extends AppCompatActivity {
                 viewModel.update(equipmentItem);
             }
         });*/
+        binding.numberPickerItem.setMinValue(MIN_VALUE);
+        binding.numberPickerItem.setMaxValue(MAX_VALUE);
 
         binding.fabEdit.setOnClickListener((view) -> {
 
@@ -78,13 +84,18 @@ public class EquipmentItemActivity extends AppCompatActivity {
                 if(!isEmpty(binding.editTextProdId.getText())){
                     equipmentItem.setProd_id(Long.parseLong(String.valueOf(binding.editTextProdId.getText())));
                 }
-                viewModel.update(equipmentItem);
+
+                equipmentItem.setItemCount(binding.numberPickerItem.getValue());
+
+                viewModel.update(binding.getEquipmentItem());
 
                 disableEditors(binding);
+
                 binding.fabEdit.setText(R.string.edit_button_label);
                 editing = false;
 
             } else {
+                binding.numberPickerItem.setEnabled(true);
                 binding.editTextName.setKeyListener(text);
                 binding.editTextProdId.setKeyListener(text);
                 binding.editTextProdId.setInputType(InputType.TYPE_CLASS_NUMBER);

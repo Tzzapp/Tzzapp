@@ -30,6 +30,9 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     @ColumnInfo(name = "selected")
     private boolean selected;
 
+    @ColumnInfo(name = "item_count")
+    private int itemCount;
+
     @Ignore
     public EquipmentItem(String name, int prod_id){
         this.name = name;
@@ -97,6 +100,16 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     public void setProd_id(long prod_id) {
         this.prod_id = prod_id;
         notifyPropertyChanged(BR.prod_id);
+    }
+
+    @Bindable
+    public int getItemCount() {
+        return itemCount;
+    }
+
+    public void setItemCount(int itemCount) {
+        this.itemCount = itemCount;
+        notifyPropertyChanged(BR.itemCount);
     }
 
     @Override
