@@ -55,19 +55,18 @@
         android:background="@drawable/formularer_button_bg"
         android:text="@string/action_settings"
         android:textColor="@color/mainBackground"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/logo_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonPriceHelper" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
+    <ImageView
+        android:id="@+id/logo_view"
+        android:layout_width="166dp"
+        android:layout_height="68dp"
         android:layout_marginTop="66dp"
         android:layout_marginBottom="88dp"
-        android:text="Logo here"
-        android:textColor="@color/mainText"
+        android:background="@drawable/tzzapp_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
