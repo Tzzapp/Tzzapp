@@ -19,7 +19,18 @@
             android:background="@color/mainBackground"
             android:theme="@style/AppTheme"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:titleTextColor="@color/mainText" />
+            app:titleTextColor="@color/mainText" >
+
+            <ImageView
+                android:id="@+id/image_logo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/tzzapp_logo"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
