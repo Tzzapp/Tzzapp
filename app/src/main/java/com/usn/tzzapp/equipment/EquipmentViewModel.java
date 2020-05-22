@@ -1,4 +1,4 @@
-package com.usn.tzzapp.equiment;
+package com.usn.tzzapp.equipment;
 
 import android.app.Application;
 
@@ -13,6 +13,8 @@ public class EquipmentViewModel extends AndroidViewModel {
 
     private LiveData<List<EquipmentItem>> listLiveData;
 
+    private LiveData<EquipmentItem> equipmentItemLiveData;
+
     public EquipmentViewModel(Application application){
         super(application);
         equipmentRepository = new EquipmentRepository(application);
@@ -21,8 +23,17 @@ public class EquipmentViewModel extends AndroidViewModel {
 
     LiveData<List<EquipmentItem>> getAllEquipment() { return  listLiveData; }
 
+    LiveData<EquipmentItem> getEquipmentItem(String id) {
+        equipmentItemLiveData = equipmentRepository.getEquipmentItem(id);
+        return equipmentItemLiveData ; }
+
+
     void insert(EquipmentItem equipmentItem){
         equipmentRepository.insert(equipmentItem);
+    }
+
+    void update(EquipmentItem equipmentItem){
+        equipmentRepository.updateEquipmentItem(equipmentItem);
     }
 
     void delete(EquipmentItem equipmentItem){

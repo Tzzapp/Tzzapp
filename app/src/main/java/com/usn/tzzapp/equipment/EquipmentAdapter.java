@@ -1,4 +1,4 @@
-package com.usn.tzzapp.equiment;
+package com.usn.tzzapp.equipment;
 
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,32 +15,82 @@ import com.usn.tzzapp.databinding.EquipmentItemBinding;
 import java.util.List;
 
 /**
- * This adapter will allow, the list to be shown to the user in the recycler view.
- *
+ * This adapter will allow the list to be shown to the user in the recycler view.
+ * <p>
  * It will also allow the list to be customised to fit our needs.
+ * <p>
+ * Currently it uses the AsyncListDiffer to find out where items should go.
+ * <p>
+ * The reason behind is that this processes the items on a background thread.
+ * <p>
+ * So that the items are processed while the user can do other actions
+ * and they wont interfere with each other
  */
 
 public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder> {
 
-    private List<EquipmentItem> equipmentItemList;
+    /**
+     * This interface is used to find out what is clicked on the screen/list
+     * And what position it has .
+     */
+  /*  public interface OnEquipmentListener {
+        void onEquipmentClick(int pos);
+    }*/
+
+    private static final DiffUtil.ItemCallback<EquipmentItem> DIFF_CALLBACK
+            = new DiffUtil.ItemCallback<EquipmentItem>() {
+        /**
+         * @param oldItem
+         * @param newItem
+         * @return a boolean value if the the items are the same,
+         * true if they are, false if they are not
+         */
+        @Override
+        public boolean areItemsTheSame(
+                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
+            // User properties may have changed if reloaded from the DB, but ID is fixed
+            return oldItem.getId() == newItem.getId();
+        }
+
+        /**
+         * @param oldItem the old item that was there before it was moved/removed
+         * @param newItem the new item that is there now / inserted
+         * @return a boolean value if the the items/content are the same,
+         * true if they are, false if they are not
+         */
+        //@SuppressLint("DiffUtilEquals")
+        @Override
+        public boolean areContentsTheSame(
+                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
+            // NOTE: if you use equals, your object must properly override Object#equals()
+            // Incorrectly returning false here will result in too many animations.
+            if (!(oldItem.getName() == null || newItem.getName() == null)) {
+                return oldItem.getName().equals(newItem.getName());
+            }
+            return false;
+        }
+    };
     //private OnEquipmentListener onEquipmentListener;
     private final AsyncListDiffer<EquipmentItem> mDiffer = new AsyncListDiffer(this, DIFF_CALLBACK);
+    private List<EquipmentItem> equipmentItemList;
 
-  /*  public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
+    /*  public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
 
-        this.equipmentItemList = list;
-        //this.onEquipmentListener = onEquipmentListener;
+          this.equipmentItemList = list;
+          //this.onEquipmentListener = onEquipmentListener;
 
 
-        *//* setHasStableIds(true);
-         * Note to self and others, do not use this, it will make the list screwed up,
-         * it caps it at 9, and will crash the app
-         *
-         *//*
-    }*/
-    public EquipmentAdapter(List<EquipmentItem> list){
-        this.equipmentItemList = list;
+      }*/
+    public EquipmentAdapter(List<EquipmentItem> list) {
+        mDiffer.submitList(list);
         setHasStableIds(true);
+    }
+
+    /**
+     * @return the list of items
+     */
+    List<EquipmentItem> getEquipmentItemList() {
+        return mDiffer.getCurrentList();
     }
 
     public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
@@ -48,22 +98,20 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         notifyDataSetChanged();
     }
 
-    List<EquipmentItem> getEquipmentItemList() {
-        return mDiffer.getCurrentList();
-    }
-
-    /*public void setmSelectionTracker (SelectionTracker<Long> selectionTracker){
-        this.mSelectionTracker = selectionTracker;
-    }*/
-
     /**
      * This will let the DiffUtil and AsyncListDiffer know what list to process
+     *
      * @param list the list that should be pushed out to the recycler view
      */
     public void submitList(List<EquipmentItem> list) {
         mDiffer.submitList(list);
     }
 
+    /**
+     * @param parent
+     * @param viewType
+     * @return the view holder with the itemBinding in it
+     */
     @NonNull
     @Override
     public EquipmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -74,16 +122,13 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         return new EquipmentViewHolder(itemBinding);
     }
 
-
     /**
      * @param holder
-     * @param position
-     *
-     * This will using the @position find out where to place the items from the list on the users screen
-     *
-     * It also using the @mSelectionTracker find out what items are selected and what items are not.
-     *
-     * Before the @holder can bind them to the screen
+     * @param position This will using the @position find out where to place the items from the list on the users screen
+     *                 <p>
+     *                 It also using the @mSelectionTracker find out what items are selected and what items are not.
+     *                 <p>
+     *                 Before the @holder can bind them to the screen
      */
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
@@ -99,7 +144,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     }
 
     /**
-     * @param position
+     * @param position the position of an item in the recycler view
      * @return id of the equipment item that is in that current position
      */
     @Override
@@ -113,50 +158,15 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         return position;
     }
 
-
     /**
      * This gives the list the number of what item to put where on the screen.
-     * */
+     */
     @Override
     public int getItemCount() {
         return mDiffer.getCurrentList().size();
     }
 
-
-    /**
-     * This interface is used to find out what is clicked on the screen/list
-     * And what position it has .
-     */
-  /*  public interface OnEquipmentListener {
-        void onEquipmentClick(int pos);
-    }*/
-
-    private static final DiffUtil.ItemCallback<EquipmentItem> DIFF_CALLBACK
-            = new DiffUtil.ItemCallback<EquipmentItem>() {
-        @Override
-        public boolean areItemsTheSame(
-                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
-            // User properties may have changed if reloaded from the DB, but ID is fixed
-            return oldItem.getId() == newItem.getId();
-        }
-
-        /**
-         * @param oldItem
-         * @param newItem
-         * @return a boolean value if the the items/content are the same,
-         * true if they are, false if they are not
-         */
-        //@SuppressLint("DiffUtilEquals")
-        @Override
-        public boolean areContentsTheSame(
-                @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
-            // NOTE: if you use equals, your object must properly override Object#equals()
-            // Incorrectly returning false here will result in too many animations.
-            return oldItem.getId() == (newItem).getId();
-        }
-    };
-
-    class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
+    static class EquipmentViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/ {
 
         //OnEquipmentListener onEquipmentListener;
         private EquipmentItemBinding binding;
@@ -172,6 +182,9 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             equipmentItemDetails = new EquipmentItemDetails();
         }*/
 
+        /**
+         * @param binding where the individual items are stored / showed to the user
+         */
         public EquipmentViewHolder(EquipmentItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
@@ -183,22 +196,21 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
          * Gets the items from the list (Here : equipmentItemList ),
          * that was given when the adapter was created,
          * and pushes the requested values out to the screen.
-         *
+         * <p>
          * These values/strings can be set in the item  xml file (this case equipment_item.xml)
          * But they also listen to what the value of the object in that position
          * from the list it was given during creation of the adapter
-         *
+         * <p>
          * This will also show the result of the selection tracker using
-         * @itemView.setActivated(item.isSelected());
          *
-         * This will then, send the value to the ColorState in res/color/item_color.xml
+         * @itemView.setActivated(item.isSelected()); This will then, send the value to the ColorState in res/color/item_color.xml
          */
         public void bind(EquipmentItem item, int pos) {
 
             /*
-            *  Without these, the selection will only work for the first item in the list
-            *  and it crash allow if the user starts the selection
-            *  on any other item than the first.
+             *  Without these, the selection will only work for the first item in the list
+             *  and it crash allow if the user starts the selection
+             *  on any other item than the first.
              */
             equipmentItemDetails.pos = pos;
             equipmentItemDetails.identifier = item.getId();
@@ -208,24 +220,9 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             binding.executePendingBindings();
 
 
-      /*      itemView.post(new Runnable() {
-                @Override
-                public void run() {
-                }
-            });
-
-            itemView.setActivated(false);
-            if (mSelectionTracker != null){
-                if(mSelectionTracker.isSelected(equipmentItemDetails.getSelectionKey())){
-                    itemView.setActivated(true);
-
-                    Log.d("Selected", item.id + " Selected : " + mSelectionTracker.getSelection() );
-                }
-            }
-             */
         }
 
-        public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent){
+        public ItemDetailsLookup.ItemDetails<Long> getEquipmentItemDetails(MotionEvent motionEvent) {
             return equipmentItemDetails;
         }
 

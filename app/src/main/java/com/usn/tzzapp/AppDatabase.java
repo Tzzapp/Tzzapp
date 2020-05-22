@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.usn.tzzapp.equiment.EquipmentItem;
-import com.usn.tzzapp.equiment.ItemDao;
+import com.usn.tzzapp.equipment.EquipmentItem;
+import com.usn.tzzapp.equipment.ItemDao;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,6 +22,11 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
+    /**
+     * @param context the context of the calling activity
+     * @return the instance, that the different activities can use to access the local database
+     * via the repository
+     */
     public static AppDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {

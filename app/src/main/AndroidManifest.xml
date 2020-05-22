@@ -24,7 +24,7 @@
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
             android:theme="@style/equipmentTheme"
-            android:name="com.usn.tzzapp.equiment.Equipment"
+            android:name="com.usn.tzzapp.equipment.Equipment"
             android:label="@string/equipment"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
@@ -44,6 +44,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".equipment.EquipmentItemActivity"
+            android:parentActivityName=".equipment.Equipment"
+            android:label="@string/equipment"
+            android:theme="@style/item">
         </activity>
     </application>
 

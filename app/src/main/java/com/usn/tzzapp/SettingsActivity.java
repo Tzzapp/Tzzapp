@@ -2,18 +2,10 @@ package com.usn.tzzapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
-
-import java.util.Locale;
 
 
 public class SettingsActivity extends AppCompatActivity {

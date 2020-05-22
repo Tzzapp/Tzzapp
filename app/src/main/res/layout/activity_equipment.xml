@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mainBackground"
-        tools:context=".equiment.Equipment">
+        tools:context=".equipment.Equipment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recview"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@color/mainBackground"
             app:layout_constraintBottom_toTopOf="@id/buttons"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
             tools:itemCount="8"
             tools:listitem="@layout/equipment_item" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/buttons"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -36,37 +37,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recview">
 
-            <ImageButton
-                android:id="@+id/imageButtonNew"
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mainBackground"
+                app:menu="@menu/bottom_menu" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageButtonCopy"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_add_black_24dp" />
+                android:backgroundTint="@color/item_color"
+                android:src="@drawable/ic_add_black_24dp"
+                app:backgroundTint="@color/mainText"
+                app:fabSize="mini"
+                app:layout_anchor="@+id/bar" />
 
-            <ImageButton
-                android:id="@+id/imageButtonCopy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageButtonDelete"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonNew"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_content_copy_black_24dp" />
-
-            <ImageButton
-                android:id="@+id/imageButtonDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageButtonCopy"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_delete_black_24dp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="EquipmentItem"
+            type="com.usn.tzzapp.equipment.EquipmentItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".equipment.EquipmentItemActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/itemToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="160dp"
+            android:layout_height="108dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/inner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:srcCompat="@tools:sample/backgrounds/scenic[1]"
+            android:contentDescription="Green stuff" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inner"
+            android:layout_width="410dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/buttons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_chainStyle="spread_inside">
+
+            <NumberPicker
+                android:id="@+id/numberPickerItem"
+                android:layout_width="wrap_content"
+                android:layout_height="61dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout2" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="38dp"
+                android:hint="@string/prod_name"
+                app:boxBackgroundColor="#989CAE"
+                app:layout_constraintBottom_toTopOf="@+id/layout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textIsSelectable="true"
+                    android:text="@{EquipmentItem.name}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/prod__id"
+                app:boxBackgroundColor="#989CAE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextProd_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:maxLength="18"
+                    android:textIsSelectable="true"
+                    android:inputType="number"
+                    android:text="@{String.valueOf(EquipmentItem.prod_id)}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textViewCount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/itemCount"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/numberPickerItem"
+                app:layout_constraintTop_toBottomOf="@+id/layout2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="82dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inner">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="18dp"
+                android:text="@string/edit_button_label"
+                android:textColor="@color/mainText"
+                app:icon="@drawable/ic_edit_24dp"
+                app:iconGravity="textEnd"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

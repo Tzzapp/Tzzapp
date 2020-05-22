@@ -1,5 +1,6 @@
-package com.usn.tzzapp.equiment;
+package com.usn.tzzapp.equipment;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -7,6 +8,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.usn.tzzapp.BR;
 
 /**
  * This class extends @BaseObservable
@@ -17,15 +20,18 @@ import androidx.room.PrimaryKey;
 public class EquipmentItem extends BaseObservable implements Comparable<EquipmentItem> {
 
     @ColumnInfo(name = "name")
+    @NonNull
     private String name;
 
     @PrimaryKey(autoGenerate = true)
-    private long id;
-    private int prod_id;
+    private int id;
+    private long prod_id;
 
     @ColumnInfo(name = "selected")
     private boolean selected;
-    //private ColorStateList color;
+
+    @ColumnInfo(name = "item_count")
+    private int itemCount;
 
     @Ignore
     public EquipmentItem(String name, int prod_id){
@@ -55,7 +61,12 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
      */
     public void setSelected(boolean selected) {
         this.selected = selected;
-        //notifyPropertyChanged(BR._all);
+        notifyPropertyChanged(BR.selected);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        notifyPropertyChanged(BR.name);
     }
 
     @Bindable
@@ -65,7 +76,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        return super.equals(obj);
+        return this == obj;
     }
 
     @Bindable
@@ -73,25 +84,36 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
         return name;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Bindable
-    public int getProd_id() {
+    public long getProd_id() {
         return prod_id;
     }
 
-    public void setProd_id(int prod_id) {
+    public void setProd_id(long prod_id) {
         this.prod_id = prod_id;
+        notifyPropertyChanged(BR.prod_id);
+    }
+
+    @Bindable
+    public int getItemCount() {
+        return itemCount;
+    }
+
+    public void setItemCount(int itemCount) {
+        this.itemCount = itemCount;
+        notifyPropertyChanged(BR.itemCount);
     }
 
     @Override
     public int compareTo(EquipmentItem o) {
-        return Integer.compare(this.prod_id, o.prod_id);
+        return Long.compare(this.prod_id, o.prod_id);
     }
 }

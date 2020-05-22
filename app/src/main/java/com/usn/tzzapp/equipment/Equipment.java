@@ -1,10 +1,17 @@
-package com.usn.tzzapp.equiment;
+package com.usn.tzzapp.equipment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.ItemKeyProvider;
 import androidx.recyclerview.selection.SelectionTracker;
 import androidx.recyclerview.selection.SelectionTracker.Builder;
@@ -12,37 +19,24 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-
-
-import com.google.gson.Gson;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
 
     RecyclerView recyclerView;
 
-    SelectionTracker selectionTracker;
+    SelectionTracker<Long> selectionTracker;
 
-    SharedPreferences sharedPreferences ;
-    Set<String> itemsList = new HashSet<>();
-    Gson gson = new Gson();
+    //SharedPreferences sharedPreferences ;
 
     private List<EquipmentItem> list = new ArrayList<>();
 
-    //private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list, this);
     private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
 
     private EquipmentViewModel equipmentViewModel;
@@ -53,9 +47,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         super.onCreate(savedInstanceState);
 
         /*
-        *  This code block replaces the standard setContentView with the one from DataBindingUtil.
-        *  This makes it able to use android data binding, and makes it take objects,
-        *  instead of setting the values manually here.
+         *  This code block replaces the standard setContentView with the one from DataBindingUtil.
+         *  This makes it able to use android data binding, and makes it take objects,
+         *  instead of setting the values manually here.
          */
         ActivityEquipmentBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment);
 
@@ -63,12 +57,9 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         // https://stackoverflow.com/questions/53043412/android-why-use-executependingbindings-in-recyclerview
         // 06.03.2020
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         setTitle(R.string.equipment);
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
@@ -77,18 +68,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             equipmentAdapter.submitList(equipmentItemList);
         });
 
-
         /*
-        itemsList = sharedPreferences.getStringSet("list", itemsList);
 
-        for (String t : itemsList){
-           list.add(gson.fromJson(t, EquipmentItem.class));
-        }
-
-        for (int i = 0; i < 25; i++){
-          //  list.add(new EquipmentItem("Item" , list.size()+1));
-
-        }
         equipmentAdapter.submitList(list);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -119,7 +100,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
              * sure the that the item is there and that the tracker wont run in
              * to a item that is null and therefore crash from a NullPointerException
              *
-             * @param key
+             * @param key the long value of the id of the item
              * @return this will return RecyclerView.NO_POSITION or viewHolder.getLayoutPosition(),
              * depending on whether viewHolder is null or not
              */
@@ -130,6 +111,14 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             }
         }, new EquipmentItemDetailsLookup(recyclerView),
                 StorageStrategy.createLongStorage())
+                .withOnItemActivatedListener((item, e) -> {
+                    Intent intent = new Intent(this, EquipmentItemActivity.class);
+                    Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
+                    intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
+                    startActivity(intent);
+
+                    return true;
+                })
                 .build();
 
       /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
@@ -143,48 +132,55 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }*/
         //equipmentAdapter.setmSelectionTracker(selectionTracker);
 
-        binding.imageButtonNew.setOnClickListener((v -> {
+        binding.fab.setOnClickListener((v -> {
 
-            //recyclerView.smoothScrollToPosition(0);
-            //list.add(new EquipmentItem("Item", list.size()+1));
-            //Log.d("list", "" + list.size());
+            recyclerView.post(() -> {
+                equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount() + 1));
+            });
 
-            equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount()+1));
-
-            //equipmentAdapter.notifyDataSetChanged();
-            equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
-            recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size()+1);
+            //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
+            recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size() + 1);
 
 
         }));
 
-        binding.imageButtonDelete.setOnClickListener(v -> {
+        binding.bar.setOnMenuItemClickListener(item -> {
 
-            if (equipmentAdapter.getEquipmentItemList().size() != 0) {
+            if (item.getItemId() == R.id.delete) {
 
-                recyclerView.post(() -> {
-                    for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
-                        EquipmentItem equipmentItem = iterator.next();
-                        if (selectionTracker.isSelected(equipmentItem.getId())) {
-                            //iterator.remove();
-                            equipmentViewModel.delete(equipmentItem);
-                            equipmentAdapter.notifyItemRemoved(((int) equipmentItem.getId()));
-                            //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
+                if (equipmentAdapter.getEquipmentItemList().size() != 0) {
+                    if (selectionTracker.getSelection().size() >= 1) {
+                        MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(this, R.style.equipmentTheme));
+                        materialAlertDialogBuilder.setTitle(getString(R.string.delete_title) + selectionTracker.getSelection().size() + getString(R.string.delete_item_title));
+                        materialAlertDialogBuilder.setMessage(R.string.delete_item_string);
+                        materialAlertDialogBuilder.setPositiveButton(getString(android.R.string.ok), (dialog, which) -> {
 
+                            recyclerView.post(() -> {
+                                for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
+                                    EquipmentItem equipmentItem = iterator.next();
+                                    if (selectionTracker.isSelected((long) equipmentItem.getId())) {
+                                        equipmentViewModel.delete(equipmentItem);
+                                        equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
+                                        //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
-                        }
+                                    }
+                                }
+                                selectionTracker.clearSelection();
+
+                            });
+                        });
+                        materialAlertDialogBuilder.setNegativeButton(R.string.cancel_button, (dialog, which) -> {
+
+                        });
+                        materialAlertDialogBuilder.show();
+
+                    } else {
+                        Toast.makeText(this, R.string.zero_items, Toast.LENGTH_LONG).show();
                     }
-                    // equipmentAdapter.submitList(list);
-                   // selectionTracker.clearSelection();
-
-                });
-
-               /* equipmentAdapter.notifyItemRemoved(equipmentItem.id);
-                  equipmentAdapter.notifyItemRangeChanged(equipmentItem.id,list.size());
-                  equipmentAdapter.notifyDataSetChanged();
-                */
+                }
             }
 
+            return false;
         });
 
         observer();
@@ -194,24 +190,18 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     @Override
     protected void onPause() {
         super.onPause();
-     /*   itemsList.clear();
-        for (EquipmentItem equipmentItem : list) {
-          itemsList.add(gson.toJson(equipmentItem));
-        }*/
-        sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
-       // sharedPreferences.edit().putStringSet("list", itemsList).apply();
+        //sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
     }
 
     /**
      * This method will start when the user opens the equipment activity,
      * here it will listen for a long press on a item in the equipment adapter.
-     *
+     * <p>
      * Then it will mark that item as selected using @equipmentItem.setSelected(true)
      * and change its properties as set in the "item_color" xml file in res/color
-     *
+     * <p>
      * This makes use of the selection tracker and its OnItemStateChanged observer
      * and the @itemView.setActivated(item.isSelected()) in equipment adapter class,
-     *
      */
     public void observer() {
         selectionTracker.addObserver(new SelectionTracker.SelectionObserver() {
@@ -224,18 +214,15 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
                 super.onItemStateChanged(key, selected);
 
-                for (Iterator<EquipmentItem> iterator = equipmentAdapter.getEquipmentItemList().iterator(); iterator.hasNext(); ) {
-                    EquipmentItem equipmentItem = iterator.next();
-
+                for (EquipmentItem equipmentItem : equipmentAdapter.getEquipmentItemList()) {
                     equipmentItem.setSelected(false);
-                    if (selectionTracker.isSelected(equipmentItem.getId())){
+                    if (selected) {
                         equipmentItem.setSelected(true);
                     }
                 }
             }
 
         });
-        //selectionTracker.clearSelection();
     }
 
     @Override

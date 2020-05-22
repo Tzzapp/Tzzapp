@@ -23,6 +23,19 @@
     <string name="lamp_description">Lampe</string>
     <string name="distance_length">Distanse på lengde</string>
     <string name="calculate_button_text">MATH!</string>
+    <string name="ok_button">Ok</string>
+    <string name="cancel_button">Avbryt</string>
+    <string name="edit_button_label">Rediger</string>
+    <string name="close">Lukk</string>
+    <string name="save">Lagre</string>
+    <string name="prod__id">Produkt id</string>
+    <string name="prod_name">Produkt Navn</string>
+    <string name="delete_item_string">Er du sikker på at du vil slette disse elementene</string>
+    <string name="delete_title">"Slett "</string>
+    <string name="delete_item_title">" elemet (ar) ?"</string>
+    <string name="zero_items">Velg noen elementer ved å holde på dem</string>
+    <string name="itemCount">"Antall : "</string>
+    <string name="prod_id_short">Prod ID :</string>
 
 
 </resources>
