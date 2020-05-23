@@ -48,9 +48,9 @@
                 android:id="@+id/fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/item_color"
                 android:src="@drawable/ic_add_black_24dp"
-                app:backgroundTint="@color/mainText"
+                app:backgroundTint="@color/item_color"
+                app:tint="@color/textcolor"
                 app:fabSize="mini"
                 app:layout_anchor="@+id/bar" />
 
