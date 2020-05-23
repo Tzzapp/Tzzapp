@@ -33,9 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
-            app:srcCompat="@drawable/ic_launcher_background"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[1]"
-            android:contentDescription="Green stuff" />
+            app:srcCompat="@drawable/ic_close" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner"
