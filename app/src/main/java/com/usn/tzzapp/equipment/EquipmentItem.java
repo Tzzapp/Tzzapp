@@ -75,8 +75,15 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     }
 
     @Override
-    public boolean equals(@Nullable Object obj) {
-        return this == obj;
+    public boolean equals(@Nullable Object other) {
+        if (other instanceof EquipmentItem) {
+            EquipmentItem equipmentItem = (EquipmentItem) other;
+            return name.equals(equipmentItem.getName())
+                    && (prod_id == ((EquipmentItem) other).getProd_id())
+                    && (itemCount == ((EquipmentItem) other).getItemCount());
+        } else {
+            return false;
+        }
     }
 
     @Bindable
