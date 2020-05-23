@@ -49,7 +49,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         public boolean areItemsTheSame(
                 @NonNull EquipmentItem oldItem, @NonNull EquipmentItem newItem) {
             // User properties may have changed if reloaded from the DB, but ID is fixed
-            return oldItem.getId() == newItem.getId();
+            return oldItem.getName().equals(newItem.getName());
         }
 
         /**
@@ -65,9 +65,9 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             // NOTE: if you use equals, your object must properly override Object#equals()
             // Incorrectly returning false here will result in too many animations.
             if (!(oldItem.getName() == null || newItem.getName() == null)) {
-                return oldItem.getName().equals(newItem.getName());
+                return oldItem.equals(newItem);
             }
-            return false;
+            return true;
         }
     };
     //private OnEquipmentListener onEquipmentListener;
