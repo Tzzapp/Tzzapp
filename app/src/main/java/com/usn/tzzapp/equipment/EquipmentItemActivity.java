@@ -85,6 +85,10 @@ public class EquipmentItemActivity extends AppCompatActivity {
                     equipmentItem.setProd_id(Long.parseLong(String.valueOf(binding.editTextProdId.getText())));
                 }
 
+                if(!isEmpty(binding.editTextDescription.getText())){
+                    equipmentItem.setItemDescription(binding.editTextDescription.getText().toString());
+                }
+
                 equipmentItem.setItemCount(binding.numberPickerItem.getValue());
 
                 viewModel.update(binding.getEquipmentItem());
@@ -98,6 +102,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
                 binding.numberPickerItem.setEnabled(true);
                 binding.editTextName.setKeyListener(text);
                 binding.editTextProdId.setKeyListener(text);
+                binding.editTextDescription.setKeyListener(text);
                 binding.editTextProdId.setInputType(InputType.TYPE_CLASS_NUMBER);
                 binding.fabEdit.setText(R.string.save);
                 editing = true;
@@ -110,6 +115,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
     private void disableEditors(ActivityEquipmentItemBinding binding){
         binding.editTextName.setKeyListener(null);
         binding.editTextProdId.setKeyListener(null);
+        binding.editTextDescription.setKeyListener(null);
         binding.numberPickerItem.setEnabled(false);
     }
 
