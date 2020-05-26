@@ -37,7 +37,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner"
-            android:layout_width="410dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/buttons"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="38dp"
+                android:layout_marginBottom="8dp"
                 android:hint="@string/prod_name"
                 app:layout_constraintBottom_toTopOf="@+id/layout2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="32dp"
                 android:hint="@string/prod__id"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -143,6 +143,9 @@
             android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="82dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/inner">
@@ -155,8 +158,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/edit_button_label"
                 android:textColor="@color/mainBackground"
                 android:background="@drawable/formularer_button_bg"
@@ -165,8 +167,7 @@
                 app:iconGravity="textEnd"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
