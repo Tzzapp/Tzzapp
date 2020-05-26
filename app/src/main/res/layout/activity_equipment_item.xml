@@ -130,6 +130,7 @@
                     android:id="@+id/editTextDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:lines="4"
                     android:text="@{EquipmentItem.itemDescription}"
