@@ -38,5 +38,6 @@
     <string name="itemCount">"Item Count : "</string>
     <string name="prod_id_short">Prod ID :</string>
     <string name="tzzapp_logo">The logo of the app</string>
+    <string name="product_description">Product Description</string>
 
 </resources>

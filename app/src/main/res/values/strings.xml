@@ -37,6 +37,7 @@
     <string name="itemCount">Antall :</string>
     <string name="prod_id_short">"Prod ID : "</string>
     <string name="tzzapp_logo">Logoen til Tzzapp</string>
+    <string name="product_description">Produkt beskrivelse</string>
 
 
 </resources>
