@@ -48,22 +48,22 @@
             <NumberPicker
                 android:id="@+id/numberPickerItem"
                 android:layout_width="wrap_content"
-                android:layout_height="61dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/numberpicker_bg"
                 app:layout_constraintBottom_toTopOf="@+id/layout3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout2" />
+                app:layout_constraintTop_toBottomOf="@+id/layout1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/prod_name"
                 app:layout_constraintBottom_toTopOf="@+id/layout2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +86,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/prod__id"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/layout3"
+                app:layout_constraintEnd_toStartOf="@+id/textViewCount"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout1">
 
@@ -106,22 +106,28 @@
 
             <TextView
                 android:id="@+id/textViewCount"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="16dp"
                 android:text="@string/itemCount"
                 app:layout_constraintBottom_toTopOf="@+id/layout3"
                 app:layout_constraintEnd_toStartOf="@+id/numberPickerItem"
-                app:layout_constraintTop_toBottomOf="@+id/layout2" />
+                app:layout_constraintStart_toEndOf="@+id/layout2"
+                app:layout_constraintTop_toBottomOf="@+id/layout1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout3"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
                 android:hint="@string/product_description"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/numberPickerItem">
