@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="7dp"
-                android:background="@drawable/tzzapp_logo"/>
+                android:background="@drawable/ic_tzzapp"
+                android:contentDescription="@string/tzzapp_logo"/>
 
         </androidx.appcompat.widget.Toolbar>
 

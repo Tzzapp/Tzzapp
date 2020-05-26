@@ -37,5 +37,6 @@
     <string name="zero_items">Please choose some elements by long pressing them</string>
     <string name="itemCount">"Item Count : "</string>
     <string name="prod_id_short">Prod ID :</string>
+    <string name="tzzapp_logo">The logo of the app</string>
 
 </resources>

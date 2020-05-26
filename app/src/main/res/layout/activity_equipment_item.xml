@@ -33,9 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
-            app:srcCompat="@drawable/ic_launcher_background"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[1]"
-            android:contentDescription="Green stuff" />
+            app:srcCompat="@drawable/ic_close" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner"
@@ -136,7 +134,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="18dp"
                 android:text="@string/edit_button_label"
-                android:textColor="@color/mainText"
+                android:textColor="@color/mainBackground"
+                android:background="@drawable/formularer_button_bg"
+                app:backgroundTint="@color/mainText"
                 app:icon="@drawable/ic_edit_24dp"
                 app:iconGravity="textEnd"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -36,6 +36,7 @@
     <string name="zero_items">Velg noen elementer ved å holde på dem</string>
     <string name="itemCount">"Antall : "</string>
     <string name="prod_id_short">Prod ID :</string>
+    <string name="tzzapp_logo">Logoen til appen Tzzapp</string>
 
 
 </resources>
