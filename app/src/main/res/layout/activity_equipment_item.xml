@@ -29,6 +29,7 @@
             android:layout_height="108dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            app:image="@{EquipmentItem.imageSrc }"
             app:layout_constraintBottom_toTopOf="@+id/inner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
