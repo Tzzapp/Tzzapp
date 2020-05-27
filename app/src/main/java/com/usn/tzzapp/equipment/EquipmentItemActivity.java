@@ -1,5 +1,6 @@
 package com.usn.tzzapp.equipment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.TextKeyListener;
@@ -12,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.esafirm.imagepicker.features.ImagePicker;
+import com.esafirm.imagepicker.model.Image;
 
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentItemBinding;
@@ -50,6 +54,13 @@ public class EquipmentItemActivity extends AppCompatActivity {
         if (extras != null) {
             userName = extras.getString("id");
         }
+
+        binding.imageView.setOnClickListener(v -> {
+            ImagePicker.create(this) // Activity or Fragment
+                    .single()
+                    .folderMode(true)
+                    .start();
+        });
 
         viewModel.getEquipmentItem(userName).observe(this, equipmentItem -> {
             binding.setEquipmentItem(equipmentItem);
@@ -137,5 +148,16 @@ public class EquipmentItemActivity extends AppCompatActivity {
         }
 
         return  true;
+    }
+    @Override
+    public void onActivityResult(int requestCode, final int resultCode, Intent data) {
+        if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
+            // or get a single image only
+            Image image = ImagePicker.getFirstImageOrNull(data);
+            equipmentItem.setImageSrc(image.getPath());
+            viewModel.update(equipmentItem);
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
