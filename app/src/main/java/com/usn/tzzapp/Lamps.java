@@ -56,24 +56,70 @@ public class Lamps extends AppCompatActivity {
         MathMaster.setOnClickListener(v -> {
             //Log.d("WORDS", "" + roomSize.getText());
 
-            // hent inn alle lampe og romm-tallene som intigers sån at de kan hånteres
+            int lampChountYInt, roomYInt, lampYInt;
+
+            if (TextUtils.isEmpty(roomY.getText())){// chekking room
+                System.out.println("room bredde mangler");
+                roomYInt = 0;
+            }
+            else{
+                holder = roomY.getText();
+                roomYInt = Integer.parseInt(holder.toString());
+            }
+
+            if (TextUtils.isEmpty(lampY.getText())){// chekking lamp
+                System.out.println("lampe bredde mangler");
+                lampYInt = 0;
+            }
+            else{
+                holder = lampY.getText();
+                lampYInt = Integer.parseInt(holder.toString());
+            }
+
+
+            if (TextUtils.isEmpty(lampChountY.getText())){//chekking if lamp count is missing, if so default to 1
+                System.out.println("antal lamper mangler");
+                lampChountYInt = 1;
+            }
+            else{
+                holder = lampChountY.getText();
+                lampChountYInt = Integer.parseInt(holder.toString());
+            }
+
+            responseY.setText("" + findLampLamp(roomYInt, lampYInt, lampChountYInt));
+            responseWallY.setText("" + findLampWall(roomYInt, lampYInt, lampChountYInt));
+
+
+
+/*
+            // gather teh varius lamp data
+            holder = roomX.getText();
+            int roomXInt = Integer.parseInt(holder.toString());
+
+            holder = lampX.getText();
+            int lampXInt = Integer.parseInt(holder.toString());
+
+            holder = lampChountX.getText();
+            int lampChountXInt = Integer.parseInt(holder.toString());
+
 
 
 
             //sjekk at verken rom eller lampe er manglende - om de er gi respons
 
-            if (TextUtils.isEmpty(lampChountX.getText())){
-                //respons
-            }
 
-            if (TextUtils.isEmpty(lampChountX.getText())){
-                //respons
-            }
+
 
             // hvis lampen er bredere en rommet gi respons
+            if (lampYInt * lampChountXInt > roomYInt){
+                System.out.println("lampene er bredere en rommet");
+            }
 
 
-            //sjekk at der er minst 1 lampe, om det ikke er det set svaret til 1 lampe
+
+
+
+
 
 
             if (!TextUtils.isEmpty(lampChountX.getText())){
@@ -89,6 +135,7 @@ public class Lamps extends AppCompatActivity {
             else {
                 responseWallX.setText("N/A");
             }
+            */
 
         });
 
