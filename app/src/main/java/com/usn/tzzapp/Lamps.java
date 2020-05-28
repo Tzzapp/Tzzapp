@@ -54,7 +54,6 @@ public class Lamps extends AppCompatActivity {
         responseWallY = findViewById(R.id.editTextWallY);
 
         MathMaster.setOnClickListener(v -> {
-            //Log.d("WORDS", "" + roomSize.getText());
 
             int lampChountYInt, roomYInt, lampYInt;
 
@@ -124,31 +123,7 @@ public class Lamps extends AppCompatActivity {
             responseWallX.setText("" + findLampWall(roomXInt, lampXInt, lampChountXInt));
 
 
-
-
-            if (!TextUtils.isEmpty(lampChountX.getText())){
-                responseX.setText(findLampXLamp() + "");
-            }
-            else{
-                responseX.setText("N/A");
-            }
-
-            if (findLampXWall() >= 0) {
-                responseWallX.setText(findLampXWall() + "");
-            }
-            else {
-                responseWallX.setText("N/A");
-            }
-            */
-
         });
-
-
-        //Button buttonKalkuler = findViewById(R.id.buttonKalkuler);
-
-       // final Intent intentLamps = new Intent(this, LampKalkulert.class);
-
-       // buttonKalkuler.setOnClickListener(v -> startActivity(intentLamps));
 
     }
 
