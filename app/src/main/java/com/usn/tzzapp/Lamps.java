@@ -90,34 +90,38 @@ public class Lamps extends AppCompatActivity {
             responseWallY.setText("" + findLampWall(roomYInt, lampYInt, lampChountYInt));
 
 
+            int lampChountXInt, roomXInt, lampXInt;
 
-/*
-            // gather teh varius lamp data
-            holder = roomX.getText();
-            int roomXInt = Integer.parseInt(holder.toString());
+            if (TextUtils.isEmpty(roomX.getText())){// chekking room
+                System.out.println("room bredde mangler");
+                roomXInt = 0;
+            }
+            else{
+                holder = roomX.getText();
+                roomXInt = Integer.parseInt(holder.toString());
+            }
 
-            holder = lampX.getText();
-            int lampXInt = Integer.parseInt(holder.toString());
-
-            holder = lampChountX.getText();
-            int lampChountXInt = Integer.parseInt(holder.toString());
-
-
-
-
-            //sjekk at verken rom eller lampe er manglende - om de er gi respons
-
-
-
-
-            // hvis lampen er bredere en rommet gi respons
-            if (lampYInt * lampChountXInt > roomYInt){
-                System.out.println("lampene er bredere en rommet");
+            if (TextUtils.isEmpty(lampX.getText())){// chekking lamp
+                System.out.println("lampe bredde mangler");
+                lampXInt = 0;
+            }
+            else{
+                holder = lampX.getText();
+                lampXInt = Integer.parseInt(holder.toString());
             }
 
 
+            if (TextUtils.isEmpty(lampChountX.getText())){//chekking if lamp count is missing, if so default to 1
+                System.out.println("antal lamper mangler");
+                lampChountXInt = 1;
+            }
+            else{
+                holder = lampChountX.getText();
+                lampChountXInt = Integer.parseInt(holder.toString());
+            }
 
-
+            responseX.setText("" + findLampLamp(roomXInt, lampXInt, lampChountXInt));
+            responseWallX.setText("" + findLampWall(roomXInt, lampXInt, lampChountXInt));
 
 
 
