@@ -17,7 +17,7 @@
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
+            app:layout_constraintEnd_toEndOf="@+id/spaceToWall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
 
@@ -30,20 +30,20 @@
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
+            app:layout_constraintStart_toStartOf="@+id/spaceToWall"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
 
         <EditText
             android:id="@+id/editTextLampX"
             android:layout_width="90dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
+            app:layout_constraintEnd_toEndOf="@+id/spaceBetweenLamps"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/distanceTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />
 
         <TextView
             android:id="@+id/roomTittle"
@@ -74,7 +74,7 @@
             android:id="@+id/lampTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:text="@string/lamp_description"
             android:textAlignment="center"
             android:textSize="25sp"
@@ -174,7 +174,7 @@
             android:id="@+id/editTextLampY"
             android:layout_width="90dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
@@ -207,17 +207,17 @@
             android:id="@+id/spaceBetweenLamps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:text="@string/spaceBetweenLamps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLampCountLength" />
+            app:layout_constraintTop_toBottomOf="@+id/textfieldLampCountXK" />
 
         <TextView
             android:id="@+id/spaceToWall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Plass mellom lampe og vegg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
