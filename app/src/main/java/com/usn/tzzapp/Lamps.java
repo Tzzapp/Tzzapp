@@ -173,58 +173,7 @@ public class Lamps extends AppCompatActivity {
         return (findLampLamp(room, lamp, lampChount) / 2);
     }
 
-    // 1 of 2 methods used for difrent room-dimentions, chosen instead of taking the data as inn-paramaters to reduce the number of times the application needs to transfer information from EditText and back
-    private int findLampXLamp(){
 
-
-       int out;
-       holder = roomX.getText();
-       if (TextUtils.isEmpty(holder)){
-           return 0;
-        }
-
-       out= Integer.parseInt(holder.toString());
-       System.out.println(out + " fra romm-størelse");
-
-        holder = lampX.getText();
-        if (TextUtils.isEmpty(holder)){
-            return 0;
-        }
-        int lampX = Integer.parseInt(holder.toString());
-        System.out.println(lampX + " fra lampX");
-
-        holder = lampChountX.getText();
-        int lampCountX;
-
-        if (!TextUtils.isEmpty(holder)) {
-            lampCountX = Integer.parseInt(holder.toString());
-            System.out.println(lampCountX + " fra lampCountX");
-        }
-        else{
-            lampCountX = 1;
-        }
-
-        //subtract total used by lamps
-        out = out - (lampX * lampCountX);
-        System.out.println(out + " rom minus plass brukt av lamper");
-
-        // divide by number of lamps to find an equal distance betwen them
-        out = out / (lampCountX); // fjern fra svaret om der er bare 1
-        System.out.println(out + " distanse mellom lamper");
-
-        System.out.println(out/2 + " distanse mellom lamper og vegg");
-
-
-        //Log.d("test", out +" ");
-
-
-        //Log.d("WORDS", "in method: " + room.toString());
-        return out;
-    }
-
-    private int findLampXWall(){
-        return findLampXLamp()/2;
-    }
 }
 
 
