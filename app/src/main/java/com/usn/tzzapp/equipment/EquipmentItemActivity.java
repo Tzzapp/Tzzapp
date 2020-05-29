@@ -55,7 +55,6 @@ public class EquipmentItemActivity extends AppCompatActivity {
             binding.setEquipmentItem(equipmentItem);
             this.equipmentItem = equipmentItem;
             setTitle(equipmentItem.getName());
-            binding.numberPickerItem.setValue(equipmentItem.getItemCount());
 
         });
         disableEditors(binding);
