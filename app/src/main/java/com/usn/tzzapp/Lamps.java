@@ -39,12 +39,12 @@ public class Lamps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activety_lamps);
 
-        roomX = findViewById(R.id.editTextRoomLength);
-        roomY = findViewById(R.id.editTextRoomWith);
-        lampX = findViewById(R.id.editTextLampLength);
-        lampY = findViewById(R.id.editTextLampWith);
-        lampChountX = findViewById(R.id.editTextLampCountLength);
-        lampChountY = findViewById(R.id.editTextLampCountWith);
+        roomX = findViewById(R.id.editTextRoomXK);
+        roomY = findViewById(R.id.editTextRoomYK);
+        lampX = findViewById(R.id.editTextLampXK);
+        lampY = findViewById(R.id.editTextLampYK);
+        lampChountX = findViewById(R.id.editTextLampCountXK);
+        lampChountY = findViewById(R.id.editTextLampCountYK);
 
         MathMaster = findViewById(R.id.buttonCalculate);
 
