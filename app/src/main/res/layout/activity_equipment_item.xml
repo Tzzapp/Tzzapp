@@ -25,15 +25,16 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="160dp"
-            android:layout_height="108dp"
+            android:layout_width="400dp"
+            android:layout_height="200dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            app:image="@{EquipmentItem.imageSrc }"
             app:layout_constraintBottom_toTopOf="@+id/inner"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
-            app:srcCompat="@drawable/tzzapp_logo" />
+            app:srcCompat="@drawable/ic_tzzapp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/inner"
