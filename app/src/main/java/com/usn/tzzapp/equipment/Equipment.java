@@ -170,7 +170,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                             });
                         });
                         materialAlertDialogBuilder.setNegativeButton(R.string.cancel_button, (dialog, which) -> {
-
+                        Toast.makeText(this, R.string.canceled, Toast.LENGTH_LONG).show();
                         });
                         materialAlertDialogBuilder.show();
 
