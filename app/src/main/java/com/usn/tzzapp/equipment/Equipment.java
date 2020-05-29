@@ -151,7 +151,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 if (equipmentAdapter.getEquipmentItemList().size() != 0) {
                     if (selectionTracker.getSelection().size() >= 1) {
                         MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(this, R.style.equipmentTheme));
-                        materialAlertDialogBuilder.setTitle(getString(R.string.delete_title) + selectionTracker.getSelection().size() + getString(R.string.delete_item_title));
+                        materialAlertDialogBuilder.setTitle(getResources().getQuantityString(R.plurals.delete_title, selectionTracker.getSelection().size(), selectionTracker.getSelection().size()));
                         materialAlertDialogBuilder.setMessage(R.string.delete_item_string);
                         materialAlertDialogBuilder.setPositiveButton(getString(android.R.string.ok), (dialog, which) -> {
 
