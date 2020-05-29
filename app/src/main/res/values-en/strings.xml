@@ -24,7 +24,7 @@
     <string name="lamp_description">Lampe</string>
     <string name="distance_length">Distanse på lengde</string>
     <string name="calculate_button_text">MATH!</string>
-    <string name="ok_button">Ok</string>
+    <string name="ok_button">OK</string>
     <string name="cancel_button">Cancel</string>
     <string name="edit_button_label">Edit</string>
     <string name="close">Close</string>
@@ -32,8 +32,10 @@
     <string name="prod__id">Product id</string>
     <string name="prod_name">Product Name</string>
     <string name="delete_item_string">Are you sure you want to delete these items ?</string>
-    <string name="delete_title">"Delete "</string>
-    <string name="delete_item_title">" item (s) ?"</string>
+    <plurals name="delete_title">
+        <item quantity="one">Delete %d item?</item>
+        <item quantity="other">Delete %d items?</item>
+    </plurals>
     <string name="zero_items">Please choose some elements by long pressing them</string>
     <string name="itemCount">"Item Count : "</string>
     <string name="prod_id_short">Prod ID :</string>

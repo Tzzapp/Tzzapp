@@ -30,9 +30,11 @@
     <string name="save">Lagre</string>
     <string name="prod__id">Produkt id</string>
     <string name="prod_name">Produkt Navn</string>
-    <string name="delete_item_string">Er du sikker på at du vil slette disse elementene</string>
-    <string name="delete_title">"Slett "</string>
-    <string name="delete_item_title">" elemet (ar) ?"</string>
+    <string name="delete_item_string">Er du sikker på at du vil slette disse elementene?</string>
+    <plurals name="delete_title">
+        <item quantity="one">Slette %d element?</item>
+        <item quantity="other">Slette %d elementer?</item>
+    </plurals>
     <string name="zero_items">Velg noen elementer ved å holde på dem</string>
     <string name="itemCount">"Antall : "</string>
     <string name="prod_id_short">Prod ID :</string>
