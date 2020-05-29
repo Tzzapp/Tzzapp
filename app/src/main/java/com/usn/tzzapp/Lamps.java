@@ -138,13 +138,13 @@ public class Lamps extends AppCompatActivity {
 
             if (TextUtils.isEmpty(lampChountX.getText())){//chekking if lamp count is missing, if so default to 1
                 System.out.println("antal lamper mangler");
-                lampXTextInputLayout.setErrorEnabled(false);
+                lampChountXTextInputLayout.setError("lampe lengde mangler");
                 lampChountXInt = 1;
             }
             else{
                 holder = lampChountX.getText();
                 lampChountXInt = Integer.parseInt(holder.toString());
-                lampXTextInputLayout.setErrorEnabled(false);
+                lampChountXTextInputLayout.setErrorEnabled(false);
             }
 
             responseX.setText("" + findLampLamp(roomXInt, lampXInt, lampChountXInt));
