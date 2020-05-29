@@ -114,7 +114,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldRoomXK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="@string/roomLength"
             app:layout_constraintEnd_toEndOf="@+id/roomTittle"
             app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldLampXK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="@string/roomLength"
             app:layout_constraintEnd_toEndOf="@+id/lampTittle"
             app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +157,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldLampCountXK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/count"
             app:layout_constraintEnd_toEndOf="@+id/lampTittle"
@@ -179,7 +179,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldRoomYK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="@string/roomWidth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/roomTittle"
@@ -199,7 +199,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldLampYK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:hint="@string/roomWidth"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/lampTittle"
@@ -220,7 +220,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textfieldLampCountYK"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/count"
             app:layout_constraintEnd_toEndOf="parent"
