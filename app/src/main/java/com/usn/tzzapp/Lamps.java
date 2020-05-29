@@ -55,6 +55,8 @@ public class Lamps extends AppCompatActivity {
 
         MathMaster.setOnClickListener(v -> {
 
+            // Y/right side calculations
+
             int lampChountYInt, roomYInt, lampYInt;
 
             if (TextUtils.isEmpty(roomY.getText())){// chekking room
@@ -88,6 +90,8 @@ public class Lamps extends AppCompatActivity {
             responseY.setText("" + findLampLamp(roomYInt, lampYInt, lampChountYInt));
             responseWallY.setText("" + findLampWall(roomYInt, lampYInt, lampChountYInt));
 
+
+            // X/left side calculations
 
             int lampChountXInt, roomXInt, lampXInt;
 
