@@ -36,7 +36,7 @@
     <string name="canceled">Avbrutt</string>
     <string name="error_room_y">Rom bredde mangler</string>
     <string name="error_lamp_y">Lampe bredde mangler</string>
-    <string name="error_lamp_count">Antal lamper mangler</string>
+    <string name="error_lamp_count">Antall lamper mangler</string>
     <string name="error_room_x">Rom lengde mangler</string>
     <string name="error_lamp_x">Lampe lengde mangler</string>
     <string name="count">Antall</string>
