@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Tzzapp</string>
     <string name="action_settings">Innstillinger</string>
-    <string name="forms">Formularer</string>
+    <string name="tools">Verktøy</string>
     <string name="equipment">Utstyrsliste</string>
     <string name="price">Prishjelper</string>
     <string name="title_activity_settings">Innstillinger</string>
     <string name="lang">Språk</string>
-    <string name="title_activity_forms">Formularer</string>
+    <string name="title_activity_tools">Verktøy</string>
     <string name="key_dark_mode">Nattmodus</string>
     <string name="appearance">Utseende</string>
     <string name="placeholder">test</string>

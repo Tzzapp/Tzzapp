@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        Button buttonForms = findViewById(R.id.buttonFormulas);
+        Button buttonTools = findViewById(R.id.buttonFormulas);
 
         Button buttonEquipment = findViewById(R.id.buttonEquipment);
 
@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button buttonSettings = findViewById(R.id.buttonSettings);
 
-        final Intent intentForms = new Intent(this, Formulas.class);
+        final Intent intentTools = new Intent(this, Tools.class);
 
-        buttonForms.setOnClickListener(v -> startActivity(intentForms));
+        buttonTools.setOnClickListener(v -> startActivity(intentTools));
 
 
         final Intent intentEquipment = new Intent(this, Equipment.class);

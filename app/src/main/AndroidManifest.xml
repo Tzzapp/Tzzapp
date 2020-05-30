@@ -28,13 +28,13 @@
             android:label="@string/equipment"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
-            android:name="com.usn.tzzapp.Formulas"
-            android:label="@string/title_activity_forms"
+            android:name="com.usn.tzzapp.Tools"
+            android:label="@string/title_activity_tools"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity
             android:name="com.usn.tzzapp.Lamps"
             android:label="@string/lamps"
-            android:parentActivityName="com.usn.tzzapp.Formulas"
+            android:parentActivityName="com.usn.tzzapp.Tools"
             android:theme="@style/lamp"/>
         <activity
             android:name="com.usn.tzzapp.MainActivity"
