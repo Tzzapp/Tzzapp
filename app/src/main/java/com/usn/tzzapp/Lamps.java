@@ -21,16 +21,16 @@ public class Lamps extends AppCompatActivity {
     EditText roomY;
     EditText lampX;
     EditText lampY;
-    EditText lampChountX;
-    EditText lampChountY;
+    EditText lampCountX;
+    EditText lampCountY;
 
     // icontainment boxes
     TextInputLayout roomXTextInputLayout;
     TextInputLayout roomYTextInputLayout;
     TextInputLayout lampXTextInputLayout;
     TextInputLayout lampYTextInputLayout;
-    TextInputLayout lampChountXTextInputLayout;
-    TextInputLayout lampChountYTextInputLayout;
+    TextInputLayout lampCountXTextInputLayout;
+    TextInputLayout lampCountYTextInputLayout;
 
 
     // button to calculate - replace if posible with auto-update
@@ -53,8 +53,8 @@ public class Lamps extends AppCompatActivity {
         roomY = findViewById(R.id.editTextRoomYK);
         lampX = findViewById(R.id.editTextLampXK);
         lampY = findViewById(R.id.editTextLampYK);
-        lampChountX = findViewById(R.id.editTextLampCountXK);
-        lampChountY = findViewById(R.id.editTextLampCountYK);
+        lampCountX = findViewById(R.id.editTextLampCountXK);
+        lampCountY = findViewById(R.id.editTextLampCountYK);
 
         MathMaster = findViewById(R.id.buttonCalculate);
 
@@ -67,8 +67,8 @@ public class Lamps extends AppCompatActivity {
         roomYTextInputLayout = findViewById(R.id.textfieldRoomYK);
         lampXTextInputLayout = findViewById(R.id.textfieldLampXK);
         lampYTextInputLayout = findViewById(R.id.textfieldLampYK);
-        lampChountXTextInputLayout = findViewById(R.id.textfieldLampCountXK);
-        lampChountYTextInputLayout = findViewById(R.id.textfieldLampCountYK);
+        lampCountXTextInputLayout = findViewById(R.id.textfieldLampCountXK);
+        lampCountYTextInputLayout = findViewById(R.id.textfieldLampCountYK);
 
         disableEditors();
 
@@ -76,7 +76,7 @@ public class Lamps extends AppCompatActivity {
 
             // Y/right side calculations
 
-            int lampChountYInt, roomYInt, lampYInt;
+            int lampCountYInt, roomYInt, lampYInt;
 
             if (TextUtils.isEmpty(roomY.getText())){// chekking room
                 roomYTextInputLayout.setError(getString(R.string.error_room_y));
@@ -99,23 +99,23 @@ public class Lamps extends AppCompatActivity {
             }
 
 
-            if (TextUtils.isEmpty(lampChountY.getText())){//chekking if lamp count is missing, if so default to 1
-                lampChountYTextInputLayout.setError(getString(R.string.error_lamp_count));
-                lampChountYInt = 1;
+            if (TextUtils.isEmpty(lampCountY.getText())){//chekking if lamp count is missing, if so default to 1
+                lampCountYTextInputLayout.setError(getString(R.string.error_lamp_count));
+                lampCountYInt = 1;
             }
             else{
-                holder = lampChountY.getText();
-                lampChountYInt = Integer.parseInt(holder.toString());
-                lampChountYTextInputLayout.setErrorEnabled(false);
+                holder = lampCountY.getText();
+                lampCountYInt = Integer.parseInt(holder.toString());
+                lampCountYTextInputLayout.setErrorEnabled(false);
             }
 
-            responseY.setText("" + findLampLamp(roomYInt, lampYInt, lampChountYInt));
-            responseWallY.setText("" + findLampWall(roomYInt, lampYInt, lampChountYInt));
+            responseY.setText("" + findLampLamp(roomYInt, lampYInt, lampCountYInt));
+            responseWallY.setText("" + findLampWall(roomYInt, lampYInt, lampCountYInt));
 
 
             // X/left side calculations
 
-            int lampChountXInt, roomXInt, lampXInt;
+            int lampCountXInt, roomXInt, lampXInt;
 
             if (TextUtils.isEmpty(roomX.getText())){// chekking room
                 roomXTextInputLayout.setError(getString(R.string.error_room_x));
@@ -138,18 +138,18 @@ public class Lamps extends AppCompatActivity {
             }
 
 
-            if (TextUtils.isEmpty(lampChountX.getText())){//chekking if lamp count is missing, if so default to 1
-                lampChountXTextInputLayout.setError(getString(R.string.error_lamp_count));
-                lampChountXInt = 1;
+            if (TextUtils.isEmpty(lampCountX.getText())){//chekking if lamp count is missing, if so default to 1
+                lampCountXTextInputLayout.setError(getString(R.string.error_lamp_count));
+                lampCountXInt = 1;
             }
             else{
-                holder = lampChountX.getText();
-                lampChountXInt = Integer.parseInt(holder.toString());
-                lampChountXTextInputLayout.setErrorEnabled(false);
+                holder = lampCountX.getText();
+                lampCountXInt = Integer.parseInt(holder.toString());
+                lampCountXTextInputLayout.setErrorEnabled(false);
             }
 
-            responseX.setText("" + findLampLamp(roomXInt, lampXInt, lampChountXInt));
-            responseWallX.setText("" + findLampWall(roomXInt, lampXInt, lampChountXInt));
+            responseX.setText("" + findLampLamp(roomXInt, lampXInt, lampCountXInt));
+            responseWallX.setText("" + findLampWall(roomXInt, lampXInt, lampCountXInt));
 
 
         });
@@ -163,15 +163,15 @@ public class Lamps extends AppCompatActivity {
         return true;
     }
 
-    private int findLampLamp(int room, int lamp, int lampChount){
+    private int findLampLamp(int room, int lamp, int lampCount){
         int out = room; // take the lenght of the room
-        out = out - (lamp * lampChount); // subtract the colected amount "used upp" buy the lamps
-        out = out / lampChount; // divide the remainder buy the amount of laps, giving an equivalent distance betwen them
+        out = out - (lamp * lampCount); // subtract the colected amount "used upp" buy the lamps
+        out = out / lampCount; // divide the remainder buy the amount of laps, giving an equivalent distance betwen them
         return out;
     }
 
-    private int findLampWall(int room, int lamp, int lampChount){
-        return (findLampLamp(room, lamp, lampChount) / 2);
+    private int findLampWall(int room, int lamp, int lampCount){
+        return (findLampLamp(room, lamp, lampCount) / 2);
     }
 
     private void disableEditors(){
