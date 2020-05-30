@@ -77,7 +77,7 @@ public class Lamps extends AppCompatActivity {
             int lampChountYInt, roomYInt, lampYInt;
 
             if (TextUtils.isEmpty(roomY.getText())){// chekking room
-                roomYTextInputLayout.setError("room bredde mangler");
+                roomYTextInputLayout.setError(getString(R.string.errorRoomY));
                 roomYInt = 0;
             }
             else{
@@ -87,7 +87,7 @@ public class Lamps extends AppCompatActivity {
             }
 
             if (TextUtils.isEmpty(lampY.getText())){// chekking lamp
-                lampYTextInputLayout.setError("lampe bredde mangler");
+                lampYTextInputLayout.setError(getString(R.string.errorLampY));
                 lampYInt = 0;
             }
             else{
@@ -98,7 +98,7 @@ public class Lamps extends AppCompatActivity {
 
 
             if (TextUtils.isEmpty(lampChountY.getText())){//chekking if lamp count is missing, if so default to 1
-                lampChountYTextInputLayout.setError("antal lamper mangler");
+                lampChountYTextInputLayout.setError(getString(R.string.errorLampCount));
                 lampChountYInt = 1;
             }
             else{
@@ -116,7 +116,7 @@ public class Lamps extends AppCompatActivity {
             int lampChountXInt, roomXInt, lampXInt;
 
             if (TextUtils.isEmpty(roomX.getText())){// chekking room
-                roomXTextInputLayout.setError("room lengde mangler");
+                roomXTextInputLayout.setError(getString(R.string.errorRoomX));
                 roomXInt = 0;
             }
             else{
@@ -126,7 +126,7 @@ public class Lamps extends AppCompatActivity {
             }
 
             if (TextUtils.isEmpty(lampX.getText())){// chekking lamp
-                lampXTextInputLayout.setError("lampe lengde mangler");
+                lampXTextInputLayout.setError(getString(R.string.errorLampX));
                 lampXInt = 0;
             }
             else{
@@ -137,8 +137,7 @@ public class Lamps extends AppCompatActivity {
 
 
             if (TextUtils.isEmpty(lampChountX.getText())){//chekking if lamp count is missing, if so default to 1
-                System.out.println("antal lamper mangler");
-                lampChountXTextInputLayout.setError("lampe lengde mangler");
+                lampChountXTextInputLayout.setError(getString(R.string.errorLampCount));
                 lampChountXInt = 1;
             }
             else{
