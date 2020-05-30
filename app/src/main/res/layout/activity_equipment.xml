@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/recview">
 
             <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bar"
+                android:id="@+id/equipmentBottomToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/mainBackground"
@@ -52,7 +52,7 @@
                 app:backgroundTint="@color/item_color"
                 app:tint="@color/textcolor"
                 app:fabSize="mini"
-                app:layout_anchor="@+id/bar" />
+                app:layout_anchor="@+id/equipmentBottomToolbar" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

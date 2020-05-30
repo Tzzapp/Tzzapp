@@ -144,7 +144,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         }));
 
-        binding.bar.setOnMenuItemClickListener(item -> {
+        binding.equipmentBottomToolbar.setOnMenuItemClickListener(item -> {
 
             if (item.getItemId() == R.id.delete) {
 
