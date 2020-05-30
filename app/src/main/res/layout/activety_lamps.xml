@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/spaceBetweenLamps"
+            android:text="@string/space_between_lamps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textfieldLampCountXK" />
@@ -115,7 +115,7 @@
             android:id="@+id/textfieldRoomXK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/roomLength"
+            android:hint="@string/room_length"
             app:layout_constraintEnd_toEndOf="@+id/roomTittle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/roomTittle">
@@ -137,7 +137,7 @@
             android:id="@+id/textfieldLampXK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/roomLength"
+            android:hint="@string/room_length"
             app:layout_constraintEnd_toEndOf="@+id/lampTittle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lampTittle">
@@ -180,7 +180,7 @@
             android:id="@+id/textfieldRoomYK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/roomWidth"
+            android:hint="@string/room_width"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/roomTittle"
             app:layout_constraintTop_toBottomOf="@+id/roomTittle">
@@ -200,7 +200,7 @@
             android:id="@+id/textfieldLampYK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/roomWidth"
+            android:hint="@string/room_width"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/lampTittle"
             app:layout_constraintTop_toBottomOf="@+id/lampTittle">

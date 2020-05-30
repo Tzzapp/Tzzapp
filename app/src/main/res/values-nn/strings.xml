@@ -11,9 +11,9 @@
     <string name="appearance">Utsående</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lampar</string>
-    <string name="roomWidth">Bredde</string>
-    <string name="roomLength">Lengde</string>
-    <string name="spaceBetweenLamps">Plass mellom lamper</string>
+    <string name="room_width">Bredde</string>
+    <string name="room_length">Lengde</string>
+    <string name="space_between_lamps">Plass mellom lamper</string>
     <string name="room">Rom</string>
     <string name="lamp_description">Lampe</string>
     <string name="calculate_button_text">Kalkuler</string>
@@ -29,16 +29,16 @@
         <item quantity="other">Slette %d elementer?</item>
     </plurals>
     <string name="zero_items">Velg noen elementer ved å holde på dem</string>
-    <string name="itemCount">"Antall : "</string>
+    <string name="item_count">"Antall : "</string>
     <string name="prod_id_short">Prod ID :</string>
     <string name="tzzapp_logo">Logoen til appen Tzzapp</string>
     <string name="product_description">Produkt beskrivelse</string>
     <string name="canceled">Avbrutt</string>
-    <string name="errorRoomY">Rom bredde mangler</string>
-    <string name="errorLampY">Lampe bredde mangler</string>
-    <string name="errorLampCount">Antal lamper mangler</string>
-    <string name="errorRoomX">Rom lengde mangler</string>
-    <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="error_room_y">Rom bredde mangler</string>
+    <string name="error_lamp_y">Lampe bredde mangler</string>
+    <string name="error_lamp_count">Antal lamper mangler</string>
+    <string name="error_room_x">Rom lengde mangler</string>
+    <string name="error_lamp_x">Lampe lengde mangler</string>
     <string name="count">Antall</string>
 
 

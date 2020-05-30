@@ -12,9 +12,9 @@
     <string name="appearance">Appearance</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lamps</string>
-    <string name="roomWidth">Width</string>
-    <string name="roomLength">Length</string>
-    <string name="spaceBetweenLamps">Space between lamps</string>
+    <string name="room_width">Width</string>
+    <string name="room_length">Length</string>
+    <string name="space_between_lamps">Space between lamps</string>
     <string name="room">Room</string>
     <string name="lamp_description">Lamp</string>
     <string name="calculate_button_text">Calculate</string>
@@ -30,16 +30,16 @@
         <item quantity="other">Delete %d items?</item>
     </plurals>
     <string name="zero_items">Please choose some elements by long pressing them</string>
-    <string name="itemCount">"Item Count : "</string>
+    <string name="item_count">"Item Count : "</string>
     <string name="prod_id_short">Prod ID :</string>
     <string name="tzzapp_logo">The logo of the app</string>
     <string name="product_description">Product Description</string>
     <string name="canceled">Canceled</string>
-    <string name="errorRoomY">Room width missing</string>
-    <string name="errorLampY">Lamp width missing</string>
-    <string name="errorLampCount">Number of lamps missing</string>
-    <string name="errorRoomX">Room length missing</string>
-    <string name="errorLampX">Lamp length missing</string>
+    <string name="error_room_y">Room width missing</string>
+    <string name="error_lamp_y">Lamp width missing</string>
+    <string name="error_lamp_count">Number of lamps missing</string>
+    <string name="error_room_x">Room length missing</string>
+    <string name="error_lamp_x">Lamp length missing</string>
     <string name="count">Count</string>
 
 </resources>
