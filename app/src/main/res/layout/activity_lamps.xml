@@ -15,8 +15,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:enabled="false"
-            android:inputType="number"
             app:layout_constraintEnd_toEndOf="@+id/spaceToWall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
@@ -27,8 +25,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:enabled="false"
-            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/spaceToWall"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
@@ -39,8 +35,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:enabled="false"
-            android:inputType="number"
             app:layout_constraintEnd_toEndOf="@+id/spaceBetweenLamps"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />
@@ -85,8 +79,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:enabled="false"
-            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/spaceBetweenLamps"
             app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />

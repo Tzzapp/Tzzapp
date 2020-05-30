@@ -70,6 +70,8 @@ public class Lamps extends AppCompatActivity {
         lampChountXTextInputLayout = findViewById(R.id.textfieldLampCountXK);
         lampChountYTextInputLayout = findViewById(R.id.textfieldLampCountYK);
 
+        disableEditors();
+
         MathMaster.setOnClickListener(v -> {
 
             // Y/right side calculations
@@ -172,6 +174,12 @@ public class Lamps extends AppCompatActivity {
         return (findLampLamp(room, lamp, lampChount) / 2);
     }
 
+    private void disableEditors(){
+        responseX.setKeyListener(null);
+        responseY.setKeyListener(null);
+        responseWallX.setKeyListener(null);
+        responseWallY.setKeyListener(null);
+    }
 
 }
 
