@@ -51,6 +51,7 @@
     <string name="aria">Areal</string>
     <string name="aria_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
+    <string name="aria_Y">Areal lengde</string>
 
 
 </resources>

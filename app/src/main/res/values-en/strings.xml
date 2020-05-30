@@ -47,10 +47,11 @@
     <string name="errorLampCount">Number of lamps missing</string>
     <string name="errorRoomX">Room length missing</string>
     <string name="errorLampX">Lamp lenght missingr</string>
-    <string name="varmekabel">Varmekabel</string>
-    <string name="cable_lenght">Kabel lengde</string>
-    <string name="aria">Areal</string>
-    <string name="aria_X">Areal bredde</string>
-    <string name="cc_distance_description">CC avstand</string>
+    <string name="varmekabel">Heating</string>
+    <string name="cable_lenght">Cable lenght</string>
+    <string name="aria">Aria</string>
+    <string name="aria_X">Aria with</string>
+    <string name="cc_distance_description">CC distance</string>
+    <string name="aria_Y">Aria lenght</string>
 
 </resources>
