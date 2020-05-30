@@ -5,39 +5,40 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:killAfterRestore="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:killAfterRestore="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.usn.tzzapp.SettingsActivity"
+            android:name=".Heating"
+            android:label="@string/title_activity_heating"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/PreferenceTheme"
-            android:parentActivityName="com.usn.tzzapp.MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/PreferenceTheme"></activity>
         <activity
-
-            android:name="com.usn.tzzapp.PriceHelper"
+            android:name=".PriceHelper"
             android:label="@string/price"
-            android:parentActivityName="com.usn.tzzapp.MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:theme="@style/equipmentTheme"
-            android:name="com.usn.tzzapp.equipment.Equipment"
+            android:name=".equipment.Equipment"
             android:label="@string/equipment"
-            android:parentActivityName="com.usn.tzzapp.MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/equipmentTheme" />
         <activity
-            android:name="com.usn.tzzapp.Formulas"
+            android:name=".Formulas"
             android:label="@string/title_activity_forms"
-            android:parentActivityName="com.usn.tzzapp.MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name="com.usn.tzzapp.Lamps"
+            android:name=".Lamps"
             android:label="@string/lamps"
-            android:parentActivityName="com.usn.tzzapp.Formulas"
-            android:theme="@style/lamp"/>
+            android:parentActivityName=".Formulas"
+            android:theme="@style/lamp" />
         <activity
-            android:name="com.usn.tzzapp.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -46,11 +47,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".equipment.EquipmentItemActivity"
-            android:parentActivityName=".equipment.Equipment"
+        <activity
+            android:name=".equipment.EquipmentItemActivity"
             android:label="@string/equipment"
-            android:theme="@style/item">
-        </activity>
+            android:parentActivityName=".equipment.Equipment"
+            android:theme="@style/item"></activity>
     </application>
 
 </manifest>
