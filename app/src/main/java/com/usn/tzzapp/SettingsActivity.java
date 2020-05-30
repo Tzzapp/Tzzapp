@@ -24,14 +24,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-/*
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        Log.e("Boing", newConfig.locale+"kake");
-    }
-*/
-
     @Override
     protected void onNightModeChanged(int mode) {
         super.onNightModeChanged(mode);
