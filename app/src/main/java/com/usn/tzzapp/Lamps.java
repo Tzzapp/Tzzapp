@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class Lamps extends AppCompatActivity {
 
-    // innformation inn
+    // information inn
     EditText roomX;
     EditText roomY;
     EditText lampX;
@@ -33,7 +33,7 @@ public class Lamps extends AppCompatActivity {
     TextInputLayout lampCountYTextInputLayout;
 
 
-    // button to calculate - replace if posible with auto-update
+    // button to calculate - replace if possible with auto-update
     Button MathMaster;
     Editable holder;
 
@@ -78,7 +78,7 @@ public class Lamps extends AppCompatActivity {
 
             int lampCountYInt, roomYInt, lampYInt;
 
-            if (TextUtils.isEmpty(roomY.getText())){// chekking room
+            if (TextUtils.isEmpty(roomY.getText())){// checking room
                 roomYTextInputLayout.setError(getString(R.string.error_room_y));
                 roomYInt = 0;
             }
@@ -88,7 +88,7 @@ public class Lamps extends AppCompatActivity {
                 roomYTextInputLayout.setErrorEnabled(false);
             }
 
-            if (TextUtils.isEmpty(lampY.getText())){// chekking lamp
+            if (TextUtils.isEmpty(lampY.getText())){// checking lamp
                 lampYTextInputLayout.setError(getString(R.string.error_lamp_y));
                 lampYInt = 0;
             }
@@ -99,7 +99,7 @@ public class Lamps extends AppCompatActivity {
             }
 
 
-            if (TextUtils.isEmpty(lampCountY.getText())){//chekking if lamp count is missing, if so default to 1
+            if (TextUtils.isEmpty(lampCountY.getText())){//checking if lamp count is missing, if so default to 1
                 lampCountYTextInputLayout.setError(getString(R.string.error_lamp_count));
                 lampCountYInt = 1;
             }
@@ -117,7 +117,7 @@ public class Lamps extends AppCompatActivity {
 
             int lampCountXInt, roomXInt, lampXInt;
 
-            if (TextUtils.isEmpty(roomX.getText())){// chekking room
+            if (TextUtils.isEmpty(roomX.getText())){// checking room
                 roomXTextInputLayout.setError(getString(R.string.error_room_x));
                 roomXInt = 0;
             }
@@ -127,7 +127,7 @@ public class Lamps extends AppCompatActivity {
                 roomXTextInputLayout.setErrorEnabled(false);
             }
 
-            if (TextUtils.isEmpty(lampX.getText())){// chekking lamp
+            if (TextUtils.isEmpty(lampX.getText())){// checking lamp
                 lampXTextInputLayout.setError(getString(R.string.error_lamp_x));
                 lampXInt = 0;
             }
@@ -138,7 +138,7 @@ public class Lamps extends AppCompatActivity {
             }
 
 
-            if (TextUtils.isEmpty(lampCountX.getText())){//chekking if lamp count is missing, if so default to 1
+            if (TextUtils.isEmpty(lampCountX.getText())){//checking if lamp count is missing, if so default to 1
                 lampCountXTextInputLayout.setError(getString(R.string.error_lamp_count));
                 lampCountXInt = 1;
             }
@@ -164,9 +164,9 @@ public class Lamps extends AppCompatActivity {
     }
 
     private int findLampLamp(int room, int lamp, int lampCount){
-        int out = room; // take the lenght of the room
-        out = out - (lamp * lampCount); // subtract the colected amount "used upp" buy the lamps
-        out = out / lampCount; // divide the remainder buy the amount of laps, giving an equivalent distance betwen them
+        int out = room; // take the length of the room
+        out = out - (lamp * lampCount); // subtract the collected amount "used up" by the lamps
+        out = out / lampCount; // divide the remainder by the amount of lamps, giving an equivalent distance between them
         return out;
     }
 
