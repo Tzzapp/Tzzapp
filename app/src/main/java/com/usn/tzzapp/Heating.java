@@ -2,15 +2,11 @@ package com.usn.tzzapp;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.text.Editable;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -20,7 +16,7 @@ public class Heating extends AppCompatActivity {
     EditText ariaY;
     EditText ariaTotal;
     EditText cableLenght;
-    EditText cc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
+    EditText responseCc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
 
     Button MathMaster;
     Editable holder;
@@ -36,7 +32,8 @@ public class Heating extends AppCompatActivity {
         ariaY = findViewById(R.id.editTextAriaY);
         ariaTotal = findViewById(R.id.editTextAriaTotal);
         cableLenght = findViewById(R.id.editTextCableLength);
-        cc = findViewById(R.id.editTextCc);
+        responseCc = findViewById(R.id.editTextCc);
+        responseCc.setKeyListener(null);
 
 
         MathMaster = findViewById(R.id.buttonCalculate);
@@ -45,7 +42,40 @@ public class Heating extends AppCompatActivity {
 
         MathMaster.setOnClickListener(v -> {
 
-            double aria, cable;
+            double aria = 0.0, cable = 0.0;
+
+            // if the ariaTotal variable is empty then try ariaX and ariaY
+            if (TextUtils.isEmpty(ariaTotal.getText())){
+
+                if (TextUtils.isEmpty(ariaX.getText())){
+                    // "an aria is needed"
+                }
+                else{
+                    if (TextUtils.isEmpty(ariaY.getText())){
+                        // "an aria is needed"
+                        aria = 0.0;
+                    }
+                    else{
+                        holder = ariaY.getText();
+                        double ariaYDouble = Integer.parseInt(holder.toString());
+                        holder = ariaX.getText();
+                        double ariaXDouble = Integer.parseInt(holder.toString());
+
+                        aria = ariaYDouble * ariaXDouble;
+                    }
+                }
+            }
+            else{
+                if (TextUtils.isEmpty(cableLenght.getText())){
+                    // "cable lenght is required
+                    cable = 0.0;
+                }
+                else{
+                    holder = cableLenght.getText();
+                    cable = Integer.parseInt(holder.toString());
+                }
+                responseCc.setText("" + (aria / cable));
+            }
 
         });
     }
