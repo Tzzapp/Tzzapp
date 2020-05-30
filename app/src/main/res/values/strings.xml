@@ -41,6 +41,13 @@
     <string name="tzzapp_logo">Logoen til Tzzapp</string>
     <string name="product_description">Produkt beskrivelse</string>
     <string name="canceled">Avbrutt</string>
+    <string name="count">Antall</string>
+    <string name="errorRoomY">Rom bredde mangler</string>
+    <string name="errorLampY">Lampe bredde mangler</string>
+    <string name="errorLampCount">Antal lamper mangler</string>
+    <string name="errorRoomX">Rom lengde mangler</string>
+    <string name="errorLampX">Lampe lengde mangler</string>
+
 
 
 </resources>

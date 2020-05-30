@@ -17,7 +17,7 @@
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
+            app:layout_constraintEnd_toEndOf="@+id/spaceToWall"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
 
@@ -30,20 +30,20 @@
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
+            app:layout_constraintStart_toStartOf="@+id/spaceToWall"
             app:layout_constraintTop_toBottomOf="@+id/spaceToWall" />
 
         <EditText
             android:id="@+id/editTextLampX"
             android:layout_width="90dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
+            app:layout_constraintEnd_toEndOf="@+id/spaceBetweenLamps"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/distanceTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />
 
         <TextView
             android:id="@+id/roomTittle"
@@ -58,107 +58,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/roomSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/size"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/roomTittle" />
-
-        <TextView
             android:id="@+id/lampTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:text="@string/lamp_description"
             android:textAlignment="center"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextRoomLength" />
-
-        <TextView
-            android:id="@+id/lampSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
-            android:text="@string/size"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lampTittle" />
-
-        <EditText
-            android:id="@+id/editTextLampCountLength"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/lamp_count"
-            android:inputType="number"
-            android:singleLine="true"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLampLength" />
-
-        <EditText
-            android:id="@+id/editTextLampCountWith"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/lamp_count"
-            android:inputType="number"
-            android:singleLine="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLampWith" />
-
-        <EditText
-            android:id="@+id/editTextRoomLength"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:hint="@string/roomLength"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/roomSize" />
-
-        <EditText
-            android:id="@+id/editTextRoomWith"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:hint="@string/roomWidth"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
-            app:layout_constraintTop_toBottomOf="@+id/roomSize" />
-
-        <EditText
-            android:id="@+id/editTextLampLength"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:hint="@string/lampLength"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lampSize" />
-
-        <EditText
-            android:id="@+id/editTextLampWith"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:hint="@string/lampWidth"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
-            app:layout_constraintTop_toBottomOf="@+id/lampSize" />
+            app:layout_constraintTop_toBottomOf="@+id/textfieldRoomXK" />
 
         <Button
             android:id="@+id/buttonCalculate"
@@ -174,55 +83,161 @@
             android:id="@+id/editTextLampY"
             android:layout_width="90dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <TextView
-            android:id="@+id/distanceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/distance_length"
-            app:layout_constraintEnd_toEndOf="@+id/roomSize"
-            app:layout_constraintHorizontal_bias="0.539"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="122dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/distance_width"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/roomSize"
+            app:layout_constraintStart_toStartOf="@+id/spaceBetweenLamps"
             app:layout_constraintTop_toBottomOf="@+id/spaceBetweenLamps" />
 
         <TextView
             android:id="@+id/spaceBetweenLamps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/spaceBetweenLamps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLampCountLength" />
+            app:layout_constraintTop_toBottomOf="@+id/textfieldLampCountXK" />
 
         <TextView
             android:id="@+id/spaceToWall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:text="Plass mellom lampe og vegg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextLampX" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldRoomXK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/roomLength"
+            app:layout_constraintEnd_toEndOf="@+id/roomTittle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/roomTittle">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextRoomXK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldLampXK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/roomLength"
+            app:layout_constraintEnd_toEndOf="@+id/lampTittle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lampTittle">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLampXK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldLampCountXK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/count"
+            app:layout_constraintEnd_toEndOf="@+id/lampTittle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textfieldLampXK">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLampCountXK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldRoomYK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/roomWidth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/roomTittle"
+            app:layout_constraintTop_toBottomOf="@+id/roomTittle">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextRoomYK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldLampYK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/roomWidth"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lampTittle"
+            app:layout_constraintTop_toBottomOf="@+id/lampTittle">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLampYK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textfieldLampCountYK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/lampTittle"
+            app:layout_constraintTop_toBottomOf="@+id/textfieldLampYK">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLampCountYK"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="7"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="199dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
