@@ -22,14 +22,18 @@
     </style>
 
     <style name="lamp" parent="AppTheme">
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+        <item name="textInputStyle">
+            @style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense
+        </item>
     </style>
 
     <style name="item" parent="equipmentTheme">
         <item name="windowActionBar">false</item>
         <item name="android:background">@color/mainBackground</item>
         <item name="windowNoTitle">true</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+        <item name="textInputStyle">
+            @style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense
+        </item>
     </style>
 
     <style name="AppTheme.NoActionBar">

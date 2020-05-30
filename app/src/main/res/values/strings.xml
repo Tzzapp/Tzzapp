@@ -47,6 +47,7 @@
     <string name="errorLampCount">Antal lamper mangler</string>
     <string name="errorRoomX">Rom lengde mangler</string>
     <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="title_activity_heating">Heating</string>
 
 
 

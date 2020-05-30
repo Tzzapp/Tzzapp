@@ -11,6 +11,12 @@
         android:killAfterRestore="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Heating"
+            android:label="@string/title_activity_heating"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity
             android:name="com.usn.tzzapp.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:theme="@style/PreferenceTheme"
