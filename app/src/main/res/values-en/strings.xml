@@ -46,5 +46,6 @@
     <string name="errorLampCount">Number of lamps missing</string>
     <string name="errorRoomX">Room length missing</string>
     <string name="errorLampX">Lamp lenght missingr</string>
+    <string name="count">Count</string>
 
 </resources>
