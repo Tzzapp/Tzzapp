@@ -39,5 +39,10 @@
     <string name="prod_id_short">Prod ID :</string>
     <string name="tzzapp_logo">The logo of the app</string>
     <string name="product_description">Product Description</string>
+    <string name="errorRoomY">Room width missing</string>
+    <string name="errorLampY">Lamp width missing</string>
+    <string name="errorLampCount">Number of lamps missing</string>
+    <string name="errorRoomX">Room length missing</string>
+    <string name="errorLampX">Lamp lenght missingr</string>
 
 </resources>
