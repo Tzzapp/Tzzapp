@@ -16,15 +16,11 @@ import com.usn.tzzapp.equipment.Equipment;
 
 public class MainActivity extends AppCompatActivity {
 
-    String lang = "";
-
     SharedPreferences sharedPreferences;
 
     Intent intentSettings;
 
     LangUtil langUtil;
-
-    SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChanged;
 
 
     @Override
@@ -77,9 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //changeLang(lang);
-       // setNightMode();
-
     }
 
     @Override
@@ -100,16 +93,9 @@ public class MainActivity extends AppCompatActivity {
         langUtil.changeLang(sharedPreferences.getString("lang", ""));
         setNightMode(sharedPreferences.getBoolean("nightmode", false));
 
-        //sharedPreferences = getSharedPreferences("langSelected", MODE_PRIVATE);
-      // lang = sharedPreferences.getString("langSelected", "");
-
-
     }
 
     private void setNightMode(boolean state) {
-       // sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // sharedPreferences = getSharedPreferences("nightmode", MODE_PRIVATE);
         if(state) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
