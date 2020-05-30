@@ -12,17 +12,11 @@
     <string name="appearance">Appearance</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lamps</string>
-    <string name="lampWidth">Width</string>
-    <string name="lampLength">Lengde</string>
     <string name="roomWidth">Width</string>
     <string name="roomLength">Length</string>
-    <string name="lamp_count">Lamp count</string>
-    <string name="distance_width">Distance of width</string>
     <string name="spaceBetweenLamps">Space between lamps</string>
     <string name="room">Room</string>
-    <string name="size">Size</string>
     <string name="lamp_description">Lamp</string>
-    <string name="distance_length">Distance of  length</string>
     <string name="calculate_button_text">Calculate</string>
     <string name="cancel_button">Cancel</string>
     <string name="edit_button_label">Edit</string>

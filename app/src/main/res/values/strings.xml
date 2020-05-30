@@ -11,17 +11,11 @@
     <string name="appearance">Utseende</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lamper</string>
-    <string name="lampWidth">Bredde</string>
-    <string name="lampLength">Lengde</string>
     <string name="roomWidth">Bredde</string>
     <string name="roomLength">Lengde</string>
-    <string name="lamp_count">Antall lamper</string>
-    <string name="distance_width">Distanse på bredde</string>
     <string name="spaceBetweenLamps">Plass mellom lamper</string>
     <string name="room">Rom</string>
-    <string name="size">Størrelse</string>
     <string name="lamp_description">Lampe</string>
-    <string name="distance_length">Distanse på lengde</string>
     <string name="calculate_button_text">MATH!</string>
     <string name="cancel_button">Avbryt</string>
     <string name="edit_button_label">Rediger</string>
