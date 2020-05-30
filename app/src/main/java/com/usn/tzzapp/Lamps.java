@@ -47,7 +47,7 @@ public class Lamps extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activety_lamps);
+        setContentView(R.layout.activity_lamps);
 
         roomX = findViewById(R.id.editTextRoomXK);
         roomY = findViewById(R.id.editTextRoomYK);
