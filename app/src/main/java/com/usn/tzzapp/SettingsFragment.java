@@ -41,18 +41,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 return false;
             });
 
-       /* langPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                if(preference.getKey().equals(newValue)) {
-                    Resources res = getResources();
-                    Configuration configuration = res.getConfiguration();
-                    configuration.setLocale(new Locale((sharedPreferences.getString("lang", ""))));
-                }
-                return false;
-            }
-        });*/
-
         langPref.setOnPreferenceChangeListener((preference, newValue) -> {
             langPref.setValue((String) newValue);
             new LangUtil(getResources(), getActivity()).changeLang((String) newValue);
@@ -60,13 +48,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
             return false;
         });
-
-      /*  if (langPref != null) {
-            // Log.e("Langpref", langPref.getValue());
-
-            preferenceManager.getSharedPreferences().edit().putString("langSelected", langPref.getValue());
-            Log.e("Langpref", preferenceManager.getSharedPreferences().getString("langSelected", ""));
-        }*/
       
     }
 
