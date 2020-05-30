@@ -75,7 +75,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }*/
 
         // Connects to the recycler view in the layout file
-        recyclerView = binding.recview;
+        recyclerView = binding.itemRecyclerView;
 
         recyclerView.setLayoutManager(layoutManager);
 
