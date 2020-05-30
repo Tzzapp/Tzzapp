@@ -216,7 +216,8 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
             equipmentItemDetails.identifier = item.getId();
 
             binding.setEquipmentItem(item);
-            itemView.setActivated(item.isSelected());
+            //itemView.setActivated(item.isSelected());
+            binding.itemCard.setChecked(item.isSelected());
             binding.executePendingBindings();
 
 

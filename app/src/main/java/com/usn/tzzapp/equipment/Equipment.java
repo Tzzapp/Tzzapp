@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.selection.ItemKeyProvider;
@@ -27,19 +29,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ {
+public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.OnEquipmentListener*/ implements ActionMode.Callback{
 
     RecyclerView recyclerView;
 
     SelectionTracker<Long> selectionTracker;
-
-    //SharedPreferences sharedPreferences ;
 
     private List<EquipmentItem> list = new ArrayList<>();
 
     private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
 
     private EquipmentViewModel equipmentViewModel;
+
+    private ActionMode actionMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
         equipmentViewModel.getAllEquipment().observe(this, equipmentItemList -> {
-            // Update the cached copy of the words in the adapter.
+            // Update the cached copy of the items in the adapter.
             equipmentAdapter.submitList(equipmentItemList);
         });
 
@@ -121,17 +123,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 })
                 .build();
 
-      /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
-
-       if (hasSelection ){
-            for (EquipmentItem item : equipmentAdapter.getEquipmentItemList()){
-                if (item.isSelected()){
-                 selectionTracker.select(item.getId());
-                }
-            }
-        }*/
-        //equipmentAdapter.setmSelectionTracker(selectionTracker);
-
         binding.fab.setOnClickListener((v -> {
 
             recyclerView.post(() -> {
@@ -161,7 +152,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                                     if (selectionTracker.isSelected((long) equipmentItem.getId())) {
                                         equipmentViewModel.delete(equipmentItem);
                                         equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
-                                        //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
                                     }
                                 }
@@ -185,12 +175,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         observer();
 
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
     }
 
     /**
@@ -222,6 +206,18 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 }
             }
 
+
+            @Override
+            public void onSelectionChanged() {
+                if (selectionTracker.getSelection().size() > 0) {
+                    if (actionMode == null) {
+                        actionMode = startSupportActionMode(Equipment.this);
+                    }
+                    actionMode.setTitle(String.valueOf(selectionTracker.getSelection().size()));
+                } else if (actionMode != null) {
+                    actionMode.finish();
+                }
+            }
         });
     }
 
@@ -231,6 +227,27 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         menuInflater.inflate(R.menu.menu_main, menu);
 
         return true;
+    }
+
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+        selectionTracker.clearSelection();
+        this.actionMode = null;
     }
 
     /**
