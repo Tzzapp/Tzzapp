@@ -38,10 +38,10 @@
     <string name="prod_id_short">Prod ID :</string>
     <string name="tzzapp_logo">Logoen til appen Tzzapp</string>
     <string name="product_description">Produkt beskrivelse</string>
-    <string name="errorRoomY">room bredde mangler</string>
+    <string name="errorRoomY">rom bredde mangler</string>
     <string name="errorLampY">lampe bredde mangler</string>
     <string name="errorLampCount">antal lamper mangler</string>
-    <string name="errorRoomX">room lengde mangler</string>
+    <string name="errorRoomX">rom lengde mangler</string>
     <string name="errorLampX">lampe lengde mangler</string>
 
 
