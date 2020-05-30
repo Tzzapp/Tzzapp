@@ -56,6 +56,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="varmekabel">Varmekabel</string>
+    <string name="cable_lenght">Kabel lengde</string>
+    <string name="aria">Areal</string>
+    <string name="aria_Y">Areal lengde</string>
+    <string name="aria_X">Areal bredde</string>
+    <string name="cc_distance_description">CC avstand</string>
 
 
 </resources>

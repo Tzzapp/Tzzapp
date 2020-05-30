@@ -24,7 +24,7 @@
         android:layout_height="66dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/formularer_button_bg"
-        android:text="@string/lamps"
+        android:text="@string/varmekabel"
         android:textColor="@color/mainBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
