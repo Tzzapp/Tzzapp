@@ -1,32 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Heating">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textfieldAriaX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/aria_X"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editAriaX"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="7"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="199dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textfieldAriaY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="32dp"
+        android:hint="@string/aria_Y"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textfieldAriaX"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAriaY"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="7"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="199dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textfieldAriaTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="64dp"
+        android:hint="@string/aria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textfieldAriaX">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextAriaTotal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="7"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="199dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textfieldCableLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="@string/cable_lenght"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textfieldAriaTotal">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextCableLength"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="7"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="199dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/ccDistanceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/cc_distance_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textfieldCableLength" />
+
+    <EditText
+        android:id="@+id/editTextCc"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:enabled="false"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ccDistanceDescription" />
+
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

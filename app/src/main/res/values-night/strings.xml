@@ -31,6 +31,11 @@
     <string name="errorLampCount">Antal lamper mangler</string>
     <string name="errorRoomX">Rom lengde mangler</string>
     <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="varmekabel">Varmekabel</string>
+    <string name="cable_lenght">Kabel lengde</string>
+    <string name="aria">Areal</string>
+    <string name="aria_X">Areal bredde</string>
+    <string name="cc_distance_description">CC avstand</string>
 
 
 </resources>
