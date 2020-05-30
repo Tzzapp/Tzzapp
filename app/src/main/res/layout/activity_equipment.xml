@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add_black_24dp"
                 app:backgroundTint="@color/item_color"
-                app:tint="@color/textcolor"
+                app:tint="@color/textColor"
                 app:fabSize="mini"
                 app:layout_anchor="@+id/equipmentBottomToolbar" />
 

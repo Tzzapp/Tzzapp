@@ -39,7 +39,7 @@
 
     <style name="PreferenceTheme" parent="Theme.MaterialComponents.DayNight">
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
-        <item name="android:textColor">@color/textcolor</item>
+        <item name="android:textColor">@color/textColor</item>
         <item name="android:background">@color/mainBackground</item>
         <item name="android:titleTextStyle">@color/mainText</item>
     </style>
