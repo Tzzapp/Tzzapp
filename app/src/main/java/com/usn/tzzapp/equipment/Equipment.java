@@ -33,8 +33,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     SelectionTracker<Long> selectionTracker;
 
-    //SharedPreferences sharedPreferences ;
-
     private List<EquipmentItem> list = new ArrayList<>();
 
     private EquipmentAdapter equipmentAdapter = new EquipmentAdapter(list);
@@ -64,7 +62,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         equipmentViewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
         equipmentViewModel.getAllEquipment().observe(this, equipmentItemList -> {
-            // Update the cached copy of the words in the adapter.
+            // Update the cached copy of the items in the adapter.
             equipmentAdapter.submitList(equipmentItemList);
         });
 
@@ -121,17 +119,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 })
                 .build();
 
-      /* boolean hasSelection = sharedPreferences.getBoolean("hasSelection", false);
-
-       if (hasSelection ){
-            for (EquipmentItem item : equipmentAdapter.getEquipmentItemList()){
-                if (item.isSelected()){
-                 selectionTracker.select(item.getId());
-                }
-            }
-        }*/
-        //equipmentAdapter.setmSelectionTracker(selectionTracker);
-
         binding.fab.setOnClickListener((v -> {
 
             recyclerView.post(() -> {
@@ -161,7 +148,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                                     if (selectionTracker.isSelected((long) equipmentItem.getId())) {
                                         equipmentViewModel.delete(equipmentItem);
                                         equipmentAdapter.notifyItemRemoved(equipmentItem.getId());
-                                        //equipmentAdapter.notifyItemRangeChanged((int) equipmentItem.getId(),list.size());
 
                                     }
                                 }
@@ -185,12 +171,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         observer();
 
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //sharedPreferences.edit().putBoolean("hasSelection", selectionTracker.hasSelection()).apply();
     }
 
     /**
