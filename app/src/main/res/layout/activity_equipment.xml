@@ -15,7 +15,7 @@
         tools:context=".equipment.Equipment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recview"
+            android:id="@+id/itemRecyclerView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/mainBackground"
@@ -35,10 +35,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recview">
+            app:layout_constraintTop_toBottomOf="@+id/itemRecyclerView">
 
             <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bar"
+                android:id="@+id/equipmentBottomToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/mainBackground"
@@ -50,9 +50,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_add_black_24dp"
                 app:backgroundTint="@color/item_color"
-                app:tint="@color/textcolor"
+                app:tint="@color/textColor"
                 app:fabSize="mini"
-                app:layout_anchor="@+id/bar" />
+                app:layout_anchor="@+id/equipmentBottomToolbar" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

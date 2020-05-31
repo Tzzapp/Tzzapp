@@ -8,13 +8,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Formulas extends AppCompatActivity {
+public class Tools extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulas);
-        setTitle(R.string.forms);
+        setContentView(R.layout.activity_tools);
+        setTitle(R.string.tools);
 
 
         Button buttonLamps = findViewById(R.id.buttonLamps);

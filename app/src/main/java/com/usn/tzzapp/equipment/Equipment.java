@@ -79,7 +79,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }*/
 
         // Connects to the recycler view in the layout file
-        recyclerView = binding.recview;
+        recyclerView = binding.itemRecyclerView;
 
         recyclerView.setLayoutManager(layoutManager);
 
@@ -135,14 +135,14 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
         }));
 
-        binding.bar.setOnMenuItemClickListener(item -> {
+        binding.equipmentBottomToolbar.setOnMenuItemClickListener(item -> {
 
             if (item.getItemId() == R.id.delete) {
 
                 if (equipmentAdapter.getEquipmentItemList().size() != 0) {
                     if (selectionTracker.getSelection().size() >= 1) {
                         MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(new ContextThemeWrapper(this, R.style.equipmentTheme));
-                        materialAlertDialogBuilder.setTitle(getString(R.string.delete_title) + selectionTracker.getSelection().size() + getString(R.string.delete_item_title));
+                        materialAlertDialogBuilder.setTitle(getResources().getQuantityString(R.plurals.delete_title, selectionTracker.getSelection().size(), selectionTracker.getSelection().size()));
                         materialAlertDialogBuilder.setMessage(R.string.delete_item_string);
                         materialAlertDialogBuilder.setPositiveButton(getString(android.R.string.ok), (dialog, which) -> {
 
@@ -160,7 +160,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                             });
                         });
                         materialAlertDialogBuilder.setNegativeButton(R.string.cancel_button, (dialog, which) -> {
-
+                        Toast.makeText(this, R.string.canceled, Toast.LENGTH_LONG).show();
                         });
                         materialAlertDialogBuilder.show();
 

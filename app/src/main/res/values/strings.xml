@@ -1,29 +1,22 @@
 <resources>
     <string name="app_name">Tzzapp</string>
     <string name="action_settings">Innstillinger</string>
-    <string name="forms">Formularer</string>
+    <string name="tools">Verktøy</string>
     <string name="equipment">Utstyrsliste</string>
     <string name="price">Prishjelper</string>
     <string name="title_activity_settings">Innstillinger</string>
     <string name="lang">Språk</string>
-    <string name="title_activity_forms">Formularer</string>
+    <string name="title_activity_tools">Verktøy</string>
     <string name="key_dark_mode">Nattmodus</string>
     <string name="appearance">Utseende</string>
     <string name="placeholder">test</string>
     <string name="lamps">Lamper</string>
-    <string name="lampWidth">Bredde</string>
-    <string name="lampLength">Lengde</string>
-    <string name="roomWidth">Bredde</string>
-    <string name="roomLength">Lengde</string>
-    <string name="lamp_count">Antall lamper</string>
-    <string name="distance_width">Distanse på bredde</string>
-    <string name="spaceBetweenLamps">Plass mellom lamper</string>
+    <string name="room_width">Bredde</string>
+    <string name="room_length">Lengde</string>
+    <string name="space_between_lamps">Plass mellom lamper</string>
     <string name="room">Rom</string>
-    <string name="size">Størrelse</string>
     <string name="lamp_description">Lampe</string>
-    <string name="distance_length">Distanse på lengde</string>
     <string name="calculate_button_text">MATH!</string>
-    <string name="ok_button">Ok</string>
     <string name="cancel_button">Avbryt</string>
     <string name="edit_button_label">Rediger</string>
     <string name="close">Lukk</string>
@@ -31,19 +24,23 @@
     <string name="prod__id">Produkt id</string>
     <string name="prod_name">Produkt navn</string>
     <string name="delete_item_string">Er du sikker på at du vil slette disse elementene?</string>
-    <string name="delete_title">"Slette "</string>
-    <string name="delete_item_title">" element (er) ?"</string>
+    <plurals name="delete_title">
+        <item quantity="one">Slette %d element?</item>
+        <item quantity="other">Slette %d elementer?</item>
+    </plurals>
     <string name="zero_items">Velg noen elementer ved å holde på dem</string>
-    <string name="itemCount">Antall :</string>
+    <string name="item_count">Antall :</string>
     <string name="prod_id_short">"Prod ID : "</string>
     <string name="tzzapp_logo">Logoen til Tzzapp</string>
     <string name="product_description">Produkt beskrivelse</string>
+    <string name="canceled">Avbrutt</string>
     <string name="count">Antall</string>
-    <string name="errorRoomY">Rom bredde mangler</string>
-    <string name="errorLampY">Lampe bredde mangler</string>
-    <string name="errorLampCount">Antal lamper mangler</string>
-    <string name="errorRoomX">Rom lengde mangler</string>
-    <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="error_room_y">Rom bredde mangler</string>
+    <string name="error_lamp_y">Lampe bredde mangler</string>
+    <string name="error_lamp_count">Antall lamper mangler</string>
+    <string name="error_room_x">Rom lengde mangler</string>
+    <string name="error_lamp_x">Lampe lengde mangler</string>
+    <string name="select_picture_notice">Trykk på rediger for å velge bilde</string>
 
 
 </resources>
