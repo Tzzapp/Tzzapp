@@ -40,7 +40,7 @@
     <string name="error_lamp_count">Antall lamper mangler</string>
     <string name="error_room_x">Rom lengde mangler</string>
     <string name="error_lamp_x">Lampe lengde mangler</string>
-
+    <string name="select_picture_notice">Trykk på rediger for å velge bilde</string>
 
 
 </resources>

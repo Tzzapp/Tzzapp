@@ -7,6 +7,7 @@ import android.text.method.TextKeyListener;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,10 +57,15 @@ public class EquipmentItemActivity extends AppCompatActivity {
         }
 
         binding.imageView.setOnClickListener(v -> {
-            ImagePicker.create(this) // Activity or Fragment
-                    .single()
-                    .folderMode(true)
-                    .start();
+            if(editing) {
+                ImagePicker.create(this) // Activity or Fragment
+                        .single()
+                        .folderMode(true)
+                        .start();
+            }
+        else {
+                Toast.makeText(this, R.string.select_picture_notice, Toast.LENGTH_LONG).show();
+            }
         });
 
         viewModel.getEquipmentItem(userName).observe(this, equipmentItem -> {
