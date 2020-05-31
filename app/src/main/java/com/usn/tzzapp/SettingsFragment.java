@@ -30,6 +30,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         nightMode = findPreference(getString(R.string.key_dark_mode));
 
+            /* Puts a listener on the SwitchPreference. When the Switch is turned on
+               the app changes layout style to a dark theme, making it easier and
+               more comfortable to look at when it's dark
+             */
             nightMode.setOnPreferenceChangeListener((preference, newValue) -> {
                 if ((Boolean) newValue) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -41,6 +45,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 return false;
             });
 
+        /* Puts a listener on the ListPreference. When the user changes the language,
+           the listener gets the string value pressed and puts that value in the
+           changeLang method in LangUtil to change language.
+         */
         langPref.setOnPreferenceChangeListener((preference, newValue) -> {
             langPref.setValue((String) newValue);
             new LangUtil(getResources(), getActivity()).changeLang((String) newValue);
@@ -62,8 +70,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     @Override
     public void onPause() {
         super.onPause();
-        // This will send the requested String in to SharedPreferences,
-        // where the first argument is where to put it and the second is what to put there
+        /* This will send the requested String in to SharedPreferences,
+           where the first argument is where to put it and the second is what to put there
+         */
         sharedPreferences.edit().putString("lang", langPref.getValue() ).apply();
         sharedPreferences.edit().putBoolean("nightmode", nightMode.isChecked()).apply();
 
