@@ -24,14 +24,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onNightModeChanged(int mode) {
-        super.onNightModeChanged(mode);
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        new LangUtil(getResources(), this).changeLang(sharedPreferences.getString("lang", ""));
-    }
-
+    /* When the user presses the back-button on the actionbar,
+       the user is taken back to the app's front page(MainActivity)
+     */
     @Override
     public void onBackPressed(){
        Intent intent = new Intent(this, MainActivity.class);

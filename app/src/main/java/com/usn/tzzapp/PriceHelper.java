@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+/* PriceHelper does not have any function at the moment
+ */
 public class PriceHelper extends AppCompatActivity {
 
     @Override
