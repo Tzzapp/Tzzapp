@@ -28,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         langUtil = new LangUtil(getResources(), this);
 
-        // This will first load in PreferenceManager and then it will get the getDefaultSharedPreferences
-        // and then it will get the string using sharedPreferences.getString and the key langSelected
+        /* This will first load in PreferenceManager, then it will get the getDefaultSharedPreferences
+           and then get the string and boolean using sharedPreferences.getString and sharedPreferences.getBoolean
+           to set the language and app color theme
+         */
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         langUtil.changeLang(sharedPreferences.getString("lang", ""));
         setNightMode(sharedPreferences.getBoolean("nightmode", false));
@@ -86,7 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    /*
+       Fetches the string value and boolean value that was used before the app was closed,
+       so the user doesn't have to change language or color theme to what it previously
+       was every time they open the app
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -95,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*
+       The sharedPreferences on line 37 fetches and sets the boolean value from
+       the SwitchPreference in SettingsFragment into the setNightMode method
+     */
     private void setNightMode(boolean state) {
         if(state) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
