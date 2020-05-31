@@ -11,8 +11,7 @@
     </data>
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/itemCard"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
@@ -20,9 +19,6 @@
         android:layout_marginEnd="4dp"
         android:paddingBottom="20dp"
         android:textAlignment="viewStart"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
         app:cardBackgroundColor="@color/item_color"
         app:cardCornerRadius="4dp"
         android:layout_marginBottom="5dp">
@@ -118,5 +114,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.cardview.widget.CardView>
 </layout>
