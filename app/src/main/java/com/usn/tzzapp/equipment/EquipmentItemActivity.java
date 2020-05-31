@@ -64,7 +64,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
                         .start();
             }
         else {
-                Toast.makeText(this, R.string.select_picture_notice, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.select_picture_notice, Toast.LENGTH_LONG).show();
             }
         });
 
