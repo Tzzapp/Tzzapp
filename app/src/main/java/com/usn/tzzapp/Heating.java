@@ -42,18 +42,22 @@ public class Heating extends AppCompatActivity {
 
         MathMaster.setOnClickListener(v -> {
 
-            double aria = 0.0, cable = 0.0;
+            System.out.println("click registerd");
+            double cable;
+
+            double aria;
 
             // if the ariaTotal variable is empty then try ariaX and ariaY
             if (TextUtils.isEmpty(ariaTotal.getText())){
 
                 if (TextUtils.isEmpty(ariaX.getText())){
                     // "an aria is needed"
+                    System.out.println("X-aria not found");
                 }
                 else{
                     if (TextUtils.isEmpty(ariaY.getText())){
                         // "an aria is needed"
-                        aria = 0.0;
+                        System.out.println("Y-aria not found");
                     }
                     else{
                         holder = ariaY.getText();
@@ -61,20 +65,27 @@ public class Heating extends AppCompatActivity {
                         holder = ariaX.getText();
                         double ariaXDouble = Integer.parseInt(holder.toString());
 
+                        System.out.println("aria total is calculated");
                         aria = ariaYDouble * ariaXDouble;
                     }
                 }
             }
             else{
+                holder = ariaTotal.getText();
+                aria = Integer.parseInt(holder.toString());
+
                 if (TextUtils.isEmpty(cableLenght.getText())){
                     // "cable lenght is required
-                    cable = 0.0;
+                    System.out.println("no cable lenght found");
+                    responseCc.setText("-----");
                 }
                 else{
                     holder = cableLenght.getText();
                     cable = Integer.parseInt(holder.toString());
+                    System.out.println("variables " + aria + " " + cable);
+                    responseCc.setText("" + (aria / cable));
                 }
-                responseCc.setText("" + (aria / cable));
+
             }
 
         });
