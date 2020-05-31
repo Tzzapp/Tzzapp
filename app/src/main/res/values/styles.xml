@@ -14,11 +14,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="equipmentTheme" parent="AppTheme">
+    <style name="equipmentTheme" parent="AppTheme.NoActionBar">
         <!-- Customize your theme here. -->|
         <item name="mainText">@color/mainText</item>
         <item name="android:background">@null</item>
-        <item name="actionBarTheme">@style/AppTheme</item>
+        <item name="actionBarTheme">@style/Widget.AppCompat.ActionMode</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <style name="lamp" parent="AppTheme">
@@ -32,7 +33,7 @@
         <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

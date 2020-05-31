@@ -21,6 +21,7 @@ import androidx.recyclerview.selection.StorageStrategy;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.usn.tzzapp.R;
 import com.usn.tzzapp.databinding.ActivityEquipmentBinding;
@@ -43,6 +44,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     private ActionMode actionMode;
 
+    MaterialToolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -54,6 +57,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
          *  instead of setting the values manually here.
          */
         ActivityEquipmentBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_equipment);
+
+        toolbar = binding.itemToolbar;
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         binding.executePendingBindings();
         // https://stackoverflow.com/questions/53043412/android-why-use-executependingbindings-in-recyclerview

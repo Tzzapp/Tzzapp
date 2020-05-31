@@ -14,6 +14,15 @@
         android:background="@color/mainBackground"
         tools:context=".equipment.Equipment">
 
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/itemToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/mainBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/itemRecyclerView"
             android:layout_width="0dp"
@@ -22,7 +31,7 @@
             app:layout_constraintBottom_toTopOf="@id/buttons"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
             tools:itemCount="8"
             tools:listitem="@layout/equipment_item" />
 
