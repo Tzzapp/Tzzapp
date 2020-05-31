@@ -18,7 +18,8 @@
         <!-- Customize your theme here. -->|
         <item name="mainText">@color/mainText</item>
         <item name="android:background">@null</item>
-        <item name="actionBarTheme">@style/AppTheme</item>
+        <item name="actionBarTheme">@style/Widget.AppCompat.ActionMode</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
     <style name="lamp" parent="AppTheme">

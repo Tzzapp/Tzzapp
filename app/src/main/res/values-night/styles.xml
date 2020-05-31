@@ -17,8 +17,9 @@
     <style name="equipmentTheme" parent="AppTheme.NoActionBar">
         <!-- Customize your theme here. -->|
         <item name="android:background">@null</item>
-        <item name="actionBarTheme">@style/AppTheme</item>
+        <item name="actionBarTheme">@style/Widget.AppCompat.ActionMode</item>
         <item name="mainText">@color/mainText</item>
+        <item name="windowActionModeOverlay">true</item>
 
 </style>
 
