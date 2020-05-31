@@ -32,6 +32,9 @@ public class SettingsActivity extends AppCompatActivity {
         new LangUtil(getResources(), this).changeLang(sharedPreferences.getString("lang", ""));
     }
 
+    /* When the user presses the back-button on the actionbar,
+       the user is taken back to the app's front page(MainActivity)
+     */
     @Override
     public void onBackPressed(){
        Intent intent = new Intent(this, MainActivity.class);
