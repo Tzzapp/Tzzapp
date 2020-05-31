@@ -46,6 +46,8 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     MaterialToolbar toolbar;
 
+    private boolean inActionMode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -121,10 +123,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
         }, new EquipmentItemDetailsLookup(recyclerView),
                 StorageStrategy.createLongStorage())
                 .withOnItemActivatedListener((item, e) -> {
-                    Intent intent = new Intent(this, EquipmentItemActivity.class);
-                    Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
-                    intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
-                    startActivity(intent);
+                    if(!inActionMode){
+                        Intent intent = new Intent(this, EquipmentItemActivity.class);
+                        Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
+                        intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
+                        startActivity(intent);
+                    }
 
                     return true;
                 })
@@ -238,6 +242,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        inActionMode = true;
         return true;
     }
 
@@ -255,6 +260,7 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
     public void onDestroyActionMode(ActionMode mode) {
         selectionTracker.clearSelection();
         this.actionMode = null;
+        inActionMode = false;
     }
 
     /**
