@@ -16,8 +16,8 @@ public class Heating extends AppCompatActivity {
     EditText areaX;
     EditText areaY;
     EditText areaTotal;
-    EditText responseCc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
     EditText cableLength;
+    EditText responseCc; //cc is the professional term for the distance between different sections of the cable as it bends
 
     TextInputLayout areaXTextInputLayout;
     TextInputLayout areaYTextInputLayout;
