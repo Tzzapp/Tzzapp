@@ -54,21 +54,21 @@ public class PriceHelper extends AppCompatActivity {
 
         // Id Column
         TextView textViewId = new TextView(this);
-        textViewId.setText("Id");
+        textViewId.setText(R.string.prod_id_short);
         textViewId.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewId.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewId);
 
         // Name Column
         TextView textViewName = new TextView(this);
-        textViewName.setText("Name");
+        textViewName.setText(R.string.prod_name);
         textViewName.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewName.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewName);
 
         // Price Column
         TextView textViewPrice = new TextView(this);
-        textViewPrice.setText("Price");
+        textViewPrice.setText(R.string.price_item);
         textViewPrice.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewPrice.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewPrice);
@@ -76,14 +76,14 @@ public class PriceHelper extends AppCompatActivity {
 
         // Price Column
         TextView textViewCount = new TextView(this);
-        textViewCount.setText("Count");
+        textViewCount.setText(R.string.count);
         textViewCount.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewCount.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewCount);
 
         // Price Column
         TextView textViewTotalPrice = new TextView(this);
-        textViewTotalPrice.setText("Total Price");
+        textViewTotalPrice.setText(R.string.total_price);
         textViewTotalPrice.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewTotalPrice.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewTotalPrice);
