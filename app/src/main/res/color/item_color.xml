@@ -3,6 +3,6 @@
     <item android:state_activated="true"
         android:color="@color/mainText" android:alpha="0.5"  /> <!-- pressed -->
     <item android:state_activated="false"
-        android:color="#989CAE"/>
+        android:color="@color/itemColorNotSelected"/>
     <item android:color="@color/mainBackground"/> <!-- default -->
 </selector>

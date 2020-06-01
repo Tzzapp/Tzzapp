@@ -41,18 +41,19 @@
     <string name="error_room_x">Rom lengde mangler</string>
     <string name="error_lamp_x">Lampe lengde mangler</string>
     <string name="select_picture_notice">Trykk på rediger for å velge bilde</string>
-    <string name="title_activity_heating">Heating</string>
-    <string name="varmekabel">Varmekabel</string>
+    <string name="heating">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
     <string name="area">Areal</string>
     <string name="area_Y">Areal lengde</string>
     <string name="area_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
-    <string name="meashure_warning_heating">Husk at alle mål er i cm</string>
+    <string name="measure_warning_heating">Husk at alle mål er i cm</string>
     <string name="area_missing_error">Mangler et areal</string>
     <string name="cable_missing_error">Mangler kabel lengde</string>
     <string name="room_x_missing_error">Mangler rom bredde</string>
     <string name="room_y_missing_error">Mangler rom vidde</string>
+    <string name="delete">Slette</string>
+    <string name="lamp_to_wall_description">Plass mellom lampe og vegg</string>
 
 
 </resources>

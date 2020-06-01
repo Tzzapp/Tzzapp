@@ -16,13 +16,13 @@ public class Heating extends AppCompatActivity {
     EditText areaX;
     EditText areaY;
     EditText areaTotal;
-    EditText cableLenght;
-    EditText responseCc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
+    EditText cableLength;
+    EditText responseCc; //cc is the professional term for the distance between different sections of the cable as it bends
 
     TextInputLayout areaXTextInputLayout;
     TextInputLayout areaYTextInputLayout;
     TextInputLayout areaTotalTextInputLayout;
-    TextInputLayout cableLenghtTextInputLayout;
+    TextInputLayout cableLengthTextInputLayout;
 
     Button MathMaster;
     Editable holder;
@@ -32,17 +32,18 @@ public class Heating extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heating);
 
+        setTitle(R.string.heating);
         areaX = findViewById(R.id.editTextAreaX);
         areaY = findViewById(R.id.editTextAreaY);
         areaTotal = findViewById(R.id.editTextAriaTotal);
-        cableLenght = findViewById(R.id.editTextCableLength);
+        cableLength = findViewById(R.id.editTextCableLength);
         responseCc = findViewById(R.id.editTextCc);
         responseCc.setKeyListener(null);
 
         areaXTextInputLayout = findViewById(R.id.textfieldAreaX);
         areaYTextInputLayout = findViewById(R.id.textfieldAreaY);
         areaTotalTextInputLayout = findViewById(R.id.textfieldAreaTotal);
-        cableLenghtTextInputLayout = findViewById(R.id.textfieldCableLength);
+        cableLengthTextInputLayout = findViewById(R.id.textfieldCableLength);
 
 
         MathMaster = findViewById(R.id.buttonCalculate);
@@ -51,9 +52,9 @@ public class Heating extends AppCompatActivity {
 
         MathMaster.setOnClickListener(v -> {
             double cable;
-            double aria;
+            double area;
 
-            cableLenghtTextInputLayout.setErrorEnabled(false);
+            cableLengthTextInputLayout.setErrorEnabled(false);
             areaTotalTextInputLayout.setErrorEnabled(false);
             areaYTextInputLayout.setErrorEnabled(false);
             areaXTextInputLayout.setErrorEnabled(false);
@@ -67,8 +68,8 @@ public class Heating extends AppCompatActivity {
                     if (TextUtils.isEmpty(areaY.getText())){
                         areaTotalTextInputLayout.setError(getString(R.string.area_missing_error));
                         responseCc.setText("-----");
-                        if (TextUtils.isEmpty(cableLenght.getText())){
-                            cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
+                        if (TextUtils.isEmpty(cableLength.getText())){
+                            cableLengthTextInputLayout.setError(getString(R.string.cable_missing_error));
                             responseCc.setText("-----");
                         }
                     }
@@ -84,8 +85,8 @@ public class Heating extends AppCompatActivity {
                         responseCc.setText("-----");
                     }
                     else{
-                        if (TextUtils.isEmpty(cableLenght.getText())){
-                            cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
+                        if (TextUtils.isEmpty(cableLength.getText())){
+                            cableLengthTextInputLayout.setError(getString(R.string.cable_missing_error));
                             responseCc.setText("-----");
                         }
                         else{
@@ -94,28 +95,27 @@ public class Heating extends AppCompatActivity {
                             holder = areaX.getText();
                             double ariaXDouble = Integer.parseInt(holder.toString());
 
-                            aria = ariaYDouble * ariaXDouble;
+                            area = ariaYDouble * ariaXDouble;
 
-                            holder = cableLenght.getText();
+                            holder = cableLength.getText();
                             cable = Integer.parseInt(holder.toString());
-                            responseCc.setText("" + (aria / cable));
+                            responseCc.setText("" + (area / cable));
                         }
                     }
                 }
             }
             else{
                 holder = areaTotal.getText();
-                aria = Integer.parseInt(holder.toString());
+                area = Integer.parseInt(holder.toString());
 
-                if (TextUtils.isEmpty(cableLenght.getText())){
-                    cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
+                if (TextUtils.isEmpty(cableLength.getText())){
+                    cableLengthTextInputLayout.setError(getString(R.string.cable_missing_error));
                     responseCc.setText("-----");
                 }
                 else{
-                    holder = cableLenght.getText();
+                    holder = cableLength.getText();
                     cable = Integer.parseInt(holder.toString());
-                    System.out.println("variables " + aria + " " + cable);
-                    responseCc.setText("" + (aria / cable));
+                    responseCc.setText("" + (area / cable));
                 }
 
             }

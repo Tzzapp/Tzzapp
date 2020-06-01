@@ -42,16 +42,18 @@
     <string name="error_lamp_x">Lamp length missing</string>
     <string name="count">Count</string>
     <string name="select_picture_notice">Press edit to change picture</string>
-    <string name="varmekabel">Heating</string>
-    <string name="cable_lenght">Cable lenght</string>
+    <string name="heating">Heating</string>
+    <string name="cable_lenght">Cable length</string>
     <string name="area">Area</string>
-    <string name="area_X">Area with</string>
+    <string name="area_X">Area width</string>
     <string name="cc_distance_description">CC distance</string>
-    <string name="area_Y">Area lenght</string>
-    <string name="meashure_warning_heating">Remember all meashurements are in cm</string>
+    <string name="area_Y">Area length</string>
+    <string name="measure_warning_heating">Remember all meashurements are in cm</string>
     <string name="area_missing_error">Missing an area</string>
-    <string name="cable_missing_error">Missing cable lenght</string>
-    <string name="room_x_missing_error">Missing room lenght</string>
-    <string name="room_y_missing_error">Missing room with</string>
+    <string name="cable_missing_error">Missing cable length</string>
+    <string name="room_x_missing_error">Missing room length</string>
+    <string name="room_y_missing_error">Missing room width</string>
+    <string name="delete">Delete</string>
+    <string name="lamp_to_wall_description">Distance from lamp to wall</string>
 
 </resources>

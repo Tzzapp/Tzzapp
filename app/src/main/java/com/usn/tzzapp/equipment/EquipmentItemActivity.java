@@ -50,10 +50,10 @@ public class EquipmentItemActivity extends AppCompatActivity {
          viewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
         Bundle extras = getIntent().getExtras();
-        String userName ="";
+        String itemId ="";
 
         if (extras != null) {
-            userName = extras.getString("id");
+            itemId = extras.getString("id");
         }
 
         binding.imageView.setOnClickListener(v -> {
@@ -68,7 +68,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
             }
         });
 
-        viewModel.getEquipmentItem(userName).observe(this, equipmentItem -> {
+        viewModel.getEquipmentItem(itemId).observe(this, equipmentItem -> {
             binding.setEquipmentItem(equipmentItem);
             this.equipmentItem = equipmentItem;
             setTitle(equipmentItem.getName());
@@ -76,18 +76,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
         });
         disableEditors(binding);
 
-       /* binding.editTextName.setOnClickListener((v) -> {
-            equipmentItem.setName(binding.editTextName.getText().toString());
-            viewModel.update(equipmentItem);
 
-        });*/
-
-       /* binding.editTextProdId.setOnClickListener((v) -> {
-            if(!isEmpty(binding.editTextProdId.getText())){
-                equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
-                viewModel.update(equipmentItem);
-            }
-        });*/
         binding.numberPickerItem.setMinValue(MIN_VALUE);
         binding.numberPickerItem.setMaxValue(MAX_VALUE);
 
@@ -158,7 +147,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, final int resultCode, Intent data) {
         if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
-            // or get a single image only
+            // get a single image only
             Image image = ImagePicker.getFirstImageOrNull(data);
             equipmentItem.setImageSrc(image.getPath());
             viewModel.update(equipmentItem);

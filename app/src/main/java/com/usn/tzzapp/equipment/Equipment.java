@@ -2,7 +2,6 @@ package com.usn.tzzapp.equipment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -125,12 +124,12 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 .withOnItemActivatedListener((item, e) -> {
                     if(!inActionMode){
                         Intent intent = new Intent(this, EquipmentItemActivity.class);
-                        Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
                         intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
                         startActivity(intent);
+                        return true;
                     }
 
-                    return true;
+                    return false;
                 })
                 .build();
 
@@ -140,7 +139,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount() + 1));
             });
 
-            //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
             recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size() + 1);
 
 
@@ -207,8 +205,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
              */
             @Override
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
-                super.onItemStateChanged(key, selected);
-
                 for (EquipmentItem equipmentItem : equipmentAdapter.getEquipmentItemList()) {
                     equipmentItem.setSelected(false);
                     if (selected) {

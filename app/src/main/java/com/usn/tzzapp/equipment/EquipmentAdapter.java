@@ -72,7 +72,7 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     };
     //private OnEquipmentListener onEquipmentListener;
     private final AsyncListDiffer<EquipmentItem> mDiffer = new AsyncListDiffer(this, DIFF_CALLBACK);
-    private List<EquipmentItem> equipmentItemList;
+
 
     /*  public EquipmentAdapter(List<EquipmentItem> list, OnEquipmentListener onEquipmentListener) {
 
@@ -93,10 +93,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
         return mDiffer.getCurrentList();
     }
 
-    public void setEquipmentItemList(List<EquipmentItem> equipmentItemList) {
-        this.equipmentItemList = equipmentItemList;
-        notifyDataSetChanged();
-    }
 
     /**
      * This will let the DiffUtil and AsyncListDiffer know what list to process
@@ -133,12 +129,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     @Override
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
-
-      /*  holder.itemView.setActivated(false);
-        if (!holder.itemView.isSelected()){
-            holder.itemView.setActivated(true);
-            Log.d("Selected", equipmentItem.id + " Selected : " + holder.itemView.isSelected());
-        }*/
 
         holder.bind(equipmentItem, position);
     }
