@@ -1,4 +1,4 @@
-<img  src="https://raw.githubusercontent.com/Tzzapp/Tzzapp-Drawings/master/tzzapp_logo_dark.png?raw=true" width="640" height="480"/> 
+<img  src="https://raw.githubusercontent.com/Tzzapp/Tzzapp-Drawings/master/tzzapp_logo_dark.png?raw=true" width="400" height="200"/> 
 
 An app that will help Norwegian electricians with their day to day operations 
 
