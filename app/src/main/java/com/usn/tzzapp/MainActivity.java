@@ -84,14 +84,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
-
-
-
-    /*
-       Fetches the string value and boolean value that was used before the app was closed,
-       so the user doesn't have to change language or color theme to what it previously
-       was every time they open the app
+    /**
+     *  Fetches the string value and boolean value that was used before the app was closed,
+     *  so the user doesn't have to change language or color theme to what it previously
+     *  was every time they open the app
      */
     @Override
     protected void onResume() {
@@ -101,9 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /*
-       The sharedPreferences on line 37 fetches and sets the boolean value from
-       the SwitchPreference in SettingsFragment into the setNightMode method
+    /**
+     *  The sharedPreferences on line 37 fetches and sets the boolean value from
+     *  the SwitchPreference in SettingsFragment into the setNightMode method
+     *  @param state the state that night mode is in. Either false or true
      */
     private void setNightMode(boolean state) {
         if(state) {
