@@ -32,6 +32,7 @@ public class Heating extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heating);
 
+        setTitle(R.string.heating);
         areaX = findViewById(R.id.editTextAreaX);
         areaY = findViewById(R.id.editTextAreaY);
         areaTotal = findViewById(R.id.editTextAriaTotal);
