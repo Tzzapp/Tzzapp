@@ -53,5 +53,6 @@
     <string name="cable_missing_error">Missing cable lenght</string>
     <string name="room_x_missing_error">Missing room lenght</string>
     <string name="room_y_missing_error">Missing room with</string>
+    <string name="delete">Delete</string>
 
 </resources>

@@ -52,6 +52,7 @@
     <string name="cable_missing_error">Mangler kabel lengde</string>
     <string name="room_x_missing_error">Mangler rom bredde</string>
     <string name="room_y_missing_error">Mangler rom vidde</string>
+    <string name="delete">Slette</string>
 
 
 </resources>
