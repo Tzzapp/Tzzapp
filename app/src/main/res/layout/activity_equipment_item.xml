@@ -124,7 +124,7 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="@{EquipmentItem.price}"
+                    android:text="@{String.valueOf(EquipmentItem.price)}"
                     android:textIsSelectable="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
