@@ -10,4 +10,6 @@
 
     <color name="textColor">#3E515B</color>
     <color name="mainBackground">#F1F1F1</color>
+
+    <color name="itemColorNotSelected">#989CAE</color>
 </resources>
