@@ -204,8 +204,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
              */
             @Override
             public void onItemStateChanged(@NonNull Object key, boolean selected) {
-                super.onItemStateChanged(key, selected);
-
                 for (EquipmentItem equipmentItem : equipmentAdapter.getEquipmentItemList()) {
                     equipmentItem.setSelected(false);
                     if (selected) {
