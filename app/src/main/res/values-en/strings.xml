@@ -42,7 +42,7 @@
     <string name="error_lamp_x">Lamp length missing</string>
     <string name="count">Count</string>
     <string name="select_picture_notice">Press edit to change picture</string>
-    <string name="varmekabel">Heating</string>
+    <string name="heating">Heating</string>
     <string name="cable_lenght">Cable lenght</string>
     <string name="area">Area</string>
     <string name="area_X">Area with</string>

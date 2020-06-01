@@ -41,7 +41,7 @@
     <string name="error_lamp_x">Lampe lengde mangler</string>
     <string name="count">Antall</string>
     <string name="select_picture_notice">Trykk på rediger for å velge bilde</string>
-    <string name="varmekabel">Varmekabel</string>
+    <string name="heating">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
     <string name="area">Areal</string>
     <string name="area_X">Areal bredde</string>
