@@ -134,12 +134,6 @@ public class EquipmentAdapter extends RecyclerView.Adapter<EquipmentAdapter.Equi
     public void onBindViewHolder(@NonNull EquipmentViewHolder holder, int position) {
         EquipmentItem equipmentItem = mDiffer.getCurrentList().get(position);
 
-      /*  holder.itemView.setActivated(false);
-        if (!holder.itemView.isSelected()){
-            holder.itemView.setActivated(true);
-            Log.d("Selected", equipmentItem.id + " Selected : " + holder.itemView.isSelected());
-        }*/
-
         holder.bind(equipmentItem, position);
     }
 

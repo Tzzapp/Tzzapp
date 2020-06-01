@@ -76,18 +76,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
         });
         disableEditors(binding);
 
-       /* binding.editTextName.setOnClickListener((v) -> {
-            equipmentItem.setName(binding.editTextName.getText().toString());
-            viewModel.update(equipmentItem);
 
-        });*/
-
-       /* binding.editTextProdId.setOnClickListener((v) -> {
-            if(!isEmpty(binding.editTextProdId.getText())){
-                equipmentItem.setProd_id(Integer.parseInt(String.valueOf(binding.editTextProdId.getText())));
-                viewModel.update(equipmentItem);
-            }
-        });*/
         binding.numberPickerItem.setMinValue(MIN_VALUE);
         binding.numberPickerItem.setMaxValue(MAX_VALUE);
 

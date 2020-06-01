@@ -43,13 +43,11 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     public EquipmentItem(String name, int prod_id){
         this.name = name;
         this.prod_id = prod_id;
-        //id = ""+prod_id;
         id = hashCode();
     }
 
     public EquipmentItem(String name){
         this.name = name;
-        //id = ""+prod_id;
         id = hashCode();
     }
 

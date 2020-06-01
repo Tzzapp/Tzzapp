@@ -2,7 +2,6 @@ package com.usn.tzzapp.equipment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -125,7 +124,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 .withOnItemActivatedListener((item, e) -> {
                     if(!inActionMode){
                         Intent intent = new Intent(this, EquipmentItemActivity.class);
-                        Log.d("id", equipmentAdapter.getItemId(item.getPosition()) + "");
                         intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
                         startActivity(intent);
                     }
@@ -140,7 +138,6 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                 equipmentViewModel.insert(new EquipmentItem("Item", equipmentAdapter.getItemCount() + 1));
             });
 
-            //equipmentAdapter.notifyItemInserted(equipmentAdapter.getEquipmentItemList().size()+1);
             recyclerView.smoothScrollToPosition(equipmentAdapter.getEquipmentItemList().size() + 1);
 
 
