@@ -54,6 +54,8 @@
     <string name="room_y_missing_error">Mangler rom vidde</string>
     <string name="delete">Slette</string>
     <string name="lamp_to_wall_description">Plass mellom lampe og vegg</string>
+    <string name="price_item">Pris</string>
+    <string name="total_price">Total Pris</string>
 
 
 </resources>

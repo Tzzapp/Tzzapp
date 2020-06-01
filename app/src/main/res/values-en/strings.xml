@@ -55,5 +55,7 @@
     <string name="room_y_missing_error">Missing room width</string>
     <string name="delete">Delete</string>
     <string name="lamp_to_wall_description">Distance from lamp to wall</string>
+    <string name="price_item">Price</string>
+    <string name="total_price">Total Price</string>
 
 </resources>
