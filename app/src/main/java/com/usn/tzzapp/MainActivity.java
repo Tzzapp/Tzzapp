@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceManager;
 
 import com.usn.tzzapp.equipment.Equipment;
+import com.usn.tzzapp.equipment.PriceHelper;
 
 public class MainActivity extends AppCompatActivity {
 
