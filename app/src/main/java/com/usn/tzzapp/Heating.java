@@ -68,27 +68,27 @@ public class Heating extends AppCompatActivity {
                 if (TextUtils.isEmpty(ariaX.getText())){
 
                     if (TextUtils.isEmpty(ariaY.getText())){
-                        ariaTotalTextInputLayout.setError("Mangler et areal");
+                        ariaTotalTextInputLayout.setError(getString(R.string.area_missing_error));
                         responseCc.setText("-----");
                         if (TextUtils.isEmpty(cableLenght.getText())){
-                            cableLenghtTextInputLayout.setError("Mangler kabel lengde");
+                            cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
                             responseCc.setText("-----");
                         }
                     }
                     else{
-                        ariaXTextInputLayout.setError("Mangler rom bredde");
+                        ariaXTextInputLayout.setError(getString(R.string.room_x_missing_error));
                         responseCc.setText("-----");
                     }
 
                 }
                 else{
                     if (TextUtils.isEmpty(ariaY.getText())){
-                        ariaYTextInputLayout.setError("Mangler rom vidde");
+                        ariaYTextInputLayout.setError(getString(R.string.room_y_missing_error));
                         responseCc.setText("-----");
                     }
                     else{
                         if (TextUtils.isEmpty(cableLenght.getText())){
-                            cableLenghtTextInputLayout.setError("Mangler kabel lengde");
+                            cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
                             responseCc.setText("-----");
                         }
                         else{
@@ -101,7 +101,6 @@ public class Heating extends AppCompatActivity {
 
                             holder = cableLenght.getText();
                             cable = Integer.parseInt(holder.toString());
-                            System.out.println("variables " + aria + " " + cable);
                             responseCc.setText("" + (aria / cable));
                         }
                     }
@@ -112,7 +111,7 @@ public class Heating extends AppCompatActivity {
                 aria = Integer.parseInt(holder.toString());
 
                 if (TextUtils.isEmpty(cableLenght.getText())){
-                    cableLenghtTextInputLayout.setError("Mangler kabel lengde");
+                    cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
                     responseCc.setText("-----");
                 }
                 else{

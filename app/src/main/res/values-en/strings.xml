@@ -42,16 +42,21 @@
     <string name="tzzapp_logo">The logo of the app</string>
     <string name="product_description">Product Description
     </string> <string name="canceled">Canceled</string>
-    <string name="errorRoomY">Room width missing</string>
-    <string name="errorLampY">Lamp width missing</string>
-    <string name="errorLampCount">Number of lamps missing</string>
-    <string name="errorRoomX">Room length missing</string>
-    <string name="errorLampX">Lamp lenght missingr</string>
+    <string name="error_roomY">Room width missing</string>
+    <string name="error_lampY">Lamp width missing</string>
+    <string name="error_lampCount">Number of lamps missing</string>
+    <string name="error_roomX">Room length missing</string>
+    <string name="error_lampX">Lamp lenght missingr</string>
     <string name="varmekabel">Heating</string>
     <string name="cable_lenght">Cable lenght</string>
     <string name="aria">Aria</string>
     <string name="aria_X">Aria with</string>
     <string name="cc_distance_description">CC distance</string>
     <string name="aria_Y">Aria lenght</string>
+    <string name="meashure_warning_heating">Remember all meashurements are in cm</string>
+    <string name="area_missing_error">Missing an area</string>
+    <string name="cable_missing_error">Missing cable lenght</string>
+    <string name="room_x_missing_error">Missing room lenght</string>
+    <string name="room_y_missing_error">Missing room with</string>
 
 </resources>

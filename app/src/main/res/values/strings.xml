@@ -42,11 +42,11 @@
     <string name="product_description">Produkt beskrivelse</string>
     <string name="canceled">Avbrutt</string>
     <string name="count">Antall</string>
-    <string name="errorRoomY">Rom bredde mangler</string>
-    <string name="errorLampY">Lampe bredde mangler</string>
-    <string name="errorLampCount">Antal lamper mangler</string>
-    <string name="errorRoomX">Rom lengde mangler</string>
-    <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="error_roomY">Rom bredde mangler</string>
+    <string name="error_lampY">Lampe bredde mangler</string>
+    <string name="error_lampCount">Antal lamper mangler</string>
+    <string name="error_roomX">Rom lengde mangler</string>
+    <string name="error_lampX">Lampe lengde mangler</string>
     <string name="title_activity_heating">Heating</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -62,6 +62,11 @@
     <string name="aria_Y">Areal lengde</string>
     <string name="aria_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
+    <string name="meashure_warning_heating">Husk at alle mål er i cm</string>
+    <string name="area_missing_error">Mangler et areal</string>
+    <string name="cable_missing_error">Mangler kabel lengde</string>
+    <string name="room_x_missing_error">Mangler rom bredde</string>
+    <string name="room_y_missing_error">Mangler rom vidde</string>
 
 
 </resources>
