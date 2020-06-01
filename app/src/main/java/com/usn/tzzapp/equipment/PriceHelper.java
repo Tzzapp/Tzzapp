@@ -107,7 +107,7 @@ public class PriceHelper extends AppCompatActivity {
 
         // Name Column
         textViewName = new TextView(this);
-        textViewName.setText("-----------");
+        textViewName.setText("-----------------");
         textViewName.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
         textViewName.setPadding(5, 5, 5, 0);
         tableRow.addView(textViewName);
