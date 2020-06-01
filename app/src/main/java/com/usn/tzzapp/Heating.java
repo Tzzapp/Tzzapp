@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class Heating extends AppCompatActivity {
 
     EditText ariaX;
@@ -17,6 +19,11 @@ public class Heating extends AppCompatActivity {
     EditText ariaTotal;
     EditText cableLenght;
     EditText responseCc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
+
+    TextInputLayout ariaXTextInputLayout;
+    TextInputLayout ariaYTextInputLayout;
+    TextInputLayout ariaTotalTextInputLayout;
+    TextInputLayout cableLenghtTextInputLayout;
 
     Button MathMaster;
     Editable holder;
@@ -35,38 +42,68 @@ public class Heating extends AppCompatActivity {
         responseCc = findViewById(R.id.editTextCc);
         responseCc.setKeyListener(null);
 
+        ariaXTextInputLayout = findViewById(R.id.textfieldAriaX);
+        ariaYTextInputLayout = findViewById(R.id.textfieldAriaY);
+        ariaTotalTextInputLayout = findViewById(R.id.textfieldAriaTotal);
+        cableLenghtTextInputLayout = findViewById(R.id.textfieldCableLength);
+
 
         MathMaster = findViewById(R.id.buttonCalculate);
 
 
 
         MathMaster.setOnClickListener(v -> {
-
-            System.out.println("click registerd");
             double cable;
-
             double aria;
 
-            // if the ariaTotal variable is empty then try ariaX and ariaY
+            cableLenghtTextInputLayout.setErrorEnabled(false);
+            ariaTotalTextInputLayout.setErrorEnabled(false);
+            ariaYTextInputLayout.setErrorEnabled(false);
+            ariaXTextInputLayout.setErrorEnabled(false);
+
+            // ||
+
             if (TextUtils.isEmpty(ariaTotal.getText())){
 
                 if (TextUtils.isEmpty(ariaX.getText())){
-                    // "an aria is needed"
-                    System.out.println("X-aria not found");
+
+                    if (TextUtils.isEmpty(ariaY.getText())){
+                        ariaTotalTextInputLayout.setError("Mangler et areal");
+                        responseCc.setText("-----");
+                        if (TextUtils.isEmpty(cableLenght.getText())){
+                            cableLenghtTextInputLayout.setError("Mangler kabel lengde");
+                            responseCc.setText("-----");
+                        }
+                    }
+                    else{
+                        ariaXTextInputLayout.setError("Mangler rom bredde");
+                        responseCc.setText("-----");
+                    }
+
                 }
                 else{
                     if (TextUtils.isEmpty(ariaY.getText())){
-                        // "an aria is needed"
-                        System.out.println("Y-aria not found");
+                        ariaYTextInputLayout.setError("Mangler rom vidde");
+                        responseCc.setText("-----");
                     }
                     else{
-                        holder = ariaY.getText();
-                        double ariaYDouble = Integer.parseInt(holder.toString());
-                        holder = ariaX.getText();
-                        double ariaXDouble = Integer.parseInt(holder.toString());
+                        if (TextUtils.isEmpty(cableLenght.getText())){
+                            cableLenghtTextInputLayout.setError("Mangler kabel lengde");
+                            responseCc.setText("-----");
+                        }
+                        else{
+                            holder = ariaY.getText();
+                            double ariaYDouble = Integer.parseInt(holder.toString());
+                            holder = ariaX.getText();
+                            double ariaXDouble = Integer.parseInt(holder.toString());
 
-                        System.out.println("aria total is calculated");
-                        aria = ariaYDouble * ariaXDouble;
+                            aria = ariaYDouble * ariaXDouble;
+
+                            holder = cableLenght.getText();
+                            cable = Integer.parseInt(holder.toString());
+                            System.out.println("variables " + aria + " " + cable);
+                            responseCc.setText("" + (aria / cable));
+                        }
                     }
                 }
             }
@@ -75,8 +112,7 @@ public class Heating extends AppCompatActivity {
                 aria = Integer.parseInt(holder.toString());
 
                 if (TextUtils.isEmpty(cableLenght.getText())){
-                    // "cable lenght is required
-                    System.out.println("no cable lenght found");
+                    cableLenghtTextInputLayout.setError("Mangler kabel lengde");
                     responseCc.setText("-----");
                 }
                 else{
