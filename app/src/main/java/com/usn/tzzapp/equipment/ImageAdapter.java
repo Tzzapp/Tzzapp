@@ -9,6 +9,10 @@ import com.usn.tzzapp.R;
 
 public class ImageAdapter {
 
+    /**
+     * @param i the imageView that the app:image call will get
+     * @param src the source of the image that will be displayed
+     */
     @BindingAdapter({ "app:image"})
     public static void loadImage(ImageView i, String src) {
 
