@@ -41,7 +41,6 @@
     <string name="error_room_x">Rom lengde mangler</string>
     <string name="error_lamp_x">Lampe lengde mangler</string>
     <string name="select_picture_notice">Trykk på rediger for å velge bilde</string>
-    <string name="title_activity_heating">Heating</string>
     <string name="heating">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
     <string name="area">Areal</string>

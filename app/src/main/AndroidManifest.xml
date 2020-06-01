@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Heating"
-            android:label="@string/title_activity_heating"
+            android:label="@string/heating"
             android:parentActivityName=".Tools"
             android:theme="@style/lamp" />
         <activity
