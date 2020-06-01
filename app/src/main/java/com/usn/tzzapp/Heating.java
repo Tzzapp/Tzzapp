@@ -3,7 +3,6 @@ package com.usn.tzzapp;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.text.Editable;
 import android.text.TextUtils;
@@ -14,15 +13,15 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class Heating extends AppCompatActivity {
 
-    EditText ariaX;
-    EditText ariaY;
-    EditText ariaTotal;
+    EditText areaX;
+    EditText areaY;
+    EditText areaTotal;
     EditText cableLenght;
     EditText responseCc; //cc is the profecjonal term for the distance betwen difrent sections of the cable as it bends
 
-    TextInputLayout ariaXTextInputLayout;
-    TextInputLayout ariaYTextInputLayout;
-    TextInputLayout ariaTotalTextInputLayout;
+    TextInputLayout areaXTextInputLayout;
+    TextInputLayout areaYTextInputLayout;
+    TextInputLayout areaTotalTextInputLayout;
     TextInputLayout cableLenghtTextInputLayout;
 
     Button MathMaster;
@@ -35,16 +34,16 @@ public class Heating extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ariaX = findViewById(R.id.editTextAriaX);
-        ariaY = findViewById(R.id.editTextAriaY);
-        ariaTotal = findViewById(R.id.editTextAriaTotal);
+        areaX = findViewById(R.id.editTextAreaX);
+        areaY = findViewById(R.id.editTextAreaY);
+        areaTotal = findViewById(R.id.editTextAriaTotal);
         cableLenght = findViewById(R.id.editTextCableLength);
         responseCc = findViewById(R.id.editTextCc);
         responseCc.setKeyListener(null);
 
-        ariaXTextInputLayout = findViewById(R.id.textfieldAriaX);
-        ariaYTextInputLayout = findViewById(R.id.textfieldAriaY);
-        ariaTotalTextInputLayout = findViewById(R.id.textfieldAriaTotal);
+        areaXTextInputLayout = findViewById(R.id.textfieldAreaX);
+        areaYTextInputLayout = findViewById(R.id.textfieldAreaY);
+        areaTotalTextInputLayout = findViewById(R.id.textfieldAreaTotal);
         cableLenghtTextInputLayout = findViewById(R.id.textfieldCableLength);
 
 
@@ -57,18 +56,18 @@ public class Heating extends AppCompatActivity {
             double aria;
 
             cableLenghtTextInputLayout.setErrorEnabled(false);
-            ariaTotalTextInputLayout.setErrorEnabled(false);
-            ariaYTextInputLayout.setErrorEnabled(false);
-            ariaXTextInputLayout.setErrorEnabled(false);
+            areaTotalTextInputLayout.setErrorEnabled(false);
+            areaYTextInputLayout.setErrorEnabled(false);
+            areaXTextInputLayout.setErrorEnabled(false);
 
             // ||
 
-            if (TextUtils.isEmpty(ariaTotal.getText())){
+            if (TextUtils.isEmpty(areaTotal.getText())){
 
-                if (TextUtils.isEmpty(ariaX.getText())){
+                if (TextUtils.isEmpty(areaX.getText())){
 
-                    if (TextUtils.isEmpty(ariaY.getText())){
-                        ariaTotalTextInputLayout.setError(getString(R.string.area_missing_error));
+                    if (TextUtils.isEmpty(areaY.getText())){
+                        areaTotalTextInputLayout.setError(getString(R.string.area_missing_error));
                         responseCc.setText("-----");
                         if (TextUtils.isEmpty(cableLenght.getText())){
                             cableLenghtTextInputLayout.setError(getString(R.string.cable_missing_error));
@@ -76,14 +75,14 @@ public class Heating extends AppCompatActivity {
                         }
                     }
                     else{
-                        ariaXTextInputLayout.setError(getString(R.string.room_x_missing_error));
+                        areaXTextInputLayout.setError(getString(R.string.room_x_missing_error));
                         responseCc.setText("-----");
                     }
 
                 }
                 else{
-                    if (TextUtils.isEmpty(ariaY.getText())){
-                        ariaYTextInputLayout.setError(getString(R.string.room_y_missing_error));
+                    if (TextUtils.isEmpty(areaY.getText())){
+                        areaYTextInputLayout.setError(getString(R.string.room_y_missing_error));
                         responseCc.setText("-----");
                     }
                     else{
@@ -92,9 +91,9 @@ public class Heating extends AppCompatActivity {
                             responseCc.setText("-----");
                         }
                         else{
-                            holder = ariaY.getText();
+                            holder = areaY.getText();
                             double ariaYDouble = Integer.parseInt(holder.toString());
-                            holder = ariaX.getText();
+                            holder = areaX.getText();
                             double ariaXDouble = Integer.parseInt(holder.toString());
 
                             aria = ariaYDouble * ariaXDouble;
@@ -107,7 +106,7 @@ public class Heating extends AppCompatActivity {
                 }
             }
             else{
-                holder = ariaTotal.getText();
+                holder = areaTotal.getText();
                 aria = Integer.parseInt(holder.toString());
 
                 if (TextUtils.isEmpty(cableLenght.getText())){
@@ -125,11 +124,4 @@ public class Heating extends AppCompatActivity {
 
         });
     }
-/*
-    private void disableEditors(){
-        responseX.setKeyListener(null);
-        responseY.setKeyListener(null);
-        responseWallX.setKeyListener(null);
-        responseWallY.setKeyListener(null);
-    }*/
 }

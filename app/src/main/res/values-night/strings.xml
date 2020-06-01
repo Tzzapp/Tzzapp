@@ -33,8 +33,8 @@
     <string name="error_lampX">Lampe lengde mangler</string>
     <string name="varmekabel">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
-    <string name="aria">Areal</string>
-    <string name="aria_X">Areal bredde</string>
+    <string name="area">Areal</string>
+    <string name="area_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
     <string name="area_missing_error">Mangler et areal</string>
     <string name="cable_missing_error">Mangler kabel lengde</string>

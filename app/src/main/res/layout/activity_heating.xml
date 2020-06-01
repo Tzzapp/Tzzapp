@@ -7,18 +7,18 @@
     tools:context=".Heating">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textfieldAriaX"
+        android:id="@+id/textfieldAreaX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/aria_X"
+        android:hint="@string/area_X"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMeashureWarning">
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextAriaX"
+            android:id="@+id/editTextAreaX"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="7"
@@ -28,19 +28,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textfieldAriaY"
+        android:id="@+id/textfieldAreaY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="16dp"
-        android:hint="@string/aria_Y"
+        android:hint="@string/area_Y"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textfieldAriaX"
+        app:layout_constraintStart_toEndOf="@+id/textfieldAreaX"
         app:layout_constraintTop_toBottomOf="@+id/textViewMeashureWarning">
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextAriaY"
+            android:id="@+id/editTextAreaY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="7"
@@ -52,15 +52,15 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textfieldAriaTotal"
+        android:id="@+id/textfieldAreaTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_marginTop="64dp"
-        android:hint="@string/aria"
+        android:hint="@string/area"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textfieldAriaX">
+        app:layout_constraintTop_toBottomOf="@+id/textfieldAreaX">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
         android:hint="@string/cable_lenght"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textfieldAriaTotal">
+        app:layout_constraintTop_toBottomOf="@+id/textfieldAreaTotal">
 
 
         <com.google.android.material.textfield.TextInputEditText
