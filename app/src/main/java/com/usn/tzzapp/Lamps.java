@@ -77,7 +77,7 @@ public class Lamps extends AppCompatActivity {
             int lampChountYInt, roomYInt, lampYInt;
 
             if (TextUtils.isEmpty(roomY.getText())){// chekking room
-                roomYTextInputLayout.setError(getString(R.string.errorRoomY));
+                roomYTextInputLayout.setError(getString(R.string.error_roomY));
                 roomYInt = 0;
             }
             else{
@@ -87,7 +87,7 @@ public class Lamps extends AppCompatActivity {
             }
 
             if (TextUtils.isEmpty(lampY.getText())){// chekking lamp
-                lampYTextInputLayout.setError(getString(R.string.errorLampY));
+                lampYTextInputLayout.setError(getString(R.string.error_lampY));
                 lampYInt = 0;
             }
             else{
@@ -98,7 +98,7 @@ public class Lamps extends AppCompatActivity {
 
 
             if (TextUtils.isEmpty(lampChountY.getText())){//chekking if lamp count is missing, if so default to 1
-                lampChountYTextInputLayout.setError(getString(R.string.errorLampCount));
+                lampChountYTextInputLayout.setError(getString(R.string.error_lampCount));
                 lampChountYInt = 1;
             }
             else{
@@ -116,7 +116,7 @@ public class Lamps extends AppCompatActivity {
             int lampChountXInt, roomXInt, lampXInt;
 
             if (TextUtils.isEmpty(roomX.getText())){// chekking room
-                roomXTextInputLayout.setError(getString(R.string.errorRoomX));
+                roomXTextInputLayout.setError(getString(R.string.error_roomX));
                 roomXInt = 0;
             }
             else{
@@ -126,7 +126,7 @@ public class Lamps extends AppCompatActivity {
             }
 
             if (TextUtils.isEmpty(lampX.getText())){// chekking lamp
-                lampXTextInputLayout.setError(getString(R.string.errorLampX));
+                lampXTextInputLayout.setError(getString(R.string.error_lampX));
                 lampXInt = 0;
             }
             else{
@@ -137,7 +137,7 @@ public class Lamps extends AppCompatActivity {
 
 
             if (TextUtils.isEmpty(lampChountX.getText())){//chekking if lamp count is missing, if so default to 1
-                lampChountXTextInputLayout.setError(getString(R.string.errorLampCount));
+                lampChountXTextInputLayout.setError(getString(R.string.error_lampCount));
                 lampChountXInt = 1;
             }
             else{

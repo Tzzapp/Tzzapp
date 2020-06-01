@@ -26,16 +26,20 @@
     <string name="ok_button">Ok</string>
     <string name="cancel_button">Avbryt</string>
     <string name="tzzapp_logo">Logoen til appen Tzzapp</string>
-    <string name="errorRoomY">Rom bredde mangler</string>
-    <string name="errorLampY">Lampe bredde mangler</string>
-    <string name="errorLampCount">Antal lamper mangler</string>
-    <string name="errorRoomX">Rom lengde mangler</string>
-    <string name="errorLampX">Lampe lengde mangler</string>
+    <string name="error_roomY">Rom bredde mangler</string>
+    <string name="error_lampY">Lampe bredde mangler</string>
+    <string name="error_lampCount">Antal lamper mangler</string>
+    <string name="error_roomX">Rom lengde mangler</string>
+    <string name="error_lampX">Lampe lengde mangler</string>
     <string name="varmekabel">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
     <string name="aria">Areal</string>
     <string name="aria_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
+    <string name="area_missing_error">Mangler et areal</string>
+    <string name="cable_missing_error">Mangler kabel lengde</string>
+    <string name="room_x_missing_error">Mangler rom bredde</string>
+    <string name="room_y_missing_error">Mangler rom vidde</string>
 
 
 </resources>
