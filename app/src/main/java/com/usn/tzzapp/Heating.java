@@ -115,7 +115,6 @@ public class Heating extends AppCompatActivity {
                 else{
                     holder = cableLength.getText();
                     cable = Integer.parseInt(holder.toString());
-                    System.out.println("variables " + area + " " + cable);
                     responseCc.setText("" + (area / cable));
                 }
 
