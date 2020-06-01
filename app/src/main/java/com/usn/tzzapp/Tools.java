@@ -18,10 +18,13 @@ public class Tools extends AppCompatActivity {
 
 
         Button buttonLamps = findViewById(R.id.buttonLamps);
+        Button buttonHeating = findViewById(R.id.buttonHeating);
 
-        final Intent intentForms = new Intent(this, Lamps.class);
+        final Intent intentForms1 = new Intent(this, Lamps.class);
+        final Intent intentForms2 = new Intent(this, Heating.class);
 
-        buttonLamps.setOnClickListener(v -> startActivity(intentForms));
+        buttonLamps.setOnClickListener(v -> startActivity(intentForms1));
+        buttonHeating.setOnClickListener(v -> startActivity(intentForms2));
 
     }
     @Override
