@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         langUtil = new LangUtil(getResources(), this);
 
         /* This will first load in PreferenceManager, then it will get the getDefaultSharedPreferences
-           and then get the string and boolean using sharedPreferences.getString and sharedPreferences.getBoolean
-           to set the language and app color theme
+        *  and then get the string and boolean using sharedPreferences.getString and sharedPreferences.getBoolean
+        *  to set the language and app color theme
          */
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         langUtil.changeLang(sharedPreferences.getString("lang", ""));

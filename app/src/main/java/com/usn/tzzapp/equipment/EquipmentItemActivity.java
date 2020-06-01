@@ -147,7 +147,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, final int resultCode, Intent data) {
         if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
-            // or get a single image only
+            // get a single image only
             Image image = ImagePicker.getFirstImageOrNull(data);
             equipmentItem.setImageSrc(image.getPath());
             viewModel.update(equipmentItem);
