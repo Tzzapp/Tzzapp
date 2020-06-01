@@ -31,8 +31,6 @@ public class Heating extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heating);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         areaX = findViewById(R.id.editTextAreaX);
         areaY = findViewById(R.id.editTextAreaY);
