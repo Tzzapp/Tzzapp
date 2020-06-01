@@ -112,7 +112,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
-                android:hint="@string/price"
+                android:hint="@string/price_item"
                 app:layout_constraintBottom_toTopOf="@+id/layout4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
