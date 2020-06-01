@@ -126,9 +126,10 @@ public class Equipment extends AppCompatActivity /*implements EquipmentAdapter.O
                         Intent intent = new Intent(this, EquipmentItemActivity.class);
                         intent.putExtra("id", String.valueOf(equipmentAdapter.getItemId(item.getPosition())));
                         startActivity(intent);
+                        return true;
                     }
 
-                    return true;
+                    return false;
                 })
                 .build();
 
