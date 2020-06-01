@@ -148,7 +148,7 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     }
 
     public int getTotalPrice(){
-        return  (int) prod_id * itemCount;
+        return  price * itemCount;
     }
 
     public int getPrice() {
