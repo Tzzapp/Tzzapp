@@ -50,10 +50,10 @@ public class EquipmentItemActivity extends AppCompatActivity {
          viewModel = new ViewModelProvider(this).get(EquipmentViewModel.class);
 
         Bundle extras = getIntent().getExtras();
-        String userName ="";
+        String itemId ="";
 
         if (extras != null) {
-            userName = extras.getString("id");
+            itemId = extras.getString("id");
         }
 
         binding.imageView.setOnClickListener(v -> {
@@ -68,7 +68,7 @@ public class EquipmentItemActivity extends AppCompatActivity {
             }
         });
 
-        viewModel.getEquipmentItem(userName).observe(this, equipmentItem -> {
+        viewModel.getEquipmentItem(itemId).observe(this, equipmentItem -> {
             binding.setEquipmentItem(equipmentItem);
             this.equipmentItem = equipmentItem;
             setTitle(equipmentItem.getName());
