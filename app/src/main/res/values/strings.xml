@@ -58,9 +58,9 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="varmekabel">Varmekabel</string>
     <string name="cable_lenght">Kabel lengde</string>
-    <string name="aria">Areal</string>
-    <string name="aria_Y">Areal lengde</string>
-    <string name="aria_X">Areal bredde</string>
+    <string name="area">Areal</string>
+    <string name="area_Y">Areal lengde</string>
+    <string name="area_X">Areal bredde</string>
     <string name="cc_distance_description">CC avstand</string>
     <string name="meashure_warning_heating">Husk at alle mål er i cm</string>
     <string name="area_missing_error">Mangler et areal</string>

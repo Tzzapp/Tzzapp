@@ -49,10 +49,10 @@
     <string name="error_lampX">Lamp lenght missingr</string>
     <string name="varmekabel">Heating</string>
     <string name="cable_lenght">Cable lenght</string>
-    <string name="aria">Aria</string>
-    <string name="aria_X">Aria with</string>
+    <string name="area">Area</string>
+    <string name="area_X">Area with</string>
     <string name="cc_distance_description">CC distance</string>
-    <string name="aria_Y">Aria lenght</string>
+    <string name="area_Y">Area lenght</string>
     <string name="meashure_warning_heating">Remember all meashurements are in cm</string>
     <string name="area_missing_error">Missing an area</string>
     <string name="cable_missing_error">Missing cable lenght</string>
