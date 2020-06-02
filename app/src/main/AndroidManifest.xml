@@ -24,7 +24,7 @@
         </activity>
         <activity
 
-            android:name="com.usn.tzzapp.equipment.PriceHelper"
+            android:name="com.usn.tzzapp.PriceHelper"
             android:label="@string/price"
             android:parentActivityName="com.usn.tzzapp.MainActivity" />
         <activity

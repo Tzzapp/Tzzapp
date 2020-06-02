@@ -1,4 +1,4 @@
-package com.usn.tzzapp.equipment;
+package com.usn.tzzapp;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.usn.tzzapp.equipment.EquipmentItem;
 import com.usn.tzzapp.R;
+import com.usn.tzzapp.equipment.EquipmentViewModel;
 
 public class PriceHelper extends AppCompatActivity {
 

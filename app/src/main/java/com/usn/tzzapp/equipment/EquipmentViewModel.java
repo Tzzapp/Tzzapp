@@ -19,7 +19,7 @@ public class EquipmentViewModel extends AndroidViewModel {
         listLiveData = equipmentRepository.getAllEquipment();
     }
 
-    LiveData<List<EquipmentItem>> getAllEquipment() { return  listLiveData; }
+   public LiveData<List<EquipmentItem>> getAllEquipment() { return  listLiveData; }
 
     LiveData<EquipmentItem> getEquipmentItem(String id) {
         LiveData<EquipmentItem> equipmentItemLiveData = equipmentRepository.getEquipmentItem(id);
