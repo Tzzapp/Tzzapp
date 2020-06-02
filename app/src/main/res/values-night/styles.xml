@@ -39,7 +39,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="PreferenceTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="PreferenceTheme" parent="@style/AppTheme">
         <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:background">@color/mainBackground</item>

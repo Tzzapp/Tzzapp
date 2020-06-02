@@ -39,6 +39,9 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     @ColumnInfo(name = "image_src")
     private String imageSrc;
 
+    @ColumnInfo(name = "price")
+    private int price;
+
     @Ignore
     public EquipmentItem(String name, int prod_id){
         this.name = name;
@@ -142,6 +145,18 @@ public class EquipmentItem extends BaseObservable implements Comparable<Equipmen
     public void setItemDescription(String itemDescription) {
         this.itemDescription = itemDescription;
         notifyPropertyChanged(BR.itemDescription);
+    }
+
+    public int getTotalPrice(){
+        return  price * itemCount;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override
