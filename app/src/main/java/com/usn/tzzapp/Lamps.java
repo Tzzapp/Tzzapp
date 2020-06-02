@@ -49,6 +49,8 @@ public class Lamps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lamps);
 
+        setTitle(getString(R.string.lamps));
+
         roomX = findViewById(R.id.editTextRoomXK);
         roomY = findViewById(R.id.editTextRoomYK);
         lampX = findViewById(R.id.editTextLampXK);
